@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - FERDEZ Nutrición Animal</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/productos.css">
+    <script src="../scripts/productos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="logo">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="productos.html" class="nav-link active">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="laEmpresa.html" class="nav-link">La Empresa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="products-hero">
+            <div class="hero-background">
+                <img src="../assets/images/productos-hero.jpg" alt="Productos FERDEZ">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Nuestros Productos</h1>
+                    <p class="hero-subtitle">Contamos con una cartera completa de subproductos derivados de maíz, soja, girasol, alfalfa y otros ingredientes de alto valor nutricional. Asesoramos al productor según su tipo de producción y temporada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Categories Filter -->
+        <section class="product-filters">
+            <div class="container">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th"></i>
+                        Todos los productos
+                    </button>
+                    <button class="filter-btn" data-filter="humedos">
+                        <i class="fas fa-tint"></i>
+                        Productos Húmedos (11)
+                    </button>
+                    <button class="filter-btn" data-filter="secos">
+                        <i class="fas fa-leaf"></i>
+                        Productos Secos (2)
+                    </button>
+                    <button class="filter-btn" data-filter="tambo">
+                        <i class="fas fa-home"></i>
+                        Para Tambos
+                    </button>
+                    <button class="filter-btn" data-filter="feedlot">
+                        <i class="fas fa-warehouse"></i>
+                        Para Feedlots
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="container">
+                <!-- Productos Húmedos -->
+                <div class="products-grid">
+                    <!-- Burlanda Húmeda -->
+                    <div class="product-card" data-category="humedos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/images/productos/burlanda-humeda.jpg" alt="Burlanda Húmeda">
+                            <div class="product-badge humedo">Húmedo</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Burlanda Húmeda</h3>
+                            <p class="product-description">Subproducto de la destilería de maíz con alto contenido proteico y energético, ideal para ganado bovino.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">26-30%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">30-35%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Bruta:</span>
+                                    <span class="spec-value">8-12%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('burlanda-humeda')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- Burlanda Seca -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/images/productos/burlanda-seca.jpg" alt="Burlanda Seca">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Burlanda Seca (DDGS)</h3>
+                            <p class="product-description">Granos secos de destilería con solubles, excelente fuente de proteína y energía concentrada.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">28-32%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">88-92%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Grasa:</span>
+                                    <span class="spec-value">8-12%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('burlanda-seca')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- Cascarilla de Soja -->
+                    <div class="product-card" data-category="humedos tambo">
+                        <div class="product-image">
+                            <img src="../assets/images/productos/cascarilla-soja.jpg" alt="Cascarilla de Soja">
+                            <div class="product-badge humedo">Húmedo</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Cascarilla de Soja</h3>
+                            <p class="product-description">Fibra altamente digestible, excelente para mantener la rumia y mejorar la digestión.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">11-13%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Bruta:</span>
+                                    <span class="spec-value">35-40%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">85-90%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('cascarilla-soja')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- Pellet de Girasol -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/images/productos/pellet-girasol.jpg" alt="Pellet de Girasol">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Pellet de Girasol</h3>
+                            <p class="product-description">Rico en proteínas y grasas, aporta energía y mejora la palatabilidad de la ración.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">30-34%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Grasa:</span>
+                                    <span class="spec-value">1-3%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Bruta:</span>
+                                    <span class="spec-value">12-15%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pellet-girasol')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- Pulpa de Citrus -->
+                    <div class="product-card" data-category="humedos feedlot">
+                        <div class="product-image">
+                            <img src="../assets/images/productos/pulpa-citrus.jpg" alt="Pulpa de Citrus">
+                            <div class="product-badge humedo">Húmedo</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Pulpa de Citrus Húmeda</h3>
+                            <p class="product-description">Alta palatabilidad y energía digestible, ideal para aumentar consumo y engorde.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">6-8%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">20-25%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Bruta:</span>
+                                    <span class="spec-value">12-15%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pulpa-citrus')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- Alfalfa Deshidratada -->
+                    <div class="product-card" data-category="humedos tambo">
+                        <div class="product-image">
+                            <img src="../assets/images/productos/alfalfa-deshidratada.jpg" alt="Alfalfa Deshidratada">
+                            <div class="product-badge humedo">Húmedo</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Alfalfa Deshidratada</h3>
+                            <p class="product-description">Fuente natural de vitaminas, minerales y proteína de alta calidad para bovinos lecheros.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">16-20%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Bruta:</span>
+                                    <span class="spec-value">25-30%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Calcio:</span>
+                                    <span class="spec-value">1.2-1.5%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('alfalfa-deshidratada')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advisory Section -->
+        <section class="advisory-section">
+            <div class="container">
+                <div class="advisory-content">
+                    <div class="advisory-text">
+                        <h2>Asesoramiento técnico personalizado</h2>
+                        <p>Nuestro equipo técnico te ayuda a seleccionar los productos más adecuados según tu tipo de producción, época del año y objetivos productivos.</p>
+                        <div class="advisory-features">
+                            <div class="feature-item">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Asesoramiento por tipo de rodeo y necesidad</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Disponibilidad durante todo el año</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Seguimiento técnico continuo</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-handshake"></i>
+                                <span>Atención directa y personalizada</span>
+                            </div>
+                        </div>
+                        <a href="contacto.html" class="cta-button">Solicitar asesoramiento</a>
+                    </div>
+                    <div class="advisory-image">
+                        <img src="../assets/images/asesoramiento-tecnico.jpg" alt="Asesoramiento técnico FERDEZ">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="products-cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>¿Necesitás información sobre nuestros productos?</h2>
+                    <p>Contactanos para recibir fichas técnicas completas, precios actualizados y asesoramiento personalizado.</p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="cta-button">Contactar ahora</a>
+                        <a href="tel:+5493518123456" class="cta-button-outline">
+                            <i class="fas fa-phone"></i>
+                            Llamar directo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <div id="modalContent">
+                <!-- El contenido se carga dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="../assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="footer-logo">
+                    <p>Subproductos confiables para nutrición animal desde Córdoba hacia todo el país.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="empresa.html">La Empresa</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Productos</h4>
+                    <ul>
+                        <li><a href="#" onclick="filterProducts('humedos')">Productos Húmedos</a></li>
+                        <li><a href="#" onclick="filterProducts('secos')">Productos Secos</a></li>
+                        <li><a href="#" onclick="filterProducts('tambo')">Para Tambos</a></li>
+                        <li><a href="#" onclick="filterProducts('feedlot')">Para Feedlots</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Córdoba, Argentina</p>
+                        <p><i class="fas fa-phone"></i> +54 9 351 812-3456</p>
+                        <p><i class="fas fa-envelope"></i> info@ferdez.com.ar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FERDEZ. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/productos.js"></script>
+</body>
+</html>

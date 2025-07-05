@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - FERDEZ Nutrición Animal</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/contacto.css">
+    <script src="../scripts/contacto.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="logo">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="productos.html" class="nav-link">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="empresa.html" class="nav-link">La Empresa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link active">Contacto</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="contacto-hero">
+            <div class="hero-background">
+                <img src="../assets/images/contacto-hero.jpg" alt="Contacto FERDEZ">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>¿Necesitás productos o asesoramiento?</h1>
+                    <p class="hero-subtitle">Estamos aquí para ayudarte. Contactanos y recibí atención personalizada de nuestro equipo técnico especializado en nutrición animal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Methods Section -->
+        <section class="contact-methods-section">
+            <div class="container">
+                <div class="contact-methods-grid">
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Llamanos directo</h3>
+                        <p>Hablá directamente con nuestro equipo comercial y técnico</p>
+                        <div class="contact-details">
+                            <a href="tel:+5493518123456" class="contact-link">
+                                <strong>+54 9 351 812-3456</strong>
+                            </a>
+                            <span class="availability">Lun a Vie: 8:00 - 18:00hs</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Escribinos un email</h3>
+                        <p>Envianos tu consulta y te responderemos a la brevedad</p>
+                        <div class="contact-details">
+                            <a href="mailto:info@ferdez.com.ar" class="contact-link">
+                                <strong>info@ferdez.com.ar</strong>
+                            </a>
+                            <span class="availability">Respuesta en 24hs</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp Business</h3>
+                        <p>Consultas rápidas y coordinar entregas</p>
+                        <div class="contact-details">
+                            <a href="https://wa.me/5493518123456" class="contact-link" target="_blank">
+                                <strong>+54 9 351 812-3456</strong>
+                            </a>
+                            <span class="availability">Respuesta inmediata</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visitanos</h3>
+                        <p>Conocé nuestras instalaciones en Córdoba</p>
+                        <div class="contact-details">
+                            <address class="contact-link">
+                                <strong>Córdoba Capital<br>Córdoba, Argentina</strong>
+                            </address>
+                            <span class="availability">Con cita previa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="form-content">
+                    <div class="form-header">
+                        <span class="section-label">Contacto Directo</span>
+                        <h2>Envianos tu consulta</h2>
+                        <p>Completá el formulario y nuestro equipo se pondrá en contacto para brindarte asesoramiento personalizado y una cotización adaptada a tus necesidades.</p>
+                    </div>
+
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa / Establecimiento</label>
+                                <input type="text" id="empresa" name="empresa">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="provincia">Provincia *</label>
+                                <select id="provincia" name="provincia" required>
+                                    <option value="">Seleccionar provincia</option>
+                                    <option value="Buenos Aires">Buenos Aires</option>
+                                    <option value="Catamarca">Catamarca</option>
+                                    <option value="Chaco">Chaco</option>
+                                    <option value="Chubut">Chubut</option>
+                                    <option value="Córdoba">Córdoba</option>
+                                    <option value="Corrientes">Corrientes</option>
+                                    <option value="Entre Ríos">Entre Ríos</option>
+                                    <option value="Formosa">Formosa</option>
+                                    <option value="Jujuy">Jujuy</option>
+                                    <option value="La Pampa">La Pampa</option>
+                                    <option value="La Rioja">La Rioja</option>
+                                    <option value="Mendoza">Mendoza</option>
+                                    <option value="Misiones">Misiones</option>
+                                    <option value="Neuquén">Neuquén</option>
+                                    <option value="Río Negro">Río Negro</option>
+                                    <option value="Salta">Salta</option>
+                                    <option value="San Juan">San Juan</option>
+                                    <option value="San Luis">San Luis</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Santa Fe">Santa Fe</option>
+                                    <option value="Santiago del Estero">Santiago del Estero</option>
+                                    <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                    <option value="Tucumán">Tucumán</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="localidad">Localidad *</label>
+                                <input type="text" id="localidad" name="localidad" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tipoProduccion">Tipo de producción *</label>
+                                <select id="tipoProduccion" name="tipoProduccion" required>
+                                    <option value="">Seleccionar tipo</option>
+                                    <option value="Tambo">Tambo</option>
+                                    <option value="Feedlot">Feedlot</option>
+                                    <option value="Cría">Cría</option>
+                                    <option value="Mixto">Mixto</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidadAnimales">Cantidad de animales</label>
+                                <input type="number" id="cantidadAnimales" name="cantidadAnimales" placeholder="ej: 150">
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="motivoConsulta">Motivo de la consulta *</label>
+                            <select id="motivoConsulta" name="motivoConsulta" required>
+                                <option value="">Seleccionar motivo</option>
+                                <option value="Cotización productos">Cotización de productos</option>
+                                <option value="Asesoramiento técnico">Asesoramiento técnico</option>
+                                <option value="Información productos">Información sobre productos</option>
+                                <option value="Coordinar visita">Coordinar visita</option>
+                                <option value="Reclamo">Reclamo o sugerencia</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Contanos más detalles sobre tu consulta, qué productos te interesan o qué asesoramiento necesitás..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="acepto" name="acepto" required>
+                                <span class="checkmark"></span>
+                                Acepto la <a href="#" onclick="openPrivacyModal()">política de privacidad</a> y autorizo el tratamiento de mis datos personales
+                            </label>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Quiero recibir información sobre nuevos productos y novedades de FERDEZ
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar consulta
+                            </button>
+                            <p class="form-note">Te contactaremos dentro de las próximas 24 horas</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Info Section -->
+        <section class="office-info-section">
+            <div class="container">
+                <div class="office-content">
+                    <div class="office-text">
+                        <span class="section-label">Nuestra Ubicación</span>
+                        <h2>Desde Córdoba hacia todo el país</h2>
+                        <p class="lead">Nuestras oficinas centrales están ubicadas estratégicamente en Córdoba para coordinar operaciones y entregas a nivel nacional.</p>
+                        
+                        <div class="office-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Dirección</h4>
+                                    <p>Córdoba Capital<br>Córdoba, Argentina</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Horarios de atención</h4>
+                                    <p>Lunes a Viernes: 8:00 - 18:00hs<br>Sábados: 8:00 - 12:00hs</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <h4>Cobertura</h4>
+                                    <p>Entregamos en todo el país<br>con logística propia</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" onclick="openMapModal()" class="cta-button">
+                            <i class="fas fa-route"></i>
+                            Cómo llegar
+                        </a>
+                    </div>
+                    
+                    <div class="office-image">
+                        <img src="../assets/images/oficinas-ferdez.jpg" alt="Oficinas FERDEZ Córdoba">
+                        <div class="image-overlay">
+                            <button class="view-map-btn" onclick="openMapModal()">
+                                <i class="fas fa-map"></i>
+                                Ver en mapa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="faq-header">
+                    <span class="section-label">Preguntas Frecuentes</span>
+                    <h2>¿Tenés dudas? Te ayudamos</h2>
+                    <p>Estas son las consultas más comunes que recibimos de nuestros clientes.</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>¿Hacen entregas en todo el país?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, contamos con logística propia que nos permite llegar a todo el territorio nacional. Coordinamos entregas desde Córdoba hacia todas las provincias, adaptándonos a las necesidades y ubicación de cada productor.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>¿Qué cantidad mínima debo pedir?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Las cantidades mínimas varían según el producto y la distancia. Generalmente trabajamos con cargas de camión completo para optimizar costos logísticos, pero podemos evaluar pedidos menores según la ubicación y necesidades específicas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>¿Brindan asesoramiento técnico?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutamente. Contamos con un equipo técnico especializado en nutrición animal que brinda asesoramiento personalizado según el tipo de producción, época del año y objetivos productivos de cada cliente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>¿Cuáles son los tiempos de entrega?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Los tiempos varían según la distancia y disponibilidad de producto. Generalmente, para productos húmedos son 3-5 días, y para productos secos 5-7 días. Siempre coordinamos previamente con el cliente para asegurar la puntualidad.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>¿Qué formas de pago aceptan?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Trabajamos con diferentes modalidades de pago: transferencia bancaria, cheques, y según el caso evaluamos financiación. Para clientes recurrentes ofrecemos condiciones especiales de pago.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span>¿Tienen análisis nutricionales de los productos?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, cada producto cuenta con análisis nutricional completo. Realizamos controles de calidad constantes y podemos proporcionar certificados de análisis específicos según los requerimientos del cliente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final Section -->
+        <section class="contacto-cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>¿Listo para mejorar la nutrición de tu ganado?</h2>
+                    <p>Contactanos hoy mismo y recibí asesoramiento técnico especializado junto con una propuesta comercial adaptada a tus necesidades.</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+5493518123456" class="cta-button">
+                            <i class="fas fa-phone"></i>
+                            Llamar ahora
+                        </a>
+                        <a href="https://wa.me/5493518123456" class="cta-button-outline" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Map Modal -->
+    <div id="mapModal" class="modal">
+        <div class="modal-content map-modal-content">
+            <span class="close" onclick="closeMapModal()">&times;</span>
+            <div class="modal-header">
+                <h3>Cómo llegar a FERDEZ</h3>
+            </div>
+            <div class="modal-body">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.8174351178654!2d-64.18967668484846!3d-31.417003881407893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432985f478f5b69%3A0xb0a24f9a5366b092!2sC%C3%B3rdoba%2C%20Argentina!5e0!3m2!1sen!2sar!4v1644516895123!5m2!1sen!2sar"
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="map-info">
+                    <h4>Información de contacto</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Córdoba Capital, Córdoba, Argentina</p>
+                    <p><i class="fas fa-phone"></i> +54 9 351 812-3456</p>
+                    <p><i class="fas fa-envelope"></i> info@ferdez.com.ar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePrivacyModal()">&times;</span>
+            <div class="modal-header">
+                <h3>Política de Privacidad</h3>
+            </div>
+            <div class="modal-body privacy-content">
+                <h4>Recolección de datos</h4>
+                <p>En FERDEZ recolectamos únicamente los datos necesarios para brindar nuestros servicios y mantener contacto comercial con nuestros clientes.</p>
+                
+                <h4>Uso de la información</h4>
+                <p>Los datos proporcionados se utilizan para:</p>
+                <ul>
+                    <li>Responder consultas y brindar asesoramiento técnico</li>
+                    <li>Elaborar cotizaciones y propuestas comerciales</li>
+                    <li>Coordinar entregas y seguimiento de pedidos</li>
+                    <li>Enviar información sobre productos (solo si lo autorizás)</li>
+                </ul>
+                
+                <h4>Protección de datos</h4>
+                <p>Implementamos medidas de seguridad para proteger tu información personal y no la compartimos con terceros sin tu consentimiento.</p>
+                
+                <h4>Tus derechos</h4>
+                <p>Tenés derecho a acceder, rectificar o eliminar tus datos personales contactándonos a info@ferdez.com.ar</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="../assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="footer-logo">
+                    <p>Subproductos confiables para nutrición animal desde Córdoba hacia todo el país.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="empresa.html">La Empresa</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto Rápido</h4>
+                    <ul>
+                        <li><a href="tel:+5493518123456"><i class="fas fa-phone"></i> +54 9 351 812-3456</a></li>
+                        <li><a href="mailto:info@ferdez.com.ar"><i class="fas fa-envelope"></i> info@ferdez.com.ar</a></li>
+                        <li><a href="https://wa.me/5493518123456"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Información</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Córdoba, Argentina</p>
+                        <p><i class="fas fa-clock"></i> Lun-Vie: 8:00-18:00hs</p>
+                        <p><i class="fas fa-truck"></i> Entregas en todo el país</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FERDEZ. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/contacto.js"></script>
+</body>
+</html>

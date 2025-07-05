@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FERDEZ - Nutrición Animal</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="logo">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sections/productos.html" class="nav-link">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sections/laEmpresa.html" class="nav-link">La Empresa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sections/contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with Carousel -->
+        <section class="hero-section">
+            <div class="hero-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <video autoplay muted loop playsinline class="hero-video" preload="auto">
+                            <source src="assets/Ferdez_C01.mp4" type="video/mp4">
+                            <source src="assets/videos/Ferdez_C02.mp4" type="video/mp4">
+                            <!-- Fallback para navegadores que no soporten video -->
+                            <img src="assets/images/hero-fallback.jpg" alt="FERDEZ - Subproductos para nutrición animal" class="hero-image">
+                        </video>
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1 class="hero-title">Subproductos confiables para nutrición animal</h1>
+                            <p class="hero-subtitle">Desde Córdoba, abastecemos al productor ganadero de todo el país con productos confiables y logística propia. Más de 10 años cumpliendo.</p>
+                            <a href="#productos" class="cta-button">Conocé nuestros productos</a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="assets/images/campo-ganado.jpg" alt="Campo con ganado" class="hero-image">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1 class="hero-title">Soluciones directas para el campo</h1>
+                            <p class="hero-subtitle">FERDEZ es el aliado confiable del productor ganadero, brindando subproductos de calidad con trato directo y logística propia.</p>
+                            <a href="#contacto" class="cta-button">Contactanos</a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="assets/images/feedlot.jpg" alt="Feedlot" class="hero-image">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1 class="hero-title">Para tambos y feedlots</h1>
+                            <p class="hero-subtitle">Productos húmedos y secos para cada etapa del año, con asesoramiento técnico y atención directa.</p>
+                            <a href="#empresa" class="cta-button">Conocé más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-prev" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-next" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciales Section -->
+        <section class="diferenciales-section">
+            <div class="container">
+                <div class="diferenciales-grid">
+                    <div class="diferencial-item">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Logística propia</h3>
+                        <p>Control total en cada entrega. Cumplimos en tiempo y forma.</p>
+                    </div>
+                    
+                    <div class="diferencial-item">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Variedad de subproductos</h3>
+                        <p>Productos húmedos y secos para cada etapa del año.</p>
+                    </div>
+                    
+                    <div class="diferencial-item">
+                        <div class="diferencial-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>+10 años junto al productor</h3>
+                        <p>Experiencia, cercanía y trato directo en cada operación.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About FERDEZ Section -->
+        <section class="about-ferdez-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>¿Qué es FERDEZ?</h2>
+                        <p class="lead">Somos FERDEZ, una empresa nacida en Córdoba con el compromiso de abastecer al productor con subproductos confiables, asesoramiento claro y una logística que cumple.</p>
+                        <p>Trabajamos para que lo que el campo necesita, llegue. Subproductos para nutrición animal en tambos y feedlots, desde Córdoba hacia todo el país.</p>
+                        <div class="values-list">
+                            <div class="value-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Trato directo y humano</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Cumplimiento sin vueltas</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Asesoramiento real</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Compromiso con cada cliente</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/images/fundadores-campo.jpg" alt="Fundadores de FERDEZ en el campo">
+                        <!-- Placeholder para foto de fundadores en el campo -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <h2 class="section-title">Nuestros servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Comercialización de subproductos</h3>
+                        <p>Contamos con una cartera completa de subproductos derivados de maíz, soja, girasol, alfalfa y otros ingredientes de alto valor nutricional.</p>
+                        <ul class="service-features">
+                            <li>Amplia variedad de productos secos y húmedos</li>
+                            <li>Asesoramiento por tipo de rodeo y necesidad</li>
+                            <li>Disponibilidad durante todo el año</li>
+                        </ul>
+                        <a href="productos.html" class="service-cta">Ver productos</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Logística propia</h3>
+                        <p>No dependemos de terceros. Nuestro sistema logístico nos permite coordinar entregas de forma eficiente y segura.</p>
+                        <ul class="service-features">
+                            <li>Coordinación directa</li>
+                            <li>Rutas activas a nivel nacional</li>
+                            <li>Reducción de demoras y mayor trazabilidad</li>
+                        </ul>
+                        <a href="#contacto" class="service-cta">Consultar cobertura</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Carousel Section -->
+        <section class="products-carousel-section">
+            <div class="container">
+                <h2 class="section-title">Nuestros productos</h2>
+                <div class="products-carousel">
+                    <div class="products-container">
+                        <div class="product-slide">
+                            <img src="assets/images/productos/burlanda-humeda.jpg" alt="Burlanda Húmeda">
+                            <div class="product-info">
+                                <h3>Burlanda Húmeda</h3>
+                                <p>Alto contenido proteico y energético</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-slide">
+                            <img src="assets/images/productos/cascarilla-soja.jpg" alt="Cascarilla de Soja">
+                            <div class="product-info">
+                                <h3>Cascarilla de Soja</h3>
+                                <p>Excelente fibra digestible</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-slide">
+                            <img src="assets/images/productos/pellet-girasol.jpg" alt="Pellet de Girasol">
+                            <div class="product-info">
+                                <h3>Pellet de Girasol</h3>
+                                <p>Rico en proteínas y grasas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-slide">
+                            <img src="assets/images/productos/alfalfa-deshidratada.jpg" alt="Alfalfa Deshidratada">
+                            <div class="product-info">
+                                <h3>Alfalfa Deshidratada</h3>
+                                <p>Vitaminas y minerales naturales</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-cta">
+                    <a href="productos.html" class="cta-button-secondary">Ver todos los productos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final Section -->
+        <section class="final-cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>¿Necesitás subproductos para tu operación?</h2>
+                    <p>Contactanos para recibir asesoramiento personalizado y una cotización adaptada a tus necesidades.</p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="cta-button">Contactar ahora</a>
+                        <a href="tel:+5493518123456" class="cta-button-outline">
+                            <i class="fas fa-phone"></i>
+                            Llamar directo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="footer-logo">
+                    <p>Subproductos confiables para nutrición animal desde Córdoba hacia todo el país.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="empresa.html">La Empresa</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Productos</h4>
+                    <ul>
+                        <li><a href="#">Productos Húmedos</a></li>
+                        <li><a href="#">Productos Secos</a></li>
+                        <li><a href="#">Para Tambos</a></li>
+                        <li><a href="#">Para Feedlots</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Córdoba, Argentina</p>
+                        <p><i class="fas fa-phone"></i> +54 9 351 812-3456</p>
+                        <p><i class="fas fa-envelope"></i> info@ferdez.com.ar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 FERDEZ. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
