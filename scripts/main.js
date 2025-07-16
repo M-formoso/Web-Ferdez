@@ -80,56 +80,54 @@ function updateActiveNavLink() {
     });
 }
 
-// === CAROUSEL HERO ===
-function initializeCarousel() {
-    if (slides.length === 0) return;
-
-    // Manejar errores de video
-    initializeVideoHandling();
+// Hero Video Management
+document.addEventListener('DOMContentLoaded', function() {
+    const heroVideo = document.querySelector('.hero-video');
+    const heroFallback = document.querySelector('.hero-fallback');
     
-    startCarousel();
-    
-    // Auto-play carousel
-    slideInterval = setInterval(nextSlide, 5000);
-
-    // Pausar en hover
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        heroSection.addEventListener('mouseenter', function() {
-            clearInterval(slideInterval);
-        });
-
-        heroSection.addEventListener('mouseleave', function() {
-            slideInterval = setInterval(nextSlide, 5000);
-        });
-    }
-
-    // Touch/swipe support
-    let startX = 0;
-    let endX = 0;
-
-    heroSection.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
-    });
-
-    heroSection.addEventListener('touchend', function(e) {
-        endX = e.changedTouches[0].clientX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const threshold = 50;
-        const diff = startX - endX;
-
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
+    if (heroVideo) {
+        // Handle video load errors
+        heroVideo.addEventListener('error', function() {
+            console.log('Video failed to load, showing fallback image');
+            heroVideo.style.display = 'none';
+            if (heroFallback) {
+                heroFallback.style.display = 'block';
             }
-        }
+        });
+        
+        // Ensure video plays (some browsers block autoplay)
+        heroVideo.addEventListener('canplay', function() {
+            heroVideo.play().catch(function(error) {
+                console.log('Autoplay prevented:', error);
+                // If autoplay fails, you could show a play button here
+            });
+        });
+        
+        // Optional: Pause video when page is not visible (performance optimization)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                heroVideo.pause();
+            } else {
+                heroVideo.play().catch(function(error) {
+                    console.log('Could not resume video:', error);
+                });
+            }
+        });
     }
-}
+});
+
+// Mobile Menu Toggle (keep your existing mobile menu code)
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+});
 
 // === MANEJO DE VIDEOS ===
 function initializeVideoHandling() {
@@ -284,10 +282,15 @@ function initializeProductsCarousel() {
     const productsContainer = document.querySelector('.products-container');
     
     if (productsContainer) {
-        // Duplicar slides para efecto infinito
-        const slides = productsContainer.innerHTML;
-        productsContainer.innerHTML = slides + slides;
-
+        // Obtener todos los productos originales
+        const originalProducts = Array.from(productsContainer.children);
+        
+        // Clonar los productos para crear efecto infinito perfecto
+        originalProducts.forEach(product => {
+            const clone = product.cloneNode(true);
+            productsContainer.appendChild(clone);
+        });
+        
         // Pausar animación en hover
         productsContainer.addEventListener('mouseenter', function() {
             this.style.animationPlayState = 'paused';
@@ -296,9 +299,13 @@ function initializeProductsCarousel() {
         productsContainer.addEventListener('mouseleave', function() {
             this.style.animationPlayState = 'running';
         });
+        
+        // Reiniciar animación cuando termine para evitar saltos
+        productsContainer.addEventListener('animationiteration', function() {
+            // La animación se reinicia automáticamente sin interrupciones
+        });
     }
 }
-
 // === SMOOTH SCROLLING ===
 function initializeSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');

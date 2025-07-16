@@ -207,143 +207,124 @@ p {
 }
 
 /* Hero Section */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    margin-top: 80px;
-}
-
-.carousel-container {
-    position: relative;
-    height: 100%;
-}
-
-.carousel-slide {
+/* Hero Content - Ultra discreto para no tapar el video */
+.hero-content {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    bottom: 40px; /* Posicionado en la parte inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--white);
+    max-width: 500px; /* Más pequeño */
+    z-index: 3;
+    padding: 1rem 1.5rem; /* Padding reducido */
+    background: rgba(0, 0, 0, 0.15); /* Fondo mucho más transparente */
+    border-radius: 8px; /* Bordes menos redondeados */
+    backdrop-filter: blur(3px); /* Menos blur */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
 }
 
-.carousel-slide.active {
-    opacity: 1;
+.hero-title {
+    color: var(--white);
+    margin-bottom: 0.4rem; /* Muy poco margen */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Sombra más fuerte para legibilidad */
+    font-size: clamp(1.4rem, 3vw, 1.8rem); /* Mucho más pequeño */
+    line-height: 1.1;
+    font-weight: 500; /* Menos bold */
 }
 
-.hero-video,
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+.hero-subtitle {
+    font-size: 0.85rem; /* Muy pequeño */
+    margin-bottom: 0.8rem; /* Margen reducido */
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+    font-weight: 300; /* Más ligero */
 }
 
-.hero-video {
-    background: #000;
+/* Botón CTA muy discreto */
+.hero-content .cta-button {
+    padding: 8px 16px; /* Muy pequeño */
+    font-size: 0.8rem; /* Texto pequeño */
+    font-weight: 400; /* Menos bold */
+    border-radius: 4px; /* Menos redondeado */
+    box-shadow: 0 2px 8px rgba(247, 125, 28, 0.2); /* Sombra sutil */
 }
 
-/* Fallback para cuando el video no carga */
-.hero-video:not([src]) {
-    display: none;
+.hero-content .cta-button:hover {
+    transform: translateY(-1px); /* Movimiento sutil */
+    box-shadow: 0 3px 12px rgba(247, 125, 28, 0.3);
 }
 
-.hero-video + .hero-image {
-    display: none;
-}
-
-.hero-video:not([src]) + .hero-image {
-    display: block;
-}
-
+/* Overlay aún más transparente para ver mejor el video */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: var(--white);
-    max-width: 800px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05)); /* Mucho más transparente */
     z-index: 2;
 }
 
-.hero-title {
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+/* Responsive - extremadamente discreto en móvil */
+@media (max-width: 768px) {
+    .hero-content {
+        bottom: 20px;
+        max-width: 300px;
+        padding: 0.8rem 1rem;
+        background: rgba(0, 0, 0, 0.2); /* Ligeramente más visible en móvil para legibilidad */
+    }
+    
+    .hero-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .hero-content .cta-button {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
 }
 
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+@media (max-width: 480px) {
+    .hero-content {
+        bottom: 15px;
+        max-width: 280px;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .hero-title {
+        font-size: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-content .cta-button {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
 }
 
-/* Carousel Controls */
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2rem;
-    z-index: 3;
+/* Opción alternativa: Solo mostrar en hover (descomenta si quieres esto) */
+/*
+.hero-content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.carousel-prev,
-.carousel-next {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: var(--white);
-    font-size: 1.5rem;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: var(--transition);
-    backdrop-filter: blur(10px);
+.hero-section:hover .hero-content {
+    opacity: 1;
 }
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-.carousel-indicators {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-    z-index: 3;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.indicator.active {
-    background: var(--primary-orange);
-}
+*/
 
 /* Diferenciales Section */
 .diferenciales-section {
@@ -520,6 +501,7 @@ p {
 }
 
 /* Products Carousel Section */
+/* Products Carousel Section - SIN INTERRUPCIONES */
 .products-carousel-section {
     padding: 80px 0;
 }
@@ -527,25 +509,29 @@ p {
 .products-carousel {
     margin: 3rem 0;
     overflow: hidden;
+    position: relative;
 }
 
 .products-container {
     display: flex;
     gap: 2rem;
-    animation: scroll 20s linear infinite;
+    animation: scrollInfinite 12s linear infinite;
+    width: max-content; /* Importante para el cálculo correcto */
 }
 
-@keyframes scroll {
+/* Animación mejorada para efecto infinito perfecto */
+@keyframes scrollInfinite {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-100% - 2rem)); /* Incluye el gap en el cálculo */
     }
 }
 
 .product-slide {
     min-width: 300px;
+    flex-shrink: 0; /* Evita que se compriman */
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
@@ -582,6 +568,47 @@ p {
 .products-cta {
     text-align: center;
     margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .products-container {
+        animation-duration: 10s;
+        gap: 1.5rem;
+    }
+    
+    @keyframes scrollInfinite {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% - 1.5rem));
+        }
+    }
+
+    .product-slide {
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-container {
+        gap: 1rem;
+        animation-duration: 8s;
+    }
+    
+    @keyframes scrollInfinite {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% - 1rem));
+        }
+    }
+
+    .product-slide {
+        min-width: 250px;
+    }
 }
 
 /* Final CTA Section */

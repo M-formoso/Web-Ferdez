@@ -26,38 +26,138 @@
     object-position: center;
 }
 
+/* Overlay muy sutil para no opacar la imagen */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(101, 183, 65, 0.3));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
 }
 
+/* Contenido discreto en esquina inferior izquierda */
 .products-hero .hero-content {
-    position: relative;
+    position: absolute;
+    bottom: 80px; /* Más separado del borde inferior */
+    left: 280px; /* Más hacia la izquierda, más centrado */
     z-index: 2;
     color: var(--white);
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+    text-align: left;
+    max-width: 480px; /* Más ancho */
+    margin: 0;
+    padding: 0.8rem 1.5rem; /* Más ancho, menos alto */
+    background: rgba(0, 0, 0, 0.5); /* Fondo sutil */
+    border-radius: 8px;
+    backdrop-filter: blur(4px); /* Blur sutil */
+    border-left: 3px solid var(--primary-green);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Sombra sutil */
 }
 
 .products-hero h1 {
     color: var(--white);
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 0.3rem; /* Menos espacio vertical */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.1; /* Líneas más compactas */
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 0.85rem;
     opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.3; /* Líneas más compactas */
+    margin: 0;
+    font-weight: 400;
 }
 
+/* Responsive mejorado */
+@media (max-width: 768px) {
+    .products-hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 30px;
+        left: 30px;
+        right: 30px; /* Mantiene formato ancho en móvil */
+        max-width: none;
+        padding: 0.7rem 1.2rem; /* Más ancho, menos alto */
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+        margin-bottom: 0.25rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-hero {
+        height: 40vh;
+        min-height: 250px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        padding: 0.6rem 1rem; /* Más ancho, menos alto */
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+}
+
+/* Alternativa: Si prefieres mantenerlo en la esquina pero más visible */
+.products-hero .hero-content.corner-style {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    max-width: 500px; /* Más ancho */
+    margin: 0;
+    padding: 2rem 2.5rem;
+    background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    border-left: 4px solid var(--primary-green);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Para dispositivos móviles con corner-style */
+@media (max-width: 768px) {
+    .products-hero .hero-content.corner-style {
+        bottom: 30px;
+        left: 20px;
+        right: 20px; /* Agregado para limitar el ancho */
+        max-width: none;
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-hero .hero-content.corner-style {
+        bottom: 20px;
+        left: 15px;
+        right: 15px;
+        padding: 1.2rem 1.5rem;
+    }
+}
 /* Product Filters */
 .product-filters {
     padding: 40px 0;

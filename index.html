@@ -15,7 +15,7 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="logo">
+                    <img src="assets/imagenes/logo ferdez mas grande .png" alt="FERDEZ Logo" class="logo">
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
@@ -42,64 +42,22 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section with Carousel -->
+        <!-- Hero Section --><!-- Hero Section with Video Only -->
         <section class="hero-section">
-            <div class="hero-carousel">
-                <div class="carousel-container">
-                    <div class="carousel-slide active">
-                        <video autoplay muted loop playsinline class="hero-video" preload="auto">
-                            <source src="assets/Ferdez_C01.mp4" type="video/mp4">
-                            <source src="assets/videos/Ferdez_C02.mp4" type="video/mp4">
-                            <!-- Fallback para navegadores que no soporten video -->
-                            <img src="assets/images/hero-fallback.jpg" alt="FERDEZ - Subproductos para nutrición animal" class="hero-image">
-                        </video>
-                        <div class="hero-overlay"></div>
-                        <div class="hero-content">
-                            <h1 class="hero-title">Subproductos confiables para nutrición animal</h1>
-                            <p class="hero-subtitle">Desde Córdoba, abastecemos al productor ganadero de todo el país con productos confiables y logística propia. Más de 10 años cumpliendo.</p>
-                            <a href="#productos" class="cta-button">Conocé nuestros productos</a>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-slide">
-                        <img src="assets/images/campo-ganado.jpg" alt="Campo con ganado" class="hero-image">
-                        <div class="hero-overlay"></div>
-                        <div class="hero-content">
-                            <h1 class="hero-title">Soluciones directas para el campo</h1>
-                            <p class="hero-subtitle">FERDEZ es el aliado confiable del productor ganadero, brindando subproductos de calidad con trato directo y logística propia.</p>
-                            <a href="#contacto" class="cta-button">Contactanos</a>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-slide">
-                        <img src="assets/images/feedlot.jpg" alt="Feedlot" class="hero-image">
-                        <div class="hero-overlay"></div>
-                        <div class="hero-content">
-                            <h1 class="hero-title">Para tambos y feedlots</h1>
-                            <p class="hero-subtitle">Productos húmedos y secos para cada etapa del año, con asesoramiento técnico y atención directa.</p>
-                            <a href="#empresa" class="cta-button">Conocé más</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Carousel Controls -->
-                <div class="carousel-controls">
-                    <button class="carousel-prev" onclick="changeSlide(-1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-next" onclick="changeSlide(1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <!-- Carousel Indicators -->
-                <div class="carousel-indicators">
-                    <span class="indicator active" onclick="currentSlide(1)"></span>
-                    <span class="indicator" onclick="currentSlide(2)"></span>
-                    <span class="indicator" onclick="currentSlide(3)"></span>
-                </div>
-            </div>
-        </section>
+            <div class="hero-video-container">
+                <video autoplay muted loop playsinline class="hero-video" preload="auto">
+                    <source src="assets/videos/Ferdez_C02.mp4" type="video/mp4">
+                    <!-- Fallback image if video doesn't load -->
+                    <img src="assets/images/hero-fallback.jpg" alt="FERDEZ - Subproductos para nutrición animal" class="hero-fallback">
+                </video>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Subproductos confiables para nutrición animal</h1>
+                    <p class="hero-subtitle">Desde Córdoba, abastecemos al productor ganadero de todo el país con productos confiables y logística propia. Más de 10 años cumpliendo.</p>
+                    <a href="sections/productos.html" class="cta-button">Conocé nuestros productos</a>
+        </div>
+    </div>
+</section>
 
         <!-- Diferenciales Section -->
         <section class="diferenciales-section">
@@ -160,7 +118,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="assets/images/fundadores-campo.jpg" alt="Fundadores de FERDEZ en el campo">
+                        <img src="assets/imagenes/IMG_3419.jpg" alt="Fundadores de FERDEZ en el campo">
                         <!-- Placeholder para foto de fundadores en el campo -->
                     </div>
                 </div>
@@ -183,7 +141,7 @@
                             <li>Asesoramiento por tipo de rodeo y necesidad</li>
                             <li>Disponibilidad durante todo el año</li>
                         </ul>
-                        <a href="productos.html" class="service-cta">Ver productos</a>
+                        <a href="sections/productos.html" class="service-cta">Ver productos</a>
                     </div>
                     
                     <div class="service-card">
@@ -197,7 +155,7 @@
                             <li>Rutas activas a nivel nacional</li>
                             <li>Reducción de demoras y mayor trazabilidad</li>
                         </ul>
-                        <a href="#contacto" class="service-cta">Consultar cobertura</a>
+                        <a href="sections/contacto.html" class="service-cta">Consultar cobertura</a>
                     </div>
                 </div>
             </div>
@@ -243,7 +201,7 @@
                     </div>
                 </div>
                 <div class="products-cta">
-                    <a href="productos.html" class="cta-button-secondary">Ver todos los productos</a>
+                    <a href="sections/productos.html" class="cta-button-secondary">Ver todos los productos</a>
                 </div>
             </div>
         </section>
@@ -255,7 +213,7 @@
                     <h2>¿Necesitás subproductos para tu operación?</h2>
                     <p>Contactanos para recibir asesoramiento personalizado y una cotización adaptada a tus necesidades.</p>
                     <div class="cta-buttons">
-                        <a href="contacto.html" class="cta-button">Contactar ahora</a>
+                        <a href="sections/contacto.html" class="cta-button">Contactar ahora</a>
                         <a href="tel:+5493518123456" class="cta-button-outline">
                             <i class="fas fa-phone"></i>
                             Llamar directo
@@ -276,7 +234,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -284,9 +242,9 @@
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="productos.html">Productos</a></li>
-                        <li><a href="empresa.html">La Empresa</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="sections/productos.html">Productos</a></li>
+                        <li><a href="sections/laEmpresa.html">La Empresa</a></li>
+                        <li><a href="sections/contacto.html">Contacto</a></li>
                     </ul>
                 </div>
                 
