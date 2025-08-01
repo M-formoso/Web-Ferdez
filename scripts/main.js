@@ -14,11 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Inicializar aplicación
 function initializeApp() {
     initializeNavigation();
-    initializeCarousel();
     initializeScrollAnimations();
-    initializeProductsCarousel();
     initializeSmoothScrolling();
     initializeFormValidation();
+    
+    // Ejecutar el carrusel al final
+    initializeProductsCarousel();
 }
 
 // === NAVEGACIÓN ===
@@ -277,34 +278,53 @@ function animateCounter(element) {
     }, 16);
 }
 
-// === CAROUSEL DE PRODUCTOS ===
+// === CAROUSEL DE PRODUCTOS INFINITO - VERSION SIMPLE ===
 function initializeProductsCarousel() {
-    const productsContainer = document.querySelector('.products-container');
+    console.log('Iniciando carrusel...');
     
-    if (productsContainer) {
-        // Obtener todos los productos originales
-        const originalProducts = Array.from(productsContainer.children);
+    // Esperar un poco más para asegurar que el DOM esté listo
+    setTimeout(() => {
+        const productsContainer = document.querySelector('.products-container');
+        console.log('Container encontrado:', productsContainer);
         
-        // Clonar los productos para crear efecto infinito perfecto
-        originalProducts.forEach(product => {
+        if (!productsContainer) return;
+        
+        const products = productsContainer.querySelectorAll('.product-slide');
+        console.log('Productos encontrados:', products.length);
+        
+        if (products.length === 0) return;
+        
+        // Aplicar animación directamente al container existente
+        productsContainer.style.cssText = `
+            display: flex;
+            gap: 2rem;
+            animation: scrollProducts 15s linear infinite;
+            width: max-content;
+        `;
+        
+        // Duplicar productos
+        products.forEach(product => {
             const clone = product.cloneNode(true);
             productsContainer.appendChild(clone);
         });
         
-        // Pausar animación en hover
-        productsContainer.addEventListener('mouseenter', function() {
-            this.style.animationPlayState = 'paused';
-        });
-
-        productsContainer.addEventListener('mouseleave', function() {
-            this.style.animationPlayState = 'running';
-        });
+        // Crear animación
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes scrollProducts {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            
+            .products-container:hover {
+                animation-play-state: paused;
+            }
+        `;
+        document.head.appendChild(style);
         
-        // Reiniciar animación cuando termine para evitar saltos
-        productsContainer.addEventListener('animationiteration', function() {
-            // La animación se reinicia automáticamente sin interrupciones
-        });
-    }
+        console.log('Carrusel aplicado');
+        
+    }, 500);
 }
 // === SMOOTH SCROLLING ===
 function initializeSmoothScrolling() {
