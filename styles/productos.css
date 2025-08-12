@@ -26,38 +26,141 @@
     object-position: center;
 }
 
+/* Overlay muy sutil para no opacar la imagen */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(101, 183, 65, 0.3));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
 }
 
+/* Contenido centrado sobre el banner */
 .products-hero .hero-content {
-    position: relative;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%); /* Centra perfectamente */
     z-index: 2;
     color: var(--white);
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+    text-align: center; /* Cambiar a centrado */
+    max-width: 600px; /* Más ancho para centrado */
+    margin: 0;
+    padding: 1.5rem 2rem; /* Más padding */
+    background: rgba(0, 0, 0, 0.6); /* Fondo más visible */
+    border-radius: 12px;
+    backdrop-filter: blur(8px); /* Más blur */
+    border: none; /* Sin borde lateral */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); /* Sombra más fuerte */
 }
 
 .products-hero h1 {
     color: var(--white);
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 0.3rem; /* Menos espacio vertical */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.1; /* Líneas más compactas */
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 0.85rem;
     opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.3; /* Líneas más compactas */
+    margin: 0;
+    font-weight: 400;
 }
 
+/* Responsive mejorado */
+@media (max-width: 768px) {
+    .products-hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 50%;
+        left: 50%;
+        right: auto; /* Eliminar right */
+        transform: translate(-50%, 50%);
+        max-width: 90%; /* Responsive */
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+        margin-bottom: 0.25rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-hero {
+        height: 40vh;
+        min-height: 250px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 50%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, 50%);
+        max-width: 95%;
+        padding: 1rem 1.2rem;
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+}
+/* Alternativa: Si prefieres mantenerlo en la esquina pero más visible */
+.products-hero .hero-content.corner-style {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    max-width: 500px; /* Más ancho */
+    margin: 0;
+    padding: 2rem 2.5rem;
+    background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    border-left: 4px solid var(--primary-green);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Para dispositivos móviles con corner-style */
+@media (max-width: 768px) {
+    .products-hero .hero-content.corner-style {
+        bottom: 30px;
+        left: 20px;
+        right: 20px; /* Agregado para limitar el ancho */
+        max-width: none;
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-hero .hero-content.corner-style {
+        bottom: 20px;
+        left: 15px;
+        right: 15px;
+        padding: 1.2rem 1.5rem;
+    }
+}
 /* Product Filters */
 .product-filters {
     padding: 40px 0;
@@ -294,6 +397,7 @@
     margin-bottom: 2rem;
 }
 
+/* Feature Items - Versión corregida */
 .feature-item {
     display: flex;
     align-items: center;
@@ -301,11 +405,65 @@
     font-size: 1.1rem;
 }
 
-.feature-item i {
+.feature-icon {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.feature-item i {
     font-size: 1.3rem;
     color: var(--primary-orange);
-    width: 25px;
+}
+
+.feature-item span {
+    flex: 1;
+    line-height: 1.4;
+}
+
+/* Estilos adicionales para el botón según tu imagen */
+.cta-button {
+    display: inline-block;
+    background: var(--primary-orange);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background: #e56a0b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(239, 108, 0, 0.3);
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+    .feature-item {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .feature-icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 0.8rem;
+    }
+    
+    .feature-item i {
+        font-size: 1.1rem;
+    }
 }
 
 .advisory-image img {
@@ -772,4 +930,193 @@
             transform: none;
         }
     }
+}
+
+/* Botones CTA mejorados */
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Botón principal (naranja) */
+.cta-button {
+    display: inline-block;
+    background: var(--primary-orange);
+    color: var(--white) !important;
+    padding: 16px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-orange);
+    text-align: center;
+    min-width: 180px;
+}
+
+.cta-button:hover {
+    background: #e56a0b;
+    border-color: #e56a0b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(239, 108, 0, 0.4);
+    color: var(--white) !important;
+}
+
+/* Botón secundario (llamar directo) */
+.cta-button-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    background: var(--white) !important;
+    color: var(--primary-orange) !important;
+    padding: 16px 32px;
+    border: 3px solid var(--primary-orange);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 180px;
+}
+
+.cta-button-outline:hover {
+    background: var(--primary-orange) !important;
+    color: var(--white) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(239, 108, 0, 0.4);
+}
+
+.cta-button-outline i {
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+/* Responsive para botones */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .cta-button,
+    .cta-button-outline {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-button,
+    .cta-button-outline {
+        padding: 14px 24px;
+        font-size: 1rem;
+        min-width: 160px;
+    }
+    /* Fix definitivo para el ordenamiento correcto del grid de productos */
+
+/* Products Grid - Enfoque mejorado */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    align-items: start;
+    /* Importante: usar auto-fit en lugar de auto-fill */
+    grid-auto-flow: row dense; /* Esto llena los espacios vacíos */
+}
+
+/* Product Card - Estados mejorados */
+.product-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+    width: 100%;
+    min-height: 520px;
+    /* Importante: mantener el grid item siempre visible en el layout */
+    grid-column: auto;
+    grid-row: auto;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Estados de filtrado - Método alternativo */
+.product-card.hidden {
+    /* En lugar de display: none, usamos visibility y collapse */
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    grid-column: unset;
+    grid-row: unset;
+}
+
+/* Alternativa: usar position absolute para sacar del flujo */
+.products-section {
+    position: relative;
+}
+
+.product-card.hidden-absolute {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Animaciones de filtrado */
+.product-card.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+}
+
+.product-card.fade-in {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+/* Responsive mejorado con auto-fit */
+@media (max-width: 1200px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    .product-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        gap: 1rem;
+        padding: 0 5px;
+    }
+}
 }

@@ -1,6 +1,6 @@
 /* FERDEZ - La Empresa Styles */
 
-/* Empresa Hero Section */
+/* Empresa Hero Section - Texto más pequeño y posición inferior */
 .empresa-hero {
     position: relative;
     height: 70vh;
@@ -8,7 +8,8 @@
     overflow: hidden;
     margin-top: 80px;
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* Cambiado de center a flex-end */
+    justify-content: center;
 }
 
 .hero-background {
@@ -26,39 +27,93 @@
     object-position: center;
 }
 
+/* Overlay más fuerte para mejor legibilidad del texto centrado */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(101, 183, 65, 0.4));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
 }
 
+/* Contenido en la parte inferior, tamaño consistente con otros heros */
 .empresa-hero .hero-content {
     position: relative;
     z-index: 2;
     color: var(--white);
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto 80px auto; /* Margin bottom para separar del borde */
+    padding: 1.5rem 2rem; /* Padding reducido */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .empresa-hero h1 {
     color: var(--white);
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem); /* Mismo tamaño que productos */
+    font-weight: 600;
+    line-height: 1.1;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: clamp(0.85rem, 1.5vw, 1rem); /* Mismo tamaño que productos */
     opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 400;
 }
 
+/* Responsive para hero en posición inferior */
+@media (max-width: 768px) {
+    .empresa-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .empresa-hero .hero-content {
+        max-width: 90%;
+        margin: 0 20px 40px 20px; /* Margin bottom menor en mobile */
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+        margin-bottom: 0.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .empresa-hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .empresa-hero .hero-content {
+        max-width: 95%;
+        margin: 0 15px 30px 15px; /* Margin bottom aún menor */
+        padding: 1rem 1.2rem;
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+        margin-bottom: 0.4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.75rem, 3vw, 0.9rem);
+    }
+}
 /* Section Labels */
 .section-label {
     display: inline-block;
@@ -270,49 +325,100 @@
     line-height: 1.6;
     margin: 0;
 }
+/* Card especial con logo FERDEZ */
+.valor-card.ferdez-card {
+    background: linear-gradient(135deg, var(--primary-green), #4a9a2f);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
 
-/* Equipo Section */
+.valor-card.ferdez-card::before {
+    background: linear-gradient(90deg, var(--primary-orange), var(--primary-orange));
+}
+
+.valor-card.ferdez-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(101, 183, 65, 0.3);
+}
+
+.valor-logo {
+    width: 120px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.valor-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.valor-card.ferdez-card h3 {
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.valor-card.ferdez-card p {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+}
+
+/* Equipo Section - Modificado para 4 cards en fila */
 .equipo-section {
-    padding: 80px 0;
+    padding: 60px 0; /* Reducido de 80px a 60px */
 }
 
 .equipo-header {
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem; /* Reducido de 4rem a 3rem */
 }
 
 .equipo-header h2 {
     color: var(--black);
     margin-bottom: 1rem;
+    font-size: 2rem; /* Ligeramente más pequeño */
 }
 
 .equipo-header p {
     color: var(--dark-gray);
-    font-size: 1.1rem;
+    font-size: 1rem; /* Reducido de 1.1rem */
 }
 
 .equipo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+    gap: 1.5rem; /* Reducido de 2rem */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .equipo-member {
     background: var(--white);
-    border-radius: 16px;
+    border-radius: 12px; /* Reducido de 16px */
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08); /* Sombra más sutil */
     transition: var(--transition);
 }
 
 .equipo-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* Reducido de -5px */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Sombra más sutil */
 }
 
 .member-image {
-    height: 250px;
+    height: 180px; /* Reducido de 250px */
     overflow: hidden;
 }
 
@@ -328,20 +434,110 @@
 }
 
 .member-info {
-    padding: 1.5rem;
+    padding: 1.2rem; /* Reducido de 1.5rem */
 }
 
 .member-info h4 {
     color: var(--primary-green);
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
+    margin-bottom: 0.6rem; /* Reducido de 0.8rem */
+    font-size: 1rem; /* Reducido de 1.2rem */
     font-weight: 700;
 }
 
 .member-info p {
     color: var(--dark-gray);
-    line-height: 1.6;
+    line-height: 1.5; /* Reducido de 1.6 */
     margin: 0;
+    font-size: 0.9rem; /* Más pequeño */
+}
+
+/* Responsive Design para Equipo */
+@media (max-width: 1200px) {
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets grandes */
+        gap: 2rem;
+    }
+    
+    .member-image {
+        height: 200px;
+    }
+    
+    .member-info {
+        padding: 1.5rem;
+    }
+    
+    .member-info h4 {
+        font-size: 1.1rem;
+    }
+    
+    .member-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .equipo-section {
+        padding: 50px 0;
+    }
+    
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+        gap: 1.5rem;
+    }
+    
+    .member-image {
+        height: 160px;
+    }
+    
+    .member-info {
+        padding: 1.2rem;
+    }
+    
+    .member-info h4 {
+        font-size: 1rem;
+    }
+    
+    .member-info p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .equipo-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        gap: 1.5rem;
+        max-width: 400px;
+    }
+    
+    .member-image {
+        height: 200px;
+    }
+    
+    .member-info {
+        padding: 1.5rem;
+    }
+    
+    .member-info h4 {
+        font-size: 1.1rem;
+    }
+    
+    .member-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .equipo-section {
+        padding: 40px 0;
+    }
+    
+    .equipo-header {
+        margin-bottom: 2rem;
+    }
+    
+    .equipo-header h2 {
+        font-size: 1.8rem;
+    }
 }
 
 /* Instalaciones Section */
