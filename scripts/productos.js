@@ -1,23 +1,27 @@
-// FERDEZ - Productos JavaScript
+// FERDEZ - Productos JavaScript - DATOS REALES
 
 // Variables globales
 let currentFilter = 'all';
 let allProducts = [];
 let isFilterAnimating = false;
 
-// Datos detallados de productos
+// Datos detallados de productos REALES basados en la ficha técnica
 const productData = {
-    'burlanda-humeda': {
-        name: 'Burlanda Húmeda',
+    'burlanda-humeda-wdgs': {
+        name: 'Burlanda Húmeda de Maíz (WDGS)',
         category: 'húmedo',
-        image: 'assets/images/productos/burlanda-humeda.jpg',
-        description: 'Subproducto de la destilería de maíz con alto contenido proteico y energético. Ideal para ganado bovino en sistemas intensivos. Su alta palatabilidad y digestibilidad la convierten en una excelente opción para aumentar la producción lechera y el engorde.',
+        image: '../assets/imagenes/productos/Burlanda Humeda/Copia de DSC08081.jpg',
+        description: 'Subproducto húmedo de la destilería de maíz con alto contenido proteico y energético. Ideal para ganado bovino en sistemas intensivos. Su alta palatabilidad y digestibilidad la convierten en una excelente opción para aumentar la producción lechera y el engorde.',
         specs: {
-            'Proteína Bruta': '26-30%',
-            'Materia Seca': '30-35%',
-            'Fibra Bruta': '8-12%',
-            'Grasa': '8-12%',
-            'Energía Metabolizable': '2.8-3.2 Mcal/kg'
+            'Materia Seca (%)': '31 - 36',
+            'Energía Metabolizable (Mcal/kgMS)': '3.4 - 3.7',
+            'Proteína Bruta (% base seca)': '25 - 29',
+            'FDN (%)': '25',
+            'FDA (%)': '16',
+            'Fibra Cruda (% base seca)': '9',
+            'Materia Grasa (% base seca)': '7 - 9',
+            'Cenizas (% base seca)': '8 - 10',
+            'Digestibilidad (%)': '80 - 85'
         },
         benefits: [
             'Alto contenido proteico y energético',
@@ -30,40 +34,19 @@ const productData = {
         uses: ['Tambos', 'Feedlots'],
         dosage: 'Tambo: 3-6 kg/cab/día | Feedlot: 4-8 kg/cab/día'
     },
-    'burlanda-seca': {
-        name: 'Burlanda Seca (DDGS)',
+    'pellet-cascara-soja': {
+        name: 'Pellet de Cáscara de Soja',
         category: 'seco',
-        image: 'assets/images/productos/burlanda-seca.jpg',
-        description: 'Granos secos de destilería con solubles, resultado del proceso de producción de etanol. Concentra proteínas, grasas y minerales del grano original. Ideal para sistemas que requieren alimentos con mayor conservación.',
-        specs: {
-            'Proteína Bruta': '28-32%',
-            'Materia Seca': '88-92%',
-            'Grasa': '8-12%',
-            'Fibra Bruta': '7-12%',
-            'Fósforo': '0.8-1.0%'
-        },
-        benefits: [
-            'Larga vida útil',
-            'Fácil almacenamiento',
-            'Alto contenido de aminoácidos',
-            'Rico en fósforo disponible',
-            'Concentración nutricional',
-            'Versatilidad en raciones'
-        ],
-        uses: ['Tambos', 'Feedlots'],
-        dosage: 'Tambo: 1-3 kg/cab/día | Feedlot: 2-4 kg/cab/día'
-    },
-    'cascarilla-soja': {
-        name: 'Cascarilla de Soja',
-        category: 'húmedo',
-        image: 'assets/images/productos/cascarilla-soja.jpg',
+        image: '../assets/imagenes/productos/Pellet de soja al 42_/Copia de DSC08031.jpg',
         description: 'Subproducto obtenido del descascarado de la soja. Proporciona fibra altamente digestible, esencial para mantener la función ruminal y mejorar la digestión. Ideal para vacas lecheras de alta producción.',
         specs: {
-            'Proteína Bruta': '11-13%',
-            'Fibra Bruta': '35-40%',
-            'Materia Seca': '85-90%',
-            'Grasa': '1-2%',
-            'Energía Digestible': '2.8-3.1 Mcal/kg'
+            'Materia Seca (%)': '89 - 91',
+            'Energía Metabolizable (Mcal/kgMS)': '2.5 - 2.8',
+            'Proteína Bruta (% base seca)': '10 - 12',
+            'Fibra Cruda (% base seca)': '32 - 36',
+            'Materia Grasa (% base seca)': '2.3 - 2.5',
+            'Desmenuzado (% tal cual)': '12 - 18',
+            'Digestibilidad (%)': '76 - 80'
         },
         benefits: [
             'Fibra altamente digestible',
@@ -76,63 +59,21 @@ const productData = {
         uses: ['Tambos'],
         dosage: 'Tambo: 2-4 kg/cab/día'
     },
-    'pellet-girasol': {
-        name: 'Pellet de Girasol',
+    'pellet-alfalfa': {
+        name: 'Pellet de Alfalfa',
         category: 'seco',
-        image: 'assets/images/productos/pellet-girasol.jpg',
-        description: 'Subproducto de la extracción de aceite de girasol, peletizado para facilitar su manejo. Rico en proteínas de alta calidad y con un perfil de aminoácidos favorable para rumiantes.',
+        image: '../assets/imagenes/productos/Pellet de alfalfa/Copia de DSC08038.jpg',
+        description: 'Alfalfa procesada mediante deshidratación que conserva su valor nutricional. Rica en vitaminas, minerales y proteína de excelente calidad para bovinos lecheros.',
         specs: {
-            'Proteína Bruta': '30-34%',
-            'Grasa': '1-3%',
-            'Fibra Bruta': '12-15%',
-            'Materia Seca': '88-92%',
-            'Lisina': '1.2-1.4%'
-        },
-        benefits: [
-            'Alta concentración proteica',
-            'Excelente perfil de aminoácidos',
-            'Fácil manejo y dosificación',
-            'Mejora conversión alimenticia',
-            'Buena palatabilidad',
-            'Larga conservación'
-        ],
-        uses: ['Tambos', 'Feedlots'],
-        dosage: 'Tambo: 1-2.5 kg/cab/día | Feedlot: 1.5-3 kg/cab/día'
-    },
-    'pulpa-citrus': {
-        name: 'Pulpa de Citrus Húmeda',
-        category: 'húmedo',
-        image: 'assets/images/productos/pulpa-citrus.jpg',
-        description: 'Subproducto de la industria citrícola con alta palatabilidad y energía digestible. Su contenido de pectinas y azúcares la convierte en una excelente fuente energética para engorde.',
-        specs: {
-            'Proteína Bruta': '6-8%',
-            'Materia Seca': '20-25%',
-            'Fibra Bruta': '12-15%',
-            'Azúcares': '8-12%',
-            'Pectinas': '15-20%'
-        },
-        benefits: [
-            'Excelente palatabilidad',
-            'Alta energía digestible',
-            'Estimula el consumo',
-            'Rico en pectinas',
-            'Mejora la ganancia de peso',
-            'Reduce acidosis ruminal'
-        ],
-        uses: ['Feedlots'],
-        dosage: 'Feedlot: 3-8 kg/cab/día'
-    },
-    'alfalfa-deshidratada': {
-        name: 'Alfalfa Deshidratada',
-        category: 'húmedo',
-        image: 'assets/images/productos/alfalfa-deshidratada.jpg',
-        description: 'Alfalfa procesada mediante deshidratación artificial que conserva su valor nutricional. Rica en vitaminas, minerales y proteína de excelente calidad para bovinos lecheros.',
-        specs: {
-            'Proteína Bruta': '16-20%',
-            'Fibra Bruta': '25-30%',
-            'Calcio': '1.2-1.5%',
-            'Fósforo': '0.2-0.3%',
-            'Beta Caroteno': '150-200 mg/kg'
+            'Materia Seca (%)': '90 - 92',
+            'Energía Metabolizable (Mcal/kgMS)': '1.2 - 1.3',
+            'Proteína Bruta (% base seca)': '19 - 21',
+            'Fibra Cruda (% base seca)': '30 - 35',
+            'FDN (% base seca)': '34 - 35',
+            'aFDA (% base seca)': '43 - 44',
+            'Materia Grasa (% base seca)': '1.4 - 1.6',
+            'Desmenuzado (% tal cual)': '8 - 12',
+            'Digestibilidad (%)': '58 - 62'
         },
         benefits: [
             'Rica en vitaminas y minerales',
@@ -144,8 +85,288 @@ const productData = {
         ],
         uses: ['Tambos'],
         dosage: 'Tambo: 1-3 kg/cab/día'
+    },
+    'expeller-soja': {
+        name: 'Expeller de Soja',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Expeller de Soja/Copia de DSC08046.jpg',
+        description: 'Concentrado proteico de alta calidad obtenido por extrusión. Excelente perfil de aminoácidos esenciales y alta digestibilidad para máximo rendimiento productivo.',
+        specs: {
+            'Materia Seca (%)': '90 - 92',
+            'Energía Metabolizable (Mcal/kgMS)': '2.8 - 3.2',
+            'Proteína Bruta (% base seca)': '43.5 - 44.5',
+            'Proteína Soluble / Proteína Bruta': '75%',
+            'Materia Grasa (% base seca)': '6 - 7',
+            'Actividad Ureásica UpH': '0.02'
+        },
+        benefits: [
+            'Alta concentración proteica',
+            'Excelente perfil de aminoácidos',
+            'Proceso de extrusión controlado',
+            'Mejora conversión alimenticia',
+            'Buena palatabilidad',
+            'Proteína de alta disponibilidad'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-2.5 kg/cab/día | Feedlot: 1.5-3 kg/cab/día'
+    },
+    'harina-soja-hi-pro': {
+        name: 'Harina de Soja Hi Pro',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Harina de soja Hipro/Copia de DSC08008.jpg',
+        description: 'Máxima concentración proteica con alta solubilidad. Ideal para dietas de alta performance en producción intensiva donde se requiere máxima eficiencia proteica.',
+        specs: {
+            'Materia Seca (%)': '90',
+            'Energía Metabolizable (Mcal/kgMS)': '2.6 - 2.7',
+            'Proteína Bruta (% base seca)': '46 - 46.5',
+            'Solubilidad de Proteínas': '78% MIN',
+            'Cenizas Totales': '5.5 - 6.2',
+            'Materia Grasa (% base seca)': '2',
+            'Actividad Ureásica UpH': '0.02 - 0.2',
+            'Fibra Cruda (% base seca)': '3.5 - 4'
+        },
+        benefits: [
+            'Máxima concentración proteica',
+            'Alta solubilidad de proteínas',
+            'Mínimo contenido de fibra',
+            'Excelente digestibilidad',
+            'Ideal para alta producción',
+            'Estándar de calidad superior'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-2 kg/cab/día | Feedlot: 1-2.5 kg/cab/día'
+    },
+    'pellet-girasol-integral': {
+        name: 'Pellet de Girasol Integral',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Pellet girasol integral/Copia de DSC07941.jpg',
+        description: 'Subproducto del girasol con balance ideal entre proteína y fibra. Aporta energía y mejora la palatabilidad de las raciones con su característico color y sabor.',
+        specs: {
+            'Materia Seca (%)': '89 - 91',
+            'Energía Metabolizable (Mcal/kgMS)': '2.2 - 2.5',
+            'Proteína Bruta (% base seca)': '25 - 27',
+            'Fibra Cruda (% base seca)': '28 - 32',
+            'Materia Grasa (% base seca)': '2 - 2.5',
+            'Desmenuzado (% tal cual)': '10 - 15',
+            'Color / Tono': 'Negro Opaco',
+            'Digestibilidad (%)': '67 - 70'
+        },
+        benefits: [
+            'Balance proteína-fibra ideal',
+            'Mejora palatabilidad de raciones',
+            'Color característico atractivo',
+            'Buena digestibilidad',
+            'Facilita mezclado en TMR',
+            'Versatilidad en formulaciones'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1.5-3 kg/cab/día | Feedlot: 2-4 kg/cab/día'
+    },
+    'harina-soja-low-pro': {
+        name: 'Harina de Soja Low Pro',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Harina de soja Lowpro/Copia de DSC08011.jpg',
+        description: 'Concentrado proteico con contenido proteico ajustado, ideal para balancear dietas según requerimientos específicos sin exceso de proteína.',
+        specs: {
+            'Materia Seca (%)': '88 - 90',
+            'Energía Metabolizable (Mcal/kgMS)': '2.3 - 2.5',
+            'Proteína Bruta (% base seca)': '44',
+            'Cenizas Totales': '5.5 - 6.5',
+            'Materia Grasa (% base seca)': '1.05 - 2',
+            'Actividad Ureásica UpH': '0.02 - 0.2',
+            'Fibra Cruda (% base seca)': '5 - 6'
+        },
+        benefits: [
+            'Contenido proteico balanceado',
+            'Evita excesos de proteína',
+            'Reduce costos de nitrógeno',
+            'Versatilidad en formulaciones',
+            'Buena relación calidad-precio',
+            'Fácil incorporación en dietas'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-2 kg/cab/día | Feedlot: 1.5-2.5 kg/cab/día'
+    },
+    'viruta-pino': {
+        name: 'Viruta de Pino',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Viruta de pino/Copia de DSC07924.jpg',
+        description: 'Material de cama natural con excelente capacidad de absorción y propiedades antisépticas naturales. Ideal para mantener la higiene y comodidad en instalaciones ganaderas.',
+        specs: {
+            'Capacidad de Absorción': 'Excelente',
+            'Humedad (%)': '< 15',
+            'Granulometría': 'Uniforme',
+            'Propiedades': 'Antisépticas naturales',
+            'Origen': '100% Pino natural',
+            'Compactación': 'Mínima'
+        },
+        benefits: [
+            'Excelente absorción de humedad',
+            'Propiedades antisépticas naturales',
+            'Reduce olores desagradables',
+            'Comodidad para los animales',
+            'Fácil manejo y limpieza',
+            'Producto natural y ecológico'
+        ],
+        uses: ['Tambos', 'Cama Animal'],
+        dosage: 'Según necesidad: 2-5 cm de espesor en corrales'
+    },
+    'pellet-cartamo': {
+        name: 'Pellet de Cártamo',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Pellet de cartamo/Copia de DSC08021.jpg',
+        description: 'Subproducto del cártamo rico en proteína y fibra digestible, con excelente palatabilidad para bovinos. Aporta variedad nutricional a las dietas.',
+        specs: {
+            'Materia Seca (%)': '88 - 92',
+            'Proteína Bruta (% base seca)': '20 - 24',
+            'Fibra Cruda (% base seca)': '25 - 30',
+            'Materia Grasa (% base seca)': '3 - 5',
+            'Cenizas (% base seca)': '6 - 8',
+            'Digestibilidad (%)': '70 - 75'
+        },
+        benefits: [
+            'Buena fuente de proteína',
+            'Fibra digestible de calidad',
+            'Excelente palatabilidad',
+            'Diversifica ingredientes de la dieta',
+            'Estabilidad en almacenamiento',
+            'Fácil incorporación en TMR'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-2 kg/cab/día | Feedlot: 1.5-3 kg/cab/día'
+    },
+    'harina-camelina': {
+        name: 'Harina de Camelina',
+        category: 'seco',
+        image: '../assets/imagenes/productos/', // Imagen faltante en el HTML
+        description: 'Concentrado proteico con perfil de aminoácidos balanceado y alta digestibilidad. Subproducto de semilla oleaginosa con características nutritivas distintivas.',
+        specs: {
+            'Materia Seca (%)': '90 - 93',
+            'Proteína Bruta (% base seca)': '30 - 35',
+            'Fibra Cruda (% base seca)': '12 - 15',
+            'Materia Grasa (% base seca)': '8 - 12',
+            'Cenizas (% base seca)': '6 - 8',
+            'Digestibilidad (%)': '75 - 80'
+        },
+        benefits: [
+            'Perfil de aminoácidos balanceado',
+            'Alta digestibilidad proteica',
+            'Contenido energético interesante',
+            'Buena palatabilidad',
+            'Ingrediente diferenciado',
+            'Versatilidad en formulaciones'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 0.5-1.5 kg/cab/día | Feedlot: 1-2 kg/cab/día'
+    },
+    'burlanda-seca-ddgs': {
+        name: 'Burlanda Seca de Maíz (DDGS)',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Burlanda Seca de maiz/Copia de DSC07928.jpg',
+        description: 'Granos secos de destilería con solubles, resultado del proceso de producción de etanol. Concentra proteínas, grasas y minerales del grano original con larga vida útil.',
+        specs: {
+            'Materia Seca (%)': '88 - 92',
+            'Energía Metabolizable (Mcal/kgMS)': '3.4 - 3.7',
+            'Proteína Bruta (% base seca)': '25 - 30',
+            'FDN (%)': '25',
+            'FDA (%)': '16',
+            'Fibra Cruda (% base seca)': '9',
+            'Materia Grasa (% base seca)': '8 - 15',
+            'Cenizas (% base seca)': '10',
+            'Digestibilidad (%)': '80 - 85'
+        },
+        benefits: [
+            'Larga vida útil',
+            'Fácil almacenamiento',
+            'Alto contenido de aminoácidos',
+            'Rico en fósforo disponible',
+            'Concentración nutricional',
+            'Versatilidad en raciones'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-3 kg/cab/día | Feedlot: 2-4 kg/cab/día'
+    },
+    'pellet-afrechillo-trigo': {
+        name: 'Pellet de Afrechillo de Trigo',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Pellet de trigo/Copia de DSC07956.jpg',
+        description: 'Subproducto del trigo rico en fibra digestible y proteína, ideal para mantener la función ruminal. Aporta estructura física a la dieta.',
+        specs: {
+            'Materia Seca (%)': '87 - 91',
+            'Energía Metabolizable (Mcal/kgMS)': '2.5 - 2.7',
+            'Proteína Bruta (% base seca)': '13 - 15',
+            'FDN (%)': '51',
+            'FDA (%)': '18',
+            'Fibra Cruda (% base seca)': '13',
+            'Materia Grasa (% base seca)': '2.5 - 3.5',
+            'Cenizas (% base seca)': '5',
+            'Digestibilidad (%)': '67 - 70'
+        },
+        benefits: [
+            'Rica en fibra digestible',
+            'Mantiene función ruminal',
+            'Aporta estructura a la dieta',
+            'Buena palatabilidad',
+            'Facilita manejo en TMR',
+            'Relación calidad-precio favorable'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-2.5 kg/cab/día | Feedlot: 1.5-3 kg/cab/día'
+    },
+    'pellet-soja': {
+        name: 'Pellet de Soja',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Pellet de soja al 42_/Copia de DSC08031.jpg',
+        description: 'Concentrado proteico peletizado de alta calidad con excelente palatabilidad y digestibilidad. Forma física mejorada para facilitar manejo y mezclado.',
+        specs: {
+            'Materia Seca (%)': '88 - 90',
+            'Energía Metabolizable (Mcal/kgMS)': '2.4 - 2.5',
+            'Proteína Bruta (% base seca)': '42 - 43',
+            'Cenizas Totales': '6 - 8%',
+            'Materia Grasa (% base seca)': '0.8 - 1.5',
+            'Fibra Cruda (% base seca)': '3 - 5',
+            'Desmenuzado (%)': '8 - 10'
+        },
+        benefits: [
+            'Forma física mejorada',
+            'Facilita manejo y dosificación',
+            'Reduce segregación en mezclas',
+            'Excelente palatabilidad',
+            'Mínimo desperdicio',
+            'Uniformidad en la distribución'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-2 kg/cab/día | Feedlot: 1.5-2.5 kg/cab/día'
+    },
+    'hominy-feed': {
+        name: 'Hominy Feed',
+        category: 'seco',
+        image: '../assets/imagenes/productos/Himiny feed/Copia de DSC07949.jpg',
+        description: 'Subproducto del maíz rico en energía y almidón, ideal para sistemas de engorde intensivo. Excelente fuente energética para ganancia de peso.',
+        specs: {
+            'Materia Seca (%)': '80 - 85',
+            'Energía Metabolizable (Mcal/kgMS)': '3.6',
+            'Proteína Bruta (% base seca)': '11 - 13',
+            'Cenizas Totales (%)': '3 - 4',
+            'Materia Grasa (% base seca)': '8 - 9',
+            'Fibra Cruda (% base seca)': '3 - 4',
+            'Almidón (%)': '42 - 45'
+        },
+        benefits: [
+            'Alto contenido energético',
+            'Rico en almidón disponible',
+            'Excelente para engorde',
+            'Mejora conversión alimenticia',
+            'Palatabilidad destacada',
+            'Versatilidad en formulaciones'
+        ],
+        uses: ['Tambos', 'Feedlots'],
+        dosage: 'Tambo: 1-2 kg/cab/día | Feedlot: 2-4 kg/cab/día'
     }
 };
+
+// Resto del código JavaScript se mantiene igual...
+// [Aquí iría todo el código de funcionalidad que ya tienes]
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', function() {
@@ -155,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupProductCards();
 });
 
-// === INICIALIZACIÓN ===
+// === RESTO DE FUNCIONES EXISTENTES ===
 function initializeProducts() {
     allProducts = document.querySelectorAll('.product-card');
     
@@ -182,6 +403,65 @@ function initializeFilters() {
             }
         });
     });
+}
+
+function setActiveFilter(activeBtn) {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    activeBtn.classList.add('active');
+}
+
+function filterProducts(filter) {
+    isFilterAnimating = true;
+    currentFilter = filter;
+    
+    // Crear un array con todos los productos y sus categorías
+    const productsData = Array.from(allProducts).map(card => ({
+        element: card,
+        categories: card.getAttribute('data-category').split(' '),
+        shouldShow: filter === 'all' || card.getAttribute('data-category').split(' ').includes(filter)
+    }));
+    
+    // Separar productos visibles e invisibles
+    const visibleProducts = productsData.filter(p => p.shouldShow);
+    const hiddenProducts = productsData.filter(p => !p.shouldShow);
+    
+    // Fase 1: Animar salida de productos que se van a ocultar
+    hiddenProducts.forEach(product => {
+        product.element.classList.add('fade-out');
+    });
+    
+    // Fase 2: Ocultar elementos y reorganizar después de la animación
+    setTimeout(() => {
+        // Remover completamente del DOM los elementos ocultos
+        hiddenProducts.forEach(product => {
+            product.element.style.display = 'none';
+        });
+        
+        // Mostrar elementos visibles y reorganizar
+        visibleProducts.forEach((product, index) => {
+            product.element.style.display = 'block';
+            product.element.classList.remove('fade-out', 'hidden');
+            
+            // Animación escalonada de entrada
+            setTimeout(() => {
+                product.element.classList.add('fade-in');
+                setTimeout(() => {
+                    product.element.classList.remove('fade-in');
+                }, 300);
+            }, index * 50);
+        });
+        
+        // Finalizar animación
+        setTimeout(() => {
+            isFilterAnimating = false;
+        }, 500);
+        
+    }, 200);
+
+    // Analytics
+    trackEvent('Products', 'Filter', filter);
 }
 
 function initializeSearch() {
@@ -217,72 +497,6 @@ function setupProductCards() {
                 openProductModal(productId);
             }
         });
-    });
-}
-
-// === FILTROS ===
-function setActiveFilter(activeBtn) {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    activeBtn.classList.add('active');
-}
-
-function filterProducts(filter) {
-    isFilterAnimating = true;
-    currentFilter = filter;
-    
-    // Fase 1: Fade out todos los productos
-    allProducts.forEach(card => {
-        card.classList.add('fade-out');
-    });
-    
-    setTimeout(() => {
-        // Fase 2: Mostrar/ocultar según filtro
-        allProducts.forEach(card => {
-            const categories = card.getAttribute('data-category').split(' ');
-            const shouldShow = filter === 'all' || categories.includes(filter);
-            
-            if (shouldShow) {
-                card.classList.remove('hidden', 'fade-out');
-                card.classList.add('fade-in');
-            } else {
-                card.classList.add('hidden');
-                card.classList.remove('fade-in');
-            }
-        });
-        
-        setTimeout(() => {
-            // Fase 3: Limpiar clases de animación
-            allProducts.forEach(card => {
-                card.classList.remove('fade-out', 'fade-in');
-            });
-            isFilterAnimating = false;
-        }, 300);
-        
-    }, 150);
-
-    // Analytics
-    trackEvent('Products', 'Filter', filter);
-}
-
-function searchProducts(searchTerm) {
-    const term = searchTerm.toLowerCase().trim();
-    
-    allProducts.forEach(card => {
-        const productName = card.querySelector('h3').textContent.toLowerCase();
-        const productDesc = card.querySelector('.product-description').textContent.toLowerCase();
-        const productSpecs = card.querySelector('.product-specs').textContent.toLowerCase();
-        
-        const matches = productName.includes(term) || 
-                       productDesc.includes(term) || 
-                       productSpecs.includes(term);
-        
-        if (matches || term === '') {
-            card.classList.remove('hidden');
-        } else {
-            card.classList.add('hidden');
-        }
     });
 }
 
@@ -432,10 +646,31 @@ function showNotification(message, type = 'info') {
     }, 3000);
 }
 
+function searchProducts(searchTerm) {
+    const term = searchTerm.toLowerCase().trim();
+    
+    allProducts.forEach(card => {
+        const productName = card.querySelector('h3').textContent.toLowerCase();
+        const productDesc = card.querySelector('.product-description').textContent.toLowerCase();
+        const productSpecs = card.querySelector('.product-specs').textContent.toLowerCase();
+        
+        const matches = productName.includes(term) || 
+                       productDesc.includes(term) || 
+                       productSpecs.includes(term);
+        
+        if (matches || term === '') {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
 // === FUNCIONES GLOBALES ===
 window.openProductModal = openProductModal;
 window.closeProductModal = closeProductModal;
 window.filterProducts = filterProducts;
+window.downloadTechnicalSheet = downloadTechnicalSheet;
 
 // === UTILIDADES ===
 function trackEvent(category, action, label) {
@@ -449,6 +684,18 @@ function trackEvent(category, action, label) {
             event_label: label
         });
     }
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
 
 // === LAZY LOADING MEJORADO ===
@@ -472,38 +719,6 @@ function initializeLazyLoading() {
     images.forEach(img => {
         imageObserver.observe(img);
     });
-}
-
-// === PERFORMANCE ===
-// Debounce para resize
-const handleResize = debounce(function() {
-    // Reajustar layout si es necesario
-    adjustLayoutForMobile();
-}, 250);
-
-window.addEventListener('resize', handleResize);
-
-function adjustLayoutForMobile() {
-    const isMobile = window.innerWidth <= 768;
-    const filterControls = document.querySelector('.filter-controls');
-    
-    if (isMobile) {
-        filterControls.classList.add('mobile-layout');
-    } else {
-        filterControls.classList.remove('mobile-layout');
-    }
-}
-
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
 }
 
 // === INICIALIZACIÓN FINAL ===
@@ -552,294 +767,32 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// === FUNCIONES DE COMPARACIÓN ===
-let compareList = [];
-
-function addToCompare(productId) {
-    if (compareList.length >= 3) {
-        showNotification('Máximo 3 productos para comparar', 'warning');
-        return;
-    }
-    
-    if (!compareList.includes(productId)) {
-        compareList.push(productId);
-        updateCompareUI();
-        showNotification('Producto agregado a comparación', 'success');
-        trackEvent('Products', 'Add to Compare', productId);
-    }
-}
-
-function removeFromCompare(productId) {
-    compareList = compareList.filter(id => id !== productId);
-    updateCompareUI();
-    showNotification('Producto removido de comparación', 'info');
-}
-
-function updateCompareUI() {
-    const compareBtn = document.getElementById('compareButton');
-    if (compareBtn) {
-        compareBtn.style.display = compareList.length > 0 ? 'block' : 'none';
-        compareBtn.textContent = `Comparar (${compareList.length})`;
-    }
-    
-    // Actualizar estado de botones en cards
-    allProducts.forEach(card => {
-        const productId = getProductIdFromCard(card);
-        const compareBtn = card.querySelector('.compare-btn');
-        if (compareBtn) {
-            if (compareList.includes(productId)) {
-                compareBtn.classList.add('active');
-                compareBtn.innerHTML = '<i class="fas fa-check"></i>';
-            } else {
-                compareBtn.classList.remove('active');
-                compareBtn.innerHTML = '<i class="fas fa-plus"></i>';
-            }
-        }
-    });
-}
-
-function showCompareModal() {
-    if (compareList.length < 2) {
-        showNotification('Selecciona al menos 2 productos para comparar', 'warning');
-        return;
-    }
-    
-    const modal = document.getElementById('compareModal');
-    const modalContent = document.getElementById('compareModalContent');
-    
-    modalContent.innerHTML = createCompareContent();
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    
-    trackEvent('Products', 'Compare Modal', compareList.join(','));
-}
-
-function createCompareContent() {
-    const products = compareList.map(id => productData[id]);
-    
-    let tableRows = '';
-    const allSpecs = new Set();
-    
-    // Recopilar todas las especificaciones
-    products.forEach(product => {
-        Object.keys(product.specs).forEach(spec => allSpecs.add(spec));
-    });
-    
-    // Crear filas de la tabla
-    allSpecs.forEach(spec => {
-        tableRows += `
-            <tr>
-                <td class="spec-name">${spec}</td>
-                ${products.map(product => `
-                    <td>${product.specs[spec] || 'N/A'}</td>
-                `).join('')}
-            </tr>
-        `;
-    });
-    
-    return `
-        <div class="compare-header">
-            <h2>Comparación de Productos</h2>
-            <button class="close-compare" onclick="closeCompareModal()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="compare-content">
-            <div class="compare-products">
-                ${products.map(product => `
-                    <div class="compare-product">
-                        <img src="${product.image}" alt="${product.name}">
-                        <h3>${product.name}</h3>
-                        <div class="product-uses">
-                            ${product.uses.map(use => `<span class="use-tag">${use}</span>`).join('')}
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="compare-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Especificación</th>
-                            ${products.map(product => `<th>${product.name}</th>`).join('')}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${tableRows}
-                    </tbody>
-                </table>
-            </div>
-            <div class="compare-actions">
-                <button onclick="clearCompare()" class="cta-button-outline">
-                    Limpiar comparación
-                </button>
-                <a href="contacto.html" class="cta-button">
-                    Solicitar cotización
-                </a>
-            </div>
-        </div>
-    `;
-}
-
-function closeCompareModal() {
-    const modal = document.getElementById('compareModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-function clearCompare() {
-    compareList = [];
-    updateCompareUI();
-    closeCompareModal();
-    showNotification('Comparación limpiada', 'info');
-}
-
-function getProductIdFromCard(card) {
-    const ctaButton = card.querySelector('.product-cta');
-    if (ctaButton && ctaButton.onclick) {
-        const match = ctaButton.onclick.toString().match(/'([^']+)'/);
-        return match ? match[1] : null;
-    }
-    return null;
-}
-
-// === FAVORITOS ===
-let favoritesList = JSON.parse(localStorage.getItem('ferdez_favorites') || '[]');
-
-function toggleFavorite(productId) {
-    const index = favoritesList.indexOf(productId);
-    
-    if (index === -1) {
-        favoritesList.push(productId);
-        showNotification('Producto agregado a favoritos', 'success');
-    } else {
-        favoritesList.splice(index, 1);
-        showNotification('Producto removido de favoritos', 'info');
-    }
-    
-    localStorage.setItem('ferdez_favorites', JSON.stringify(favoritesList));
-    updateFavoritesUI();
-    trackEvent('Products', 'Toggle Favorite', productId);
-}
-
-function updateFavoritesUI() {
-    allProducts.forEach(card => {
-        const productId = getProductIdFromCard(card);
-        const favoriteBtn = card.querySelector('.favorite-btn');
-        if (favoriteBtn) {
-            if (favoritesList.includes(productId)) {
-                favoriteBtn.classList.add('active');
-                favoriteBtn.innerHTML = '<i class="fas fa-heart"></i>';
-            } else {
-                favoriteBtn.classList.remove('active');
-                favoriteBtn.innerHTML = '<i class="far fa-heart"></i>';
-            }
-        }
-    });
-}
-
-// === FILTROS AVANZADOS ===
-function initializeAdvancedFilters() {
-    const advancedFilters = {
-        protein: { min: 0, max: 50 },
-        fiber: { min: 0, max: 50 },
-        dryMatter: { min: 0, max: 100 }
-    };
-    
-    // Crear sliders para filtros avanzados
-    Object.keys(advancedFilters).forEach(filter => {
-        createRangeSlider(filter, advancedFilters[filter]);
-    });
-}
-
-function createRangeSlider(filterId, range) {
-    const container = document.getElementById(`${filterId}Filter`);
-    if (!container) return;
-    
-    const slider = document.createElement('input');
-    slider.type = 'range';
-    slider.min = range.min;
-    slider.max = range.max;
-    slider.value = range.max;
-    slider.className = 'range-slider';
-    
-    const valueDisplay = document.createElement('span');
-    valueDisplay.className = 'range-value';
-    valueDisplay.textContent = `${slider.value}%`;
-    
-    slider.addEventListener('input', function() {
-        valueDisplay.textContent = `${this.value}%`;
-        applyAdvancedFilters();
-    });
-    
-    container.appendChild(slider);
-    container.appendChild(valueDisplay);
-}
-
-function applyAdvancedFilters() {
-    const filters = {
-        protein: document.querySelector('#proteinFilter .range-slider')?.value || 50,
-        fiber: document.querySelector('#fiberFilter .range-slider')?.value || 50,
-        dryMatter: document.querySelector('#dryMatterFilter .range-slider')?.value || 100
-    };
-    
-    allProducts.forEach(card => {
-        const productId = getProductIdFromCard(card);
-        const product = productData[productId];
-        
-        if (product) {
-            const matchesFilters = checkProductAgainstFilters(product, filters);
-            
-            if (matchesFilters) {
-                card.classList.remove('filtered-out');
-            } else {
-                card.classList.add('filtered-out');
-            }
-        }
-    });
-}
-
-function checkProductAgainstFilters(product, filters) {
-    // Extraer valores numéricos de las especificaciones
-    const proteinValue = extractNumericValue(product.specs['Proteína Bruta']);
-    const fiberValue = extractNumericValue(product.specs['Fibra Bruta']);
-    const dryMatterValue = extractNumericValue(product.specs['Materia Seca']);
-    
-    return (
-        (!proteinValue || proteinValue <= filters.protein) &&
-        (!fiberValue || fiberValue <= filters.fiber) &&
-        (!dryMatterValue || dryMatterValue <= filters.dryMatter)
-    );
-}
-
-function extractNumericValue(specString) {
-    if (!specString) return null;
-    const match = specString.match(/(\d+)/);
-    return match ? parseInt(match[1]) : null;
-}
-
-// === EXPORTAR FUNCIONES ===
-window.addToCompare = addToCompare;
-window.removeFromCompare = removeFromCompare;
-window.showCompareModal = showCompareModal;
-window.closeCompareModal = closeCompareModal;
-window.clearCompare = clearCompare;
-window.toggleFavorite = toggleFavorite;
-window.downloadTechnicalSheet = downloadTechnicalSheet;
-
-// === INICIALIZACIÓN FINAL ===
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar favoritos
-    updateFavoritesUI();
-    
-    // Ajustar layout inicial
+// === PERFORMANCE ===
+// Debounce para resize
+const handleResize = debounce(function() {
+    // Reajustar layout si es necesario
     adjustLayoutForMobile();
+}, 250);
+
+window.addEventListener('resize', handleResize);
+
+function adjustLayoutForMobile() {
+    const isMobile = window.innerWidth <= 768;
+    const filterControls = document.querySelector('.filter-controls');
     
-    // Precargar modal si hay hash en URL
-    const hash = window.location.hash.substring(1);
-    if (hash && productData[hash]) {
-        setTimeout(() => openProductModal(hash), 500);
+    if (filterControls) {
+        if (isMobile) {
+            filterControls.classList.add('mobile-layout');
+        } else {
+            filterControls.classList.remove('mobile-layout');
+        }
     }
+}
+
+// === ERROR HANDLING ===
+window.addEventListener('error', function(e) {
+    console.error('Error en productos:', e.error);
+    showNotification('Ha ocurrido un error. Por favor, recarga la página.', 'error');
 });
 
 // === PWA FEATURES ===
@@ -852,38 +805,4 @@ window.addEventListener('offline', function() {
     showNotification('Sin conexión a internet', 'warning');
 });
 
-// === ERROR HANDLING ===
-window.addEventListener('error', function(e) {
-    console.error('Error en productos:', e.error);
-    showNotification('Ha ocurrido un error. Por favor, recarga la página.', 'error');
-});
-
-// === SOCIAL SHARING ===
-function shareProduct(productId) {
-    const product = productData[productId];
-    if (!product) return;
-    
-    const shareData = {
-        title: `${product.name} - FERDEZ`,
-        text: product.description,
-        url: `${window.location.origin}/productos.html#${productId}`
-    };
-    
-    if (navigator.share) {
-        navigator.share(shareData)
-            .then(() => trackEvent('Products', 'Share', productId))
-            .catch(err => console.log('Error sharing:', err));
-    } else {
-        // Fallback: copiar URL al clipboard
-        navigator.clipboard.writeText(shareData.url)
-            .then(() => {
-                showNotification('Enlace copiado al portapapeles', 'success');
-                trackEvent('Products', 'Copy Link', productId);
-            })
-            .catch(() => {
-                showNotification('No se pudo copiar el enlace', 'error');
-            });
-    }
-}
-
-window.shareProduct = shareProduct;
+console.log('FERDEZ Productos - Todas las funcionalidades inicializadas con datos reales');

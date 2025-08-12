@@ -14,11 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
 // Inicializar aplicación
 function initializeApp() {
     initializeNavigation();
-    initializeCarousel();
     initializeScrollAnimations();
-    initializeProductsCarousel();
     initializeSmoothScrolling();
     initializeFormValidation();
+    
+    // Ejecutar el carrusel al final
+    initializeProductsCarousel();
+    
+    // Inicializar navegación de productos
+    initializeProductLinks();
+    
+    // Manejar navegación desde URL con hash
+    handleProductNavigation();
 }
 
 // === NAVEGACIÓN ===
@@ -80,90 +87,202 @@ function updateActiveNavLink() {
     });
 }
 
-// === CAROUSEL HERO ===
-function initializeCarousel() {
-    if (slides.length === 0) return;
-
-    // Manejar errores de video
-    initializeVideoHandling();
+// Hero Video Management
+document.addEventListener('DOMContentLoaded', function() {
+    const heroVideo = document.querySelector('.hero-video');
+    const heroFallback = document.querySelector('.hero-fallback');
     
-    startCarousel();
-    
-    // Auto-play carousel
-    slideInterval = setInterval(nextSlide, 5000);
-
-    // Pausar en hover
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        heroSection.addEventListener('mouseenter', function() {
-            clearInterval(slideInterval);
+    if (heroVideo) {
+        // Handle video load errors
+        heroVideo.addEventListener('error', function() {
+            console.log('Video failed to load, showing fallback image');
+            heroVideo.style.display = 'none';
+            if (heroFallback) {
+                heroFallback.style.display = 'block';
+            }
         });
-
-        heroSection.addEventListener('mouseleave', function() {
-            slideInterval = setInterval(nextSlide, 5000);
+        
+        // Ensure video plays (some browsers block autoplay)
+        heroVideo.addEventListener('canplay', function() {
+            heroVideo.play().catch(function(error) {
+                console.log('Autoplay prevented:', error);
+                // If autoplay fails, you could show a play button here
+            });
+        });
+        
+        // Optional: Pause video when page is not visible (performance optimization)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                heroVideo.pause();
+            } else {
+                heroVideo.play().catch(function(error) {
+                    console.log('Could not resume video:', error);
+                });
+            }
         });
     }
+});
 
-    // Touch/swipe support
-    let startX = 0;
-    let endX = 0;
+// Mobile Menu Toggle (keep your existing mobile menu code)
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+});
 
-    heroSection.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
-    });
+// === NAVEGACIÓN DE PRODUCTOS (NUEVA FUNCIONALIDAD) ===
 
-    heroSection.addEventListener('touchend', function(e) {
-        endX = e.changedTouches[0].clientX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const threshold = 50;
-        const diff = startX - endX;
-
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
-                nextSlide();
+// Función para manejar la navegación desde el carousel
+function handleProductNavigation() {
+    // Detectar si estamos en la página de productos con un hash
+    if (window.location.pathname.includes('productos.html') && window.location.hash) {
+        const productId = window.location.hash.substring(1);
+        
+        // Esperar a que la página cargue completamente
+        setTimeout(() => {
+            // Abrir modal del producto si existe
+            if (typeof openProductModal === 'function' && typeof productData !== 'undefined' && productData[productId]) {
+                openProductModal(productId);
             } else {
-                prevSlide();
+                // Alternativa: scroll al producto específico
+                scrollToProduct(productId);
             }
-        }
+        }, 500);
     }
 }
 
-// === MANEJO DE VIDEOS ===
-function initializeVideoHandling() {
-    const videos = document.querySelectorAll('.hero-video');
+// Función para hacer scroll a un producto específico
+function scrollToProduct(productId) {
+    const productCards = document.querySelectorAll('.product-card');
     
-    videos.forEach(video => {
-        video.addEventListener('loadstart', function() {
-            console.log('Video cargando...');
-        });
-        
-        video.addEventListener('canplay', function() {
-            console.log('Video listo para reproducir');
-            this.style.opacity = '1';
-        });
-        
-        video.addEventListener('error', function() {
-            console.error('Error cargando video:', this.error);
-            // Mostrar imagen de fallback
-            const fallbackImg = this.nextElementSibling;
-            if (fallbackImg && fallbackImg.tagName === 'IMG') {
-                this.style.display = 'none';
-                fallbackImg.style.display = 'block';
+    productCards.forEach(card => {
+        const button = card.querySelector('.product-cta');
+        if (button && button.onclick) {
+            const buttonProductId = button.onclick.toString().match(/'([^']+)'/);
+            if (buttonProductId && buttonProductId[1] === productId) {
+                // Scroll suave al producto
+                card.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Destacar temporalmente el producto
+                highlightProduct(card);
+                
+                // Abrir modal después del scroll
+                setTimeout(() => {
+                    if (typeof openProductModal === 'function') {
+                        openProductModal(productId);
+                    }
+                }, 1000);
+            }
+        }
+    });
+}
+
+// Función para destacar un producto temporalmente
+function highlightProduct(productCard) {
+    // Agregar clase de highlight
+    productCard.classList.add('highlighted');
+    
+    // Quitar la clase después de 2 segundos
+    setTimeout(() => {
+        productCard.classList.remove('highlighted');
+    }, 2000);
+}
+
+// Función para rastrear clicks en el carousel
+function trackCarouselClick(productName, productId) {
+    // Analytics tracking
+    if (typeof trackEvent === 'function') {
+        trackEvent('Product Carousel', 'Click', productName);
+    }
+    
+    // Console log para debugging
+    console.log(`Navegando a producto: ${productName} (${productId})`);
+}
+
+// Función para pausar/reanudar el carousel
+function toggleCarouselAnimation(pause = true) {
+    const container = document.querySelector('.products-container');
+    if (!container) return;
+    
+    if (pause) {
+        container.style.animationPlayState = 'paused';
+    } else {
+        container.style.animationPlayState = 'running';
+    }
+}
+
+// Inicializar event listeners para productos
+function initializeProductLinks() {
+    // Agregar event listeners a los enlaces del carousel
+    const productLinks = document.querySelectorAll('.product-slide-link');
+    
+    productLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.includes('#')) {
+                const productId = href.split('#')[1];
+                const productName = this.querySelector('h3')?.textContent || 'Unknown Product';
+                
+                // Tracking del click
+                trackCarouselClick(productName, productId);
+                
+                // Agregar clase de loading visual (opcional)
+                this.classList.add('loading-navigation');
+                
+                // Remover clase después de un momento
+                setTimeout(() => {
+                    this.classList.remove('loading-navigation');
+                }, 300);
             }
         });
-
-        // Intentar cargar el video
-        video.load();
         
-        // Reproducir cuando sea posible
-        video.play().catch(error => {
-            console.log('Autoplay bloqueado:', error);
-            // El autoplay puede estar bloqueado, pero el video debería mostrarse
+        // Mejorar accesibilidad con teclado
+        link.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
         });
     });
+    
+    // Pausar carousel cuando el usuario está interactuando
+    const carousel = document.querySelector('.products-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => {
+            toggleCarouselAnimation(true);
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            toggleCarouselAnimation(false);
+        });
+        
+        // Pausar en focus para accesibilidad
+        productLinks.forEach(link => {
+            link.addEventListener('focus', () => {
+                toggleCarouselAnimation(true);
+            });
+            
+            link.addEventListener('blur', () => {
+                // Solo reanudar si ningún elemento del carousel tiene focus
+                setTimeout(() => {
+                    const focusedElement = document.activeElement;
+                    const carouselHasFocus = carousel.contains(focusedElement);
+                    if (!carouselHasFocus) {
+                        toggleCarouselAnimation(false);
+                    }
+                }, 100);
+            });
+        });
+    }
 }
 
 function startCarousel() {
@@ -279,24 +398,83 @@ function animateCounter(element) {
     }, 16);
 }
 
-// === CAROUSEL DE PRODUCTOS ===
+// === CAROUSEL DE PRODUCTOS INFINITO - VERSION MEJORADA ===
 function initializeProductsCarousel() {
-    const productsContainer = document.querySelector('.products-container');
+    console.log('Iniciando carrusel infinito...');
     
-    if (productsContainer) {
-        // Duplicar slides para efecto infinito
-        const slides = productsContainer.innerHTML;
-        productsContainer.innerHTML = slides + slides;
-
-        // Pausar animación en hover
-        productsContainer.addEventListener('mouseenter', function() {
-            this.style.animationPlayState = 'paused';
+    // Esperar un poco más para asegurar que el DOM esté listo
+    setTimeout(() => {
+        const productsContainer = document.querySelector('.products-container');
+        console.log('Container encontrado:', productsContainer);
+        
+        if (!productsContainer) return;
+        
+        const products = productsContainer.querySelectorAll('.product-slide-link');
+        console.log('Productos encontrados:', products.length);
+        
+        if (products.length === 0) return;
+        
+        // DUPLICAR PRODUCTOS PARA EFECTO INFINITO
+        const originalProducts = Array.from(products);
+        
+        // Crear una copia completa de todos los productos
+        originalProducts.forEach(product => {
+            const clone = product.cloneNode(true);
+            productsContainer.appendChild(clone);
         });
-
-        productsContainer.addEventListener('mouseleave', function() {
-            this.style.animationPlayState = 'running';
-        });
-    }
+        
+        // Configurar el container para scroll infinito
+        productsContainer.style.cssText = `
+            display: flex;
+            gap: 2rem;
+            animation: scrollProductsInfinite 25s linear infinite;
+            width: max-content;
+            will-change: transform;
+        `;
+        
+        // Crear la animación CSS infinita si no existe
+        let existingStyle = document.querySelector('#carousel-styles');
+        if (!existingStyle) {
+            const style = document.createElement('style');
+            style.id = 'carousel-styles';
+            style.innerHTML = `
+                @keyframes scrollProductsInfinite {
+                    0% { 
+                        transform: translateX(0); 
+                    }
+                    100% { 
+                        transform: translateX(-50%); 
+                    }
+                }
+                
+                .products-container:hover {
+                    animation-play-state: paused;
+                }
+                
+                /* Responsive speeds */
+                @media (max-width: 768px) {
+                    .products-container {
+                        animation-duration: 30s !important;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .products-container {
+                        animation-duration: 35s !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        console.log('Carrusel infinito aplicado con velocidad ajustada');
+        
+        // Re-aplicar event listeners a todos los elementos (originales y clonados)
+        setTimeout(() => {
+            initializeProductLinks();
+        }, 100);
+        
+    }, 500);
 }
 
 // === SMOOTH SCROLLING ===
@@ -540,3 +718,5 @@ if ('serviceWorker' in navigator) {
 // Exportar funciones globales necesarias para HTML
 window.changeSlide = changeSlide;
 window.currentSlide = currentSlideIndex;
+window.handleProductNavigation = handleProductNavigation;
+window.trackCarouselClick = trackCarouselClick;
