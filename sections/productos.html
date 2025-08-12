@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - FERDEZ Nutrición Animal</title>
+    <title>Subproductos - FERDEZ Nutrición Animal</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/productos.css">
     <script src="../scripts/productos.js"></script>
@@ -16,7 +16,7 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="../assets/images/logo-ferdez.png" alt="FERDEZ Logo" class="logo">
+                    <img src="../assets/imagenes/logo ferdez mas grande .png" alt="FERDEZ Logo" class="logo">
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
@@ -46,12 +46,12 @@
         <!-- Hero Section -->
         <section class="products-hero">
             <div class="hero-background">
-                <img src="../assets/images/productos-hero.jpg" alt="Productos FERDEZ">
+                <img src="../assets/imagenes/IMG_3914.jpg" alt="Subproductos FERDEZ">
                 <div class="hero-overlay"></div>
             </div>
             <div class="container">
                 <div class="hero-content">
-                    <h1>Nuestros Productos</h1>
+                    <h1>Nuestros Subproductos</h1>
                     <p class="hero-subtitle">Contamos con una cartera completa de subproductos derivados de maíz, soja, girasol, alfalfa y otros ingredientes de alto valor nutricional. Asesoramos al productor según su tipo de producción y temporada.</p>
                 </div>
             </div>
@@ -63,15 +63,15 @@
                 <div class="filter-controls">
                     <button class="filter-btn active" data-filter="all">
                         <i class="fas fa-th"></i>
-                        Todos los productos
+                        Todos los subproductos (16)
                     </button>
                     <button class="filter-btn" data-filter="humedos">
                         <i class="fas fa-tint"></i>
-                        Productos Húmedos (11)
+                        Subproductos Húmedos (1)
                     </button>
                     <button class="filter-btn" data-filter="secos">
                         <i class="fas fa-leaf"></i>
-                        Productos Secos (2)
+                        Subproductos Secos (15)
                     </button>
                     <button class="filter-btn" data-filter="tambo">
                         <i class="fas fa-home"></i>
@@ -88,28 +88,305 @@
         <!-- Products Grid -->
         <section class="products-section">
             <div class="container">
-                <!-- Productos Húmedos -->
                 <div class="products-grid">
-                    <!-- Burlanda Húmeda -->
+                    
+                    <!-- 1. Burlanda Húmeda de Maíz (WDGS) -->
                     <div class="product-card" data-category="humedos tambo feedlot">
                         <div class="product-image">
-                            <img src="../assets/images/productos/burlanda-humeda.jpg" alt="Burlanda Húmeda">
+                            <img src="../assets/imagenes/productos/Burlanda Humeda/Copia de DSC08081.jpg" alt="Burlanda Húmeda de Maíz WDGS">
                             <div class="product-badge humedo">Húmedo</div>
                         </div>
                         <div class="product-content">
-                            <h3>Burlanda Húmeda</h3>
-                            <p class="product-description">Subproducto de la destilería de maíz con alto contenido proteico y energético, ideal para ganado bovino.</p>
+                            <h3>Burlanda Húmeda de Maíz (WDGS)</h3>
+                            <p class="product-description">Subproducto húmedo de la destilería de maíz con alto contenido proteico y energético. Excelente palatabilidad y digestibilidad.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">31-36%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">25-29%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Energía Metab.:</span>
+                                    <span class="spec-value">3.4-3.7 Mcal/kg</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('burlanda-humeda-wdgs')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Pellet de Cáscara de Soja -->
+                    <div class="product-card" data-category="secos tambo">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Pellet de soja al 42_/Copia de DSC08031.jpg" alt="Pellet de Cáscara de Soja">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Pellet de Cáscara de Soja</h3>
+                            <p class="product-description">Fibra altamente digestible ideal para mantener la función ruminal y mejorar la digestión en bovinos lecheros.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">89-91%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">10-12%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">32-36%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pellet-cascara-soja')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Pellet de Alfalfa -->
+                    <div class="product-card" data-category="secos tambo">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Pellet de alfalfa/Copia de DSC08038.jpg" alt="Pellet de Alfalfa">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Pellet de Alfalfa</h3>
+                            <p class="product-description">Fuente natural de proteína, vitaminas y minerales. Rico en fibra efectiva para vacas lecheras de alta producción.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">90-92%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">19-21%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">30-35%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pellet-alfalfa')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 4. Expeller de Soja -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Expeller de Soja/Copia de DSC08046.jpg" alt="Expeller de Soja">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Expeller de Soja</h3>
+                            <p class="product-description">Concentrado proteico de alta calidad con excelente perfil de aminoácidos esenciales para producción animal.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">90-92%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">43.5-44.5%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Energía Metab.:</span>
+                                    <span class="spec-value">2.8-3.2 Mcal/kg</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('expeller-soja')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 5. Harina de Soja Hi Pro -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Harina de soja Hipro/Copia de DSC08008.jpg" alt="Harina de Soja Hi Pro">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Harina de Soja Hi Pro</h3>
+                            <p class="product-description">Máxima concentración proteica con alta solubilidad. Ideal para dietas de alta performance en producción intensiva.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">90%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">46-46.5%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Solubilidad Prot.:</span>
+                                    <span class="spec-value">78% mín</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('harina-soja-hi-pro')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 6. Pellet de Girasol Integral -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Pellet girasol integral/Copia de DSC07941.jpg" alt="Pellet de Girasol Integral">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Pellet de Girasol Integral</h3>
+                            <p class="product-description">Subproducto de girasol con balance ideal entre proteína y fibra. Aporta energía y mejora la palatabilidad.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">89-91%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">25-27%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">28-32%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pellet-girasol-integral')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 7. Harina de Soja Low Pro -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Harina de soja Lowpro/Copia de DSC08011.jpg" alt="Harina de Soja Low Pro">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Harina de Soja Low Pro</h3>
+                            <p class="product-description">Concentrado proteico con menor contenido de proteína, ideal para balancear dietas según requerimientos específicos.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">88-90%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">44%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">5-6%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('harina-soja-low-pro')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 8. Viruta de Pino -->
+                    <div class="product-card" data-category="secos tambo">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Viruta de pino/Copia de DSC07924.jpg" alt="Viruta de Pino">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Viruta de Pino</h3>
+                            <p class="product-description">Material de cama natural con excelente capacidad de absorción y propiedades antisépticas naturales.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Absorción:</span>
+                                    <span class="spec-value">Excelente</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Humedad:</span>
+                                    <span class="spec-value">< 15%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Granulometría:</span>
+                                    <span class="spec-value">Uniforme</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Cama</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('viruta-pino')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 9. Pellet de Cártamo -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Pellet de cartamo/Copia de DSC08021.jpg" alt="Pellet de Cártamo">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Pellet de Cártamo</h3>
+                            <p class="product-description">Subproducto rico en proteína y fibra digestible, con excelente palatabilidad para bovinos.</p>
                             <div class="product-specs">
                                 <div class="spec-item">
                                     <span class="spec-label">Proteína Bruta:</span>
-                                    <span class="spec-value">26-30%</span>
+                                    <span class="spec-value">20-24%</span>
                                 </div>
                                 <div class="spec-item">
-                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">25-30%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Grasa:</span>
+                                    <span class="spec-value">3-5%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pellet-cartamo')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 10. Harina de Camelina -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/" alt="Harina de Camelina">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Harina de Camelina</h3>
+                            <p class="product-description">Concentrado proteico con perfil de aminoácidos balanceado y alta digestibilidad.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
                                     <span class="spec-value">30-35%</span>
                                 </div>
                                 <div class="spec-item">
-                                    <span class="spec-label">Fibra Bruta:</span>
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">12-15%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Grasa:</span>
                                     <span class="spec-value">8-12%</span>
                                 </div>
                             </div>
@@ -117,161 +394,134 @@
                                 <span class="use-tag">Tambos</span>
                                 <span class="use-tag">Feedlots</span>
                             </div>
-                            <button class="product-cta" onclick="openProductModal('burlanda-humeda')">Ver detalles</button>
+                            <button class="product-cta" onclick="openProductModal('harina-camelina')">Ver detalles</button>
                         </div>
                     </div>
 
-                    <!-- Burlanda Seca -->
+                    <!-- 11. Burlanda Seca de Maíz (DDGS) -->
                     <div class="product-card" data-category="secos tambo feedlot">
                         <div class="product-image">
-                            <img src="../assets/images/productos/burlanda-seca.jpg" alt="Burlanda Seca">
+                            <img src="../assets/imagenes/productos/Burlanda Seca de maiz/Copia de DSC07928.jpg" alt="Burlanda Seca DDGS">
                             <div class="product-badge seco">Seco</div>
                         </div>
                         <div class="product-content">
-                            <h3>Burlanda Seca (DDGS)</h3>
-                            <p class="product-description">Granos secos de destilería con solubles, excelente fuente de proteína y energía concentrada.</p>
+                            <h3>Burlanda Seca de Maíz (DDGS)</h3>
+                            <p class="product-description">Granos secos de destilería con solubles. Concentra proteínas, grasas y minerales del grano original.</p>
                             <div class="product-specs">
-                                <div class="spec-item">
-                                    <span class="spec-label">Proteína Bruta:</span>
-                                    <span class="spec-value">28-32%</span>
-                                </div>
                                 <div class="spec-item">
                                     <span class="spec-label">Materia Seca:</span>
                                     <span class="spec-value">88-92%</span>
                                 </div>
                                 <div class="spec-item">
-                                    <span class="spec-label">Grasa:</span>
-                                    <span class="spec-value">8-12%</span>
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">25-30%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Energía Metab.:</span>
+                                    <span class="spec-value">3.4-3.7 Mcal/kg</span>
                                 </div>
                             </div>
                             <div class="product-uses">
                                 <span class="use-tag">Tambos</span>
                                 <span class="use-tag">Feedlots</span>
                             </div>
-                            <button class="product-cta" onclick="openProductModal('burlanda-seca')">Ver detalles</button>
+                            <button class="product-cta" onclick="openProductModal('burlanda-seca-ddgs')">Ver detalles</button>
                         </div>
                     </div>
 
-                    <!-- Cascarilla de Soja -->
-                    <div class="product-card" data-category="humedos tambo">
+                    <!-- 12. Pellet de Afrechillo de Trigo -->
+                    <div class="product-card" data-category="secos tambo feedlot">
                         <div class="product-image">
-                            <img src="../assets/images/productos/cascarilla-soja.jpg" alt="Cascarilla de Soja">
-                            <div class="product-badge humedo">Húmedo</div>
+                            <img src="../assets/imagenes/productos/Pellet de trigo/Copia de DSC07956.jpg" alt="Pellet de Afrechillo de Trigo">
+                            <div class="product-badge seco">Seco</div>
                         </div>
                         <div class="product-content">
-                            <h3>Cascarilla de Soja</h3>
-                            <p class="product-description">Fibra altamente digestible, excelente para mantener la rumia y mejorar la digestión.</p>
+                            <h3>Pellet de Afrechillo de Trigo</h3>
+                            <p class="product-description">Subproducto del trigo rico en fibra digestible y proteína, ideal para mantener la función ruminal.</p>
                             <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">87-91%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">13-15%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">13%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pellet-afrechillo-trigo')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 13. Pellet de Soja -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Pellet de soja al 42_/Copia de DSC08031.jpg" alt="Pellet de Soja">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Pellet de Soja</h3>
+                            <p class="product-description">Concentrado proteico peletizado de alta calidad con excelente palatabilidad y digestibilidad.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">88-90%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Proteína Bruta:</span>
+                                    <span class="spec-value">42-43%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Fibra Cruda:</span>
+                                    <span class="spec-value">3-5%</span>
+                                </div>
+                            </div>
+                            <div class="product-uses">
+                                <span class="use-tag">Tambos</span>
+                                <span class="use-tag">Feedlots</span>
+                            </div>
+                            <button class="product-cta" onclick="openProductModal('pellet-soja')">Ver detalles</button>
+                        </div>
+                    </div>
+
+                    <!-- 14. Hominy Feed -->
+                    <div class="product-card" data-category="secos tambo feedlot">
+                        <div class="product-image">
+                            <img src="../assets/imagenes/productos/Himiny feed/Copia de DSC07949.jpg" alt="Hominy Feed">
+                            <div class="product-badge seco">Seco</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>Hominy Feed</h3>
+                            <p class="product-description">Subproducto del maíz rico en energía y almidón, ideal para sistemas de engorde intensivo.</p>
+                            <div class="product-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Materia Seca:</span>
+                                    <span class="spec-value">80-85%</span>
+                                </div>
                                 <div class="spec-item">
                                     <span class="spec-label">Proteína Bruta:</span>
                                     <span class="spec-value">11-13%</span>
                                 </div>
                                 <div class="spec-item">
-                                    <span class="spec-label">Fibra Bruta:</span>
-                                    <span class="spec-value">35-40%</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Materia Seca:</span>
-                                    <span class="spec-value">85-90%</span>
-                                </div>
-                            </div>
-                            <div class="product-uses">
-                                <span class="use-tag">Tambos</span>
-                            </div>
-                            <button class="product-cta" onclick="openProductModal('cascarilla-soja')">Ver detalles</button>
-                        </div>
-                    </div>
-
-                    <!-- Pellet de Girasol -->
-                    <div class="product-card" data-category="secos tambo feedlot">
-                        <div class="product-image">
-                            <img src="../assets/images/productos/pellet-girasol.jpg" alt="Pellet de Girasol">
-                            <div class="product-badge seco">Seco</div>
-                        </div>
-                        <div class="product-content">
-                            <h3>Pellet de Girasol</h3>
-                            <p class="product-description">Rico en proteínas y grasas, aporta energía y mejora la palatabilidad de la ración.</p>
-                            <div class="product-specs">
-                                <div class="spec-item">
-                                    <span class="spec-label">Proteína Bruta:</span>
-                                    <span class="spec-value">30-34%</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Grasa:</span>
-                                    <span class="spec-value">1-3%</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Fibra Bruta:</span>
-                                    <span class="spec-value">12-15%</span>
+                                    <span class="spec-label">Almidón:</span>
+                                    <span class="spec-value">42-45%</span>
                                 </div>
                             </div>
                             <div class="product-uses">
                                 <span class="use-tag">Tambos</span>
                                 <span class="use-tag">Feedlots</span>
                             </div>
-                            <button class="product-cta" onclick="openProductModal('pellet-girasol')">Ver detalles</button>
+                            <button class="product-cta" onclick="openProductModal('hominy-feed')">Ver detalles</button>
                         </div>
                     </div>
 
-                    <!-- Pulpa de Citrus -->
-                    <div class="product-card" data-category="humedos feedlot">
-                        <div class="product-image">
-                            <img src="../assets/images/productos/pulpa-citrus.jpg" alt="Pulpa de Citrus">
-                            <div class="product-badge humedo">Húmedo</div>
-                        </div>
-                        <div class="product-content">
-                            <h3>Pulpa de Citrus Húmeda</h3>
-                            <p class="product-description">Alta palatabilidad y energía digestible, ideal para aumentar consumo y engorde.</p>
-                            <div class="product-specs">
-                                <div class="spec-item">
-                                    <span class="spec-label">Proteína Bruta:</span>
-                                    <span class="spec-value">6-8%</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Materia Seca:</span>
-                                    <span class="spec-value">20-25%</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Fibra Bruta:</span>
-                                    <span class="spec-value">12-15%</span>
-                                </div>
-                            </div>
-                            <div class="product-uses">
-                                <span class="use-tag">Feedlots</span>
-                            </div>
-                            <button class="product-cta" onclick="openProductModal('pulpa-citrus')">Ver detalles</button>
-                        </div>
-                    </div>
-
-                    <!-- Alfalfa Deshidratada -->
-                    <div class="product-card" data-category="humedos tambo">
-                        <div class="product-image">
-                            <img src="../assets/images/productos/alfalfa-deshidratada.jpg" alt="Alfalfa Deshidratada">
-                            <div class="product-badge humedo">Húmedo</div>
-                        </div>
-                        <div class="product-content">
-                            <h3>Alfalfa Deshidratada</h3>
-                            <p class="product-description">Fuente natural de vitaminas, minerales y proteína de alta calidad para bovinos lecheros.</p>
-                            <div class="product-specs">
-                                <div class="spec-item">
-                                    <span class="spec-label">Proteína Bruta:</span>
-                                    <span class="spec-value">16-20%</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Fibra Bruta:</span>
-                                    <span class="spec-value">25-30%</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Calcio:</span>
-                                    <span class="spec-value">1.2-1.5%</span>
-                                </div>
-                            </div>
-                            <div class="product-uses">
-                                <span class="use-tag">Tambos</span>
-                            </div>
-                            <button class="product-cta" onclick="openProductModal('alfalfa-deshidratada')">Ver detalles</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -282,29 +532,19 @@
                 <div class="advisory-content">
                     <div class="advisory-text">
                         <h2>Asesoramiento técnico personalizado</h2>
-                        <p>Nuestro equipo técnico te ayuda a seleccionar los productos más adecuados según tu tipo de producción, época del año y objetivos productivos.</p>
+                        <p>Nuestro equipo técnico te ayuda a seleccionar los Subproductos más adecuados según tu tipo de producción, época del año y objetivos productivos.</p>
                         <div class="advisory-features">
                             <div class="feature-item">
-                                <i class="fas fa-user-tie"></i>
-                                <span>Asesoramiento por tipo de rodeo y necesidad</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Disponibilidad durante todo el año</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Seguimiento técnico continuo</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-handshake"></i>
+                                <div class="feature-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
                                 <span>Atención directa y personalizada</span>
                             </div>
                         </div>
                         <a href="contacto.html" class="cta-button">Solicitar asesoramiento</a>
                     </div>
                     <div class="advisory-image">
-                        <img src="../assets/images/asesoramiento-tecnico.jpg" alt="Asesoramiento técnico FERDEZ">
+                        <img src="../assets/imagenes/IMG_3457.jpg" alt="Asesoramiento técnico FERDEZ">
                     </div>
                 </div>
             </div>
@@ -314,7 +554,7 @@
         <section class="products-cta-section">
             <div class="container">
                 <div class="cta-content">
-                    <h2>¿Necesitás información sobre nuestros productos?</h2>
+                    <h2>¿Necesitás información sobre nuestros Subproductos?</h2>
                     <p>Contactanos para recibir fichas técnicas completas, precios actualizados y asesoramiento personalizado.</p>
                     <div class="cta-buttons">
                         <a href="contacto.html" class="cta-button">Contactar ahora</a>
@@ -348,7 +588,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -356,17 +596,17 @@
                     <h4>Navegación</h4>
                     <ul>
                         <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="productos.html">Productos</a></li>
-                        <li><a href="empresa.html">La Empresa</a></li>
+                        <li><a href="productos.html">Subproductos</a></li>
+                        <li><a href="laEmpresa.html">La Empresa</a></li>
                         <li><a href="contacto.html">Contacto</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Productos</h4>
+                    <h4>Subproductos</h4>
                     <ul>
-                        <li><a href="#" onclick="filterProducts('humedos')">Productos Húmedos</a></li>
-                        <li><a href="#" onclick="filterProducts('secos')">Productos Secos</a></li>
+                        <li><a href="#" onclick="filterProducts('humedos')">Subproductos Húmedos</a></li>
+                        <li><a href="#" onclick="filterProducts('secos')">Subproductos Secos</a></li>
                         <li><a href="#" onclick="filterProducts('tambo')">Para Tambos</a></li>
                         <li><a href="#" onclick="filterProducts('feedlot')">Para Feedlots</a></li>
                     </ul>
@@ -390,5 +630,3 @@
 
     <script src="../scripts/main.js"></script>
     <script src="../scripts/productos.js"></script>
-</body>
-</html>
