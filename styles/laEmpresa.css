@@ -128,40 +128,82 @@
     margin-bottom: 1rem;
 }
 
-/* Historia Section */
+/* Historia Section - Modificada sin imagen */
 .historia-section {
     padding: 80px 0;
 }
 
-.historia-content {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 4rem;
-    align-items: start;
+/* Contenido modificado - una sola columna */
+.historia-content-modified {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.historia-text h2 {
+.historia-text-full {
+    width: 100%;
+}
+
+.historia-text-full h2 {
     color: var(--black);
     margin-bottom: 1.5rem;
     font-size: 2.5rem;
 }
 
-.historia-text .lead {
+.historia-text-full .lead-green {
     color: var(--primary-green);
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
-.historia-text p {
+.historia-text-full .lead {
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.historia-text-full p {
     color: var(--dark-gray);
     margin-bottom: 1.5rem;
     line-height: 1.7;
 }
 
-/* Timeline */
+/* Timeline con título integrado */
+.timeline-with-title {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Título del timeline */
+.timeline-header {
+    position: sticky;
+    top: 100px;
+}
+
+.timeline-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    font-family: var(--font-primary);
+    text-transform: lowercase;
+}
+
+.timeline-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-orange), var(--primary-green));
+    border-radius: 2px;
+}
+
+/* Timeline rediseñado */
 .timeline {
-    margin-top: 3rem;
     position: relative;
     padding-left: 2rem;
 }
@@ -178,15 +220,23 @@
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     padding-left: 3rem;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
     left: -8px;
-    top: 5px;
+    top: 8px;
     width: 16px;
     height: 16px;
     background: var(--primary-orange);
@@ -198,53 +248,87 @@
 .timeline-year {
     background: var(--primary-green);
     color: var(--white);
-    padding: 4px 12px;
-    border-radius: 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 700;
     display: inline-block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .timeline-content h4 {
     color: var(--black);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .timeline-content p {
     color: var(--dark-gray);
     margin: 0;
     font-size: 1rem;
+    line-height: 1.6;
 }
 
-.historia-image {
-    position: relative;
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .timeline-with-title {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .timeline-header {
+        position: static;
+        text-align: center;
+    }
+    
+    .timeline-title {
+        font-size: 2.5rem;
+    }
+    
+    .timeline-underline {
+        margin: 0 auto;
+    }
+    
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-item {
+        padding-left: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .historia-text-full h2 {
+        font-size: 2rem;
+    }
+    
+    .historia-text-full .lead-green {
+        font-size: 1.2rem;
+    }
 }
 
-.historia-image img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: var(--white);
-    padding: 2rem 1.5rem 1.5rem;
-    border-radius: 0 0 12px 12px;
-}
-
-.image-caption p {
-    margin: 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
+@media (max-width: 480px) {
+    .timeline-title {
+        font-size: 2rem;
+    }
+    
+    .timeline {
+        padding-left: 1rem;
+    }
+    
+    .timeline-item {
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Valores Section */

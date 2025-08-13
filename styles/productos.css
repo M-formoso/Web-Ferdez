@@ -474,32 +474,74 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Products CTA Section */
+/* Products CTA Section - Con más espaciado */
 .products-cta-section {
-    padding: 80px 0;
+    padding: 120px 0; /* Aumentado de 80px a 120px */
     background: var(--light-gray);
     text-align: center;
 }
 
 .products-cta-section h2 {
     color: var(--black);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem; /* Aumentado de 1rem a 2rem */
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    font-weight: 700;
 }
 
 .products-cta-section p {
     font-size: 1.2rem;
     color: var(--dark-gray);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Aumentado de 2rem a 3rem */
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
 }
 
-.cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+.cta-content {
+    padding: 2rem 0; /* Padding adicional */
+}
+
+/* Responsive con espaciado mantenido */
+@media (max-width: 768px) {
+    .products-cta-section {
+        padding: 100px 0; /* Espaciado reducido pero aún generoso en tablet */
+    }
+    
+    .products-cta-section h2 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .products-cta-section p {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .cta-content {
+        padding: 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-cta-section {
+        padding: 80px 0; /* Espaciado estándar en móvil */
+    }
+    
+    .products-cta-section h2 {
+        font-size: clamp(1.6rem, 6vw, 2rem);
+        margin-bottom: 1rem;
+    }
+    
+    .products-cta-section p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-content {
+        padding: 1rem 0;
+    }
 }
 
 /* Product Modal */

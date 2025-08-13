@@ -1,10 +1,10 @@
 /* FERDEZ - Contacto Styles */
 
-/* Contacto Hero Section */
+/* CONTACTO HERO SECTION - COMPACTO CON IMAGEN DIFUMINADA */
 .contacto-hero {
     position: relative;
-    height: 60vh;
-    min-height: 400px;
+    height: 50vh; /* Reducido de 60vh a 50vh */
+    min-height: 350px; /* Reducido de 400px */
     overflow: hidden;
     margin-top: 80px;
     display: flex;
@@ -24,38 +24,71 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    filter: blur(3px); /* Difuminado sutil */
+    transform: scale(1.05); /* Evita bordes al aplicar blur */
 }
 
+/* Overlay con gradiente en tonalidad de la empresa */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(247, 125, 28, 0.4));
+    background: linear-gradient(
+        135deg, 
+        rgba(65, 140, 166, 0.85), /* Azul de la imagen */
+        rgba(101, 183, 65, 0.75), /* Verde FERDEZ */
+        rgba(247, 125, 28, 0.65)  /* Naranja FERDEZ */
+    );
 }
 
+/* Contenido del hero - más compacto */
 .contacto-hero .hero-content {
     position: relative;
     z-index: 2;
     color: var(--white);
     text-align: center;
-    max-width: 800px;
+    max-width: 700px; /* Reducido de 800px */
     margin: 0 auto;
+    padding: 1.5rem 2rem; /* Reducido */
+    background: rgba(0, 0, 0, 0.4); /* Fondo más sutil */
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono del hero */
+.hero-icon {
+    width: 60px; /* Más pequeño */
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem; /* Reducido */
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .contacto-hero h1 {
     color: var(--white);
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 0.8rem; /* Reducido */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Más pequeño */
+    line-height: 1.2;
+    font-weight: 700;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem); /* Más pequeño */
     opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 400;
 }
 
 /* Section Labels */
@@ -197,6 +230,32 @@
 }
 
 @media (max-width: 768px) {
+    .contacto-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .contacto-hero .hero-content {
+        max-width: 90%;
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .hero-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin-bottom: 0.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+    
     .contact-methods-section {
         padding: 50px 0;
     }
@@ -261,6 +320,22 @@
 }
 
 @media (max-width: 480px) {
+    .contacto-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .contacto-hero .hero-content {
+        max-width: 95%;
+        padding: 1rem 1.2rem;
+    }
+    
+    .hero-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
     .contact-methods-section {
         padding: 40px 0;
     }
@@ -474,7 +549,134 @@
     font-size: 0.8rem;
 }
 
-/* Office Info Section */
+/* OFFICE MAP CONTAINER CON IMAGEN PREVIA */
+.office-map-container {
+    position: relative;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.map-preview {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.map-preview:hover {
+    transform: scale(1.02);
+}
+
+/* Imagen de fondo del mapa - USAR TU IMAGEN AQUÍ */
+.map-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/imagenes/imagenMapaFerdez.png'); /* TU IMAGEN DEL MAPA */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Fallback si no tienes la imagen */
+    background-color: #e8f4f8;
+}
+
+/* Si no tienes la imagen, quita el comentario de abajo para usar el fallback */
+/*
+.map-background {
+    background: linear-gradient(135deg, #e8f4f8, #d1ecf1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-background::before {
+    content: "📍 Villa María, Córdoba";
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+*/
+
+/* Overlay con información */
+.map-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 2rem 1.5rem 1.5rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.map-location-info h4 {
+    color: white;
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.map-location-info p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Botón Ver en mapa */
+.map-view-btn {
+    background: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.map-view-btn:hover {
+    background: #e56a0b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 108, 0, 0.3);
+}
+
+/* Pin de ubicación animado */
+.location-pin {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: var(--primary-orange);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    40% {
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+    60% {
+        transform: translate(-50%, -50%) translateY(-5px);
+    }
+}
+
+/* OFFICE INFO SECTION */
 .office-info-section {
     padding: 80px 0;
     background: var(--light-gray);
@@ -539,55 +741,57 @@
     line-height: 1.5;
 }
 
-.office-image {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+/* RESPONSIVE PARA OFFICE INFO */
+@media (max-width: 768px) {
+    .office-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .office-map-container {
+        order: -1;
+        height: 300px;
+        margin-top: 2rem;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .detail-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .map-overlay {
+        padding: 1.5rem 1rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .map-view-btn {
+        align-self: flex-end;
+    }
+    
+    .location-pin {
+        font-size: 1.5rem;
+    }
 }
 
-.office-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 2rem;
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.office-image:hover .image-overlay {
-    opacity: 1;
-}
-
-.view-map-btn {
-    background: var(--primary-orange);
-    color: var(--white);
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.view-map-btn:hover {
-    background: #e56a0b;
-    transform: translateY(-2px);
+@media (max-width: 480px) {
+    .office-map-container {
+        height: 250px;
+    }
+    
+    .map-location-info h4 {
+        font-size: 1rem;
+    }
+    
+    .map-location-info p {
+        font-size: 0.8rem;
+    }
 }
 
 /* FAQ Section */
@@ -913,30 +1117,8 @@
     }
 }
 
-/* Responsive Design */
+/* Responsive Design adicional para formulario */
 @media (max-width: 768px) {
-    .contacto-hero {
-        height: 50vh;
-        min-height: 300px;
-    }
-    
-    .contacto-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .contact-methods-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .contact-method {
-        padding: 2rem;
-    }
-    
     .contact-form {
         padding: 2rem;
     }
@@ -944,19 +1126,6 @@
     .form-row {
         grid-template-columns: 1fr;
         gap: 1rem;
-    }
-    
-    .office-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .office-image {
-        order: -1;
-    }
-    
-    .office-image img {
-        height: 250px;
     }
     
     .cta-buttons {
@@ -979,29 +1148,6 @@
 }
 
 @media (max-width: 480px) {
-    .contacto-hero {
-        height: 40vh;
-        min-height: 250px;
-    }
-    
-    .contacto-hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    
-    .contact-method {
-        padding: 1.5rem;
-    }
-    
-    .method-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
-    
     .contact-form {
         padding: 1.5rem;
     }
@@ -1016,16 +1162,6 @@
     .submit-btn {
         padding: 12px 30px;
         font-size: 1rem;
-    }
-    
-    .detail-item {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .detail-icon {
-        margin-right: 0;
-        margin-bottom: 1rem;
     }
     
     .faq-question {
@@ -1096,16 +1232,22 @@
 @media (prefers-reduced-motion: reduce) {
     .contact-method,
     .submit-btn,
-    .view-map-btn,
+    .map-view-btn,
     .faq-item,
-    .modal-content {
+    .modal-content,
+    .map-preview {
         transition: none;
     }
     
     .contact-method:hover,
     .submit-btn:hover,
-    .view-map-btn:hover {
+    .map-view-btn:hover,
+    .map-preview:hover {
         transform: none;
+    }
+    
+    .location-pin {
+        animation: none;
     }
     
     @keyframes modalSlideIn {
@@ -1118,6 +1260,12 @@
     @keyframes spin {
         from, to {
             transform: none;
+        }
+    }
+    
+    @keyframes bounce {
+        from, to {
+            transform: translate(-50%, -50%) translateY(0);
         }
     }
 }
