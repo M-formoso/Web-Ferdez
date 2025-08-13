@@ -29,42 +29,133 @@ function initializeApp() {
 }
 
 // === NAVEGACIÓN ===
+// MENÚ HAMBURGUESA - CÓDIGO CORREGIDO Y COMPLETO
+
+// Función principal para inicializar la navegación
 function initializeNavigation() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const body = document.body;
 
-    // Toggle menu móvil
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
+    // Verificar que los elementos existen
+    if (!navToggle || !navMenu) {
+        console.warn('Elementos de navegación no encontrados');
+        return;
     }
 
-    // Cerrar menu al hacer click en link
+    // Toggle menu móvil
+    navToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle clases activas
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        body.classList.toggle('nav-open');
+        
+        // Cambiar aria-expanded para accesibilidad
+        const isExpanded = navMenu.classList.contains('active');
+        navToggle.setAttribute('aria-expanded', isExpanded);
+        
+        console.log('Menu toggled:', isExpanded);
+    });
+
+    // Cerrar menu al hacer click en un link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
+            body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            
+            console.log('Menu closed by link click');
         });
     });
 
-    // Navbar sticky behavior
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-        } else {
-            header.style.background = '#ffffff';
-            header.style.backdropFilter = 'none';
+    // Cerrar menu al hacer click fuera de él
+    document.addEventListener('click', function(e) {
+        const isClickInsideNav = navMenu.contains(e.target) || navToggle.contains(e.target);
+        
+        if (!isClickInsideNav && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            
+            console.log('Menu closed by outside click');
         }
     });
 
-    // Active nav link based on scroll position
-    window.addEventListener('scroll', updateActiveNavLink);
+    // Cerrar menu con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            
+            console.log('Menu closed by Escape key');
+        }
+    });
+
+    // Cerrar menu automáticamente al cambiar a desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            
+            console.log('Menu closed by resize to desktop');
+        }
+    });
+
+    // Navbar sticky behavior mejorado
+    let lastScrollTop = 0;
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Cambiar background del header
+        if (scrollTop > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+            header.classList.add('scrolled');
+        } else {
+            header.style.background = '#ffffff';
+            header.style.backdropFilter = 'none';
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Inicializar atributos de accesibilidad
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-controls', 'nav-menu');
+    navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+    
+    if (navMenu.id === '') {
+        navMenu.id = 'nav-menu';
+    }
+
+    console.log('Navigation initialized successfully');
 }
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    initializeNavigation();
+});
+
+// También inicializar en window.load por si acaso
+window.addEventListener('load', function() {
+    // Solo inicializar si no se ha hecho ya
+    if (!document.querySelector('.nav-toggle[aria-expanded]')) {
+        initializeNavigation();
+    }
+});
 
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section');
