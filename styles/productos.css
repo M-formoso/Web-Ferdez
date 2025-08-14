@@ -1505,4 +1505,521 @@
         padding: 0 5px;
     }
 }
+}/* ===== CORRECCIÓN HERO RESPONSIVE PARA TODAS LAS SECCIONES ===== */
+/* Aplicar la misma lógica exitosa del inicio a contacto, empresa y productos */
+
+/* === CONTACTO HERO - CORREGIDO === */
+.contacto-hero {
+    position: relative;
+    height: 60vh; /* Reducido para mostrar más fondo */
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.contacto-hero .hero-background {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+}
+
+.contacto-hero .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(3px);
+    transform: scale(1.1);
+}
+
+.contacto-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(65, 140, 166, 0.85),
+        rgba(101, 183, 65, 0.75),
+        rgba(247, 125, 28, 0.65)
+    );
+}
+
+/* CONTENIDO COMPACTO COMO EN INICIO */
+.contacto-hero .hero-content {
+    position: absolute;
+    bottom: 60px; /* Misma posición que inicio */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--white);
+    text-align: center;
+    max-width: 600px; /* Reducido de 700px */
+    margin: 0;
+    padding: 1.2rem 1.8rem; /* Más compacto */
+    background: rgba(0, 0, 0, 0.5); /* Mismo fondo que inicio */
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.contacto-hero h1 {
+    color: var(--white);
+    margin-bottom: 0.3rem; /* Reducido */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem); /* Más pequeño */
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.contacto-hero .hero-subtitle {
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem); /* Más pequeño */
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* === EMPRESA HERO - CORREGIDO === */
+.empresa-hero {
+    position: relative;
+    height: 60vh; /* Reducido */
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.empresa-hero .hero-background {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+}
+
+.empresa-hero .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
+}
+
+.empresa-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
+}
+
+/* CONTENIDO COMPACTO */
+.empresa-hero .hero-content {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--white);
+    text-align: center;
+    max-width: 650px; /* Reducido */
+    margin: 0;
+    padding: 1.2rem 1.8rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.empresa-hero h1 {
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem); /* Más pequeño */
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.empresa-hero .hero-subtitle {
+    font-size: clamp(0.7rem, 1.8vw, 0.85rem); /* Más pequeño */
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* === PRODUCTS HERO - CORREGIDO === */
+.products-hero {
+    position: relative;
+    height: 60vh; /* Reducido */
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.products-hero .hero-background {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+}
+
+.products-hero .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
+}
+
+.products-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+}
+
+/* CONTENIDO COMPACTO */
+.products-hero .hero-content {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--white);
+    text-align: center;
+    max-width: 600px;
+    margin: 0;
+    padding: 1.2rem 1.8rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.products-hero h1 {
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.products-hero .hero-subtitle {
+    font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* ===== RESPONSIVE MOBILE - APLICAR MISMA LÓGICA DEL INICIO ===== */
+
+/* Tablet - 768px y menor */
+@media (max-width: 768px) {
+    /* CONTACTO */
+    .contacto-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 50px;
+        max-width: 85%; /* Reducido de 90% */
+        width: 85%;
+        padding: 0.9rem 1.2rem; /* Más compacto */
+        background: rgba(0, 0, 0, 0.6); /* Más transparente */
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(1rem, 3.2vw, 1.4rem); /* Más pequeño */
+        margin-bottom: 0.25rem;
+    }
+    
+    .contacto-hero .hero-subtitle {
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem); /* Más pequeño */
+        margin-bottom: 0;
+    }
+    
+    /* EMPRESA */
+    .empresa-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .empresa-hero .hero-content {
+        bottom: 50px;
+        max-width: 85%;
+        width: 85%;
+        padding: 0.9rem 1.2rem;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(0.9rem, 3vw, 1.3rem); /* Más pequeño */
+        margin-bottom: 0.25rem;
+    }
+    
+    .empresa-hero .hero-subtitle {
+        font-size: clamp(0.65rem, 2.2vw, 0.75rem);
+        margin-bottom: 0;
+    }
+    
+    /* PRODUCTOS */
+    .products-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 50px;
+        max-width: 85%;
+        width: 85%;
+        padding: 0.9rem 1.2rem;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(1rem, 3.2vw, 1.4rem);
+        margin-bottom: 0.25rem;
+    }
+    
+    .products-hero .hero-subtitle {
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+        margin-bottom: 0;
+    }
+}
+
+/* Mobile - 480px y menor */
+@media (max-width: 480px) {
+    /* CONTACTO */
+    .contacto-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 40px;
+        max-width: 80%; /* Más compacto */
+        width: 80%;
+        padding: 0.7rem 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.15;
+    }
+    
+    .contacto-hero .hero-subtitle {
+        font-size: clamp(0.6rem, 3vw, 0.75rem);
+        line-height: 1.2;
+    }
+    
+    /* EMPRESA */
+    .empresa-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .empresa-hero .hero-content {
+        bottom: 40px;
+        max-width: 80%;
+        width: 80%;
+        padding: 0.7rem 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(0.8rem, 3.8vw, 1.1rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.15;
+    }
+    
+    .empresa-hero .hero-subtitle {
+        font-size: clamp(0.55rem, 2.8vw, 0.7rem);
+        line-height: 1.2;
+    }
+    
+    /* PRODUCTOS */
+    .products-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 40px;
+        max-width: 80%;
+        width: 80%;
+        padding: 0.7rem 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.15;
+    }
+    
+    .products-hero .hero-subtitle {
+        font-size: clamp(0.6rem, 3vw, 0.75rem);
+        line-height: 1.2;
+    }
+}
+
+/* Mobile muy pequeño - 375px y menor */
+@media (max-width: 375px) {
+    /* CONTACTO */
+    .contacto-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 35px;
+        max-width: 75%;
+        width: 75%;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(0.8rem, 4.5vw, 1.1rem);
+        margin-bottom: 0.15rem;
+    }
+    
+    .contacto-hero .hero-subtitle {
+        font-size: clamp(0.55rem, 3.2vw, 0.7rem);
+    }
+    
+    /* EMPRESA */
+    .empresa-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .empresa-hero .hero-content {
+        bottom: 35px;
+        max-width: 75%;
+        width: 75%;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(0.7rem, 4.2vw, 1rem);
+        margin-bottom: 0.15rem;
+    }
+    
+    .empresa-hero .hero-subtitle {
+        font-size: clamp(0.5rem, 3vw, 0.65rem);
+    }
+    
+    /* PRODUCTOS */
+    .products-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 35px;
+        max-width: 75%;
+        width: 75%;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(0.8rem, 4.5vw, 1.1rem);
+        margin-bottom: 0.15rem;
+    }
+    
+    .products-hero .hero-subtitle {
+        font-size: clamp(0.55rem, 3.2vw, 0.7rem);
+    }
+}
+
+/* Landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .contacto-hero,
+    .empresa-hero,
+    .products-hero {
+        height: 85vh; /* Más alto en landscape */
+        min-height: 400px;
+    }
+    
+    .contacto-hero .hero-content,
+    .empresa-hero .hero-content,
+    .products-hero .hero-content {
+        bottom: 30px; /* Más bajo para mostrar más fondo */
+        max-width: 70%; /* Más estrecho */
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+/* ===== GARANTIZAR CONSISTENCIA ===== */
+
+/* Asegurar que todas las páginas tengan el mismo comportamiento */
+.contacto-hero .hero-icon,
+.empresa-hero .hero-icon,
+.products-hero .hero-icon {
+    display: none; /* Ocultar iconos si los hay para ser más compacto */
+}
+
+/* Estilos adicionales para mantener consistencia */
+.contacto-hero .hero-content,
+.empresa-hero .hero-content,
+.products-hero .hero-content {
+    /* Asegurar que el backdrop-filter funcione en todos los navegadores */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    
+    /* Fallback para navegadores que no soportan backdrop-filter */
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Mejorar contraste en móvil */
+@media (max-width: 480px) {
+    .contacto-hero .hero-content,
+    .empresa-hero .hero-content,
+    .products-hero .hero-content {
+        background: rgba(0, 0, 0, 0.75); /* Más opaco en móvil */
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+    }
+    
+    .contacto-hero h1,
+    .empresa-hero h1,
+    .products-hero h1 {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9); /* Sombra más fuerte */
+    }
+    
+    .contacto-hero .hero-subtitle,
+    .empresa-hero .hero-subtitle,
+    .products-hero .hero-subtitle {
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    }
 }

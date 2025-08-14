@@ -232,25 +232,34 @@
         <section class="logistica-section">
             <div class="container">
                 <div class="logistica-content">
-                    <div class="logistica-map">
-                        <img src="../assets/images/mapa-cobertura.jpg" alt="Mapa de cobertura FERDEZ">
-                        <div class="map-overlay">
-                            <div class="coverage-stats">
-                                <div class="stat-item">
-                                    <div class="stat-number">12</div>
-                                    <div class="stat-label">Provincias</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">500+</div>
-                                    <div class="stat-label">Clientes</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">15</div>
-                                    <div class="stat-label">Camiones</div>
-                                </div>
-                            </div>
+            <div class="logistica-map">
+                <!-- Intentar múltiples formatos de imagen -->
+                <picture>
+                    <source srcset="../assets/imagenes/mapacboberturaFerdez.webp" type="image/webp">
+                    <source srcset="../assets/imagenes/mapacboberturaFerdez.png" type="image/png">
+                    <source srcset="../assets/imagenes/mapacboberturaFerdez.jpg" type="image/jpeg">
+                    <img src="../assets/imagenes/mapacboberturaFerdez.png" 
+                         alt="Mapa de cobertura FERDEZ - 18 provincias, 200+ clientes, 3 camiones"
+                         loading="lazy"
+                         onerror="this.style.background='linear-gradient(135deg, #e8f4f8, #d1ecf1)'; this.style.color='#65B741'; this.innerHTML='🗺️ Mapa de Cobertura Nacional';">
+                </picture>
+                <div class="map-overlay">
+                    <div class="coverage-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">Provincias</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Clientes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Camiones</div>
                         </div>
                     </div>
+                </div>
+            </div>
                     
                     <div class="logistica-text">
                         <span class="section-label">Logística Propia</span>

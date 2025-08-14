@@ -1508,3 +1508,1041 @@
         }
     }
 }
+
+/* ===== CORRECCIÓN HERO RESPONSIVE PARA TODAS LAS SECCIONES ===== */
+/* Aplicar la misma lógica exitosa del inicio a contacto, empresa y productos */
+
+/* === CONTACTO HERO - CORREGIDO === */
+.contacto-hero {
+    position: relative;
+    height: 60vh; /* Reducido para mostrar más fondo */
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.contacto-hero .hero-background {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+}
+
+.contacto-hero .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(3px);
+    transform: scale(1.1);
+}
+
+.contacto-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(65, 140, 166, 0.85),
+        rgba(101, 183, 65, 0.75),
+        rgba(247, 125, 28, 0.65)
+    );
+}
+
+/* CONTENIDO COMPACTO COMO EN INICIO */
+.contacto-hero .hero-content {
+    position: absolute;
+    bottom: 60px; /* Misma posición que inicio */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--white);
+    text-align: center;
+    max-width: 600px; /* Reducido de 700px */
+    margin: 0;
+    padding: 1.2rem 1.8rem; /* Más compacto */
+    background: rgba(0, 0, 0, 0.5); /* Mismo fondo que inicio */
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.contacto-hero h1 {
+    color: var(--white);
+    margin-bottom: 0.3rem; /* Reducido */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem); /* Más pequeño */
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.contacto-hero .hero-subtitle {
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem); /* Más pequeño */
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* === EMPRESA HERO - CORREGIDO === */
+.empresa-hero {
+    position: relative;
+    height: 60vh; /* Reducido */
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.empresa-hero .hero-background {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+}
+
+.empresa-hero .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
+}
+
+.empresa-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
+}
+
+/* CONTENIDO COMPACTO */
+.empresa-hero .hero-content {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--white);
+    text-align: center;
+    max-width: 650px; /* Reducido */
+    margin: 0;
+    padding: 1.2rem 1.8rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.empresa-hero h1 {
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem); /* Más pequeño */
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.empresa-hero .hero-subtitle {
+    font-size: clamp(0.7rem, 1.8vw, 0.85rem); /* Más pequeño */
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* === PRODUCTS HERO - CORREGIDO === */
+.products-hero {
+    position: relative;
+    height: 60vh; /* Reducido */
+    min-height: 400px;
+    overflow: hidden;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.products-hero .hero-background {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
+}
+
+.products-hero .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1);
+}
+
+.products-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+}
+
+/* CONTENIDO COMPACTO */
+.products-hero .hero-content {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--white);
+    text-align: center;
+    max-width: 600px;
+    margin: 0;
+    padding: 1.2rem 1.8rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.products-hero h1 {
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.products-hero .hero-subtitle {
+    font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* ===== RESPONSIVE MOBILE - APLICAR MISMA LÓGICA DEL INICIO ===== */
+
+/* Tablet - 768px y menor */
+@media (max-width: 768px) {
+    /* CONTACTO */
+    .contacto-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 50px;
+        max-width: 85%; /* Reducido de 90% */
+        width: 85%;
+        padding: 0.9rem 1.2rem; /* Más compacto */
+        background: rgba(0, 0, 0, 0.6); /* Más transparente */
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(1rem, 3.2vw, 1.4rem); /* Más pequeño */
+        margin-bottom: 0.25rem;
+    }
+    
+    .contacto-hero .hero-subtitle {
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem); /* Más pequeño */
+        margin-bottom: 0;
+    }
+    
+    /* EMPRESA */
+    .empresa-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .empresa-hero .hero-content {
+        bottom: 50px;
+        max-width: 85%;
+        width: 85%;
+        padding: 0.9rem 1.2rem;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(0.9rem, 3vw, 1.3rem); /* Más pequeño */
+        margin-bottom: 0.25rem;
+    }
+    
+    .empresa-hero .hero-subtitle {
+        font-size: clamp(0.65rem, 2.2vw, 0.75rem);
+        margin-bottom: 0;
+    }
+    
+    /* PRODUCTOS */
+    .products-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 50px;
+        max-width: 85%;
+        width: 85%;
+        padding: 0.9rem 1.2rem;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(1rem, 3.2vw, 1.4rem);
+        margin-bottom: 0.25rem;
+    }
+    
+    .products-hero .hero-subtitle {
+        font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+        margin-bottom: 0;
+    }
+}
+
+/* Mobile - 480px y menor */
+@media (max-width: 480px) {
+    /* CONTACTO */
+    .contacto-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 40px;
+        max-width: 80%; /* Más compacto */
+        width: 80%;
+        padding: 0.7rem 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.15;
+    }
+    
+    .contacto-hero .hero-subtitle {
+        font-size: clamp(0.6rem, 3vw, 0.75rem);
+        line-height: 1.2;
+    }
+    
+    /* EMPRESA */
+    .empresa-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .empresa-hero .hero-content {
+        bottom: 40px;
+        max-width: 80%;
+        width: 80%;
+        padding: 0.7rem 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(0.8rem, 3.8vw, 1.1rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.15;
+    }
+    
+    .empresa-hero .hero-subtitle {
+        font-size: clamp(0.55rem, 2.8vw, 0.7rem);
+        line-height: 1.2;
+    }
+    
+    /* PRODUCTOS */
+    .products-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 40px;
+        max-width: 80%;
+        width: 80%;
+        padding: 0.7rem 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        margin-bottom: 0.2rem;
+        line-height: 1.15;
+    }
+    
+    .products-hero .hero-subtitle {
+        font-size: clamp(0.6rem, 3vw, 0.75rem);
+        line-height: 1.2;
+    }
+}
+
+/* Mobile muy pequeño - 375px y menor */
+@media (max-width: 375px) {
+    /* CONTACTO */
+    .contacto-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 35px;
+        max-width: 75%;
+        width: 75%;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(0.8rem, 4.5vw, 1.1rem);
+        margin-bottom: 0.15rem;
+    }
+    
+    .contacto-hero .hero-subtitle {
+        font-size: clamp(0.55rem, 3.2vw, 0.7rem);
+    }
+    
+    /* EMPRESA */
+    .empresa-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .empresa-hero .hero-content {
+        bottom: 35px;
+        max-width: 75%;
+        width: 75%;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .empresa-hero h1 {
+        font-size: clamp(0.7rem, 4.2vw, 1rem);
+        margin-bottom: 0.15rem;
+    }
+    
+    .empresa-hero .hero-subtitle {
+        font-size: clamp(0.5rem, 3vw, 0.65rem);
+    }
+    
+    /* PRODUCTOS */
+    .products-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .products-hero .hero-content {
+        bottom: 35px;
+        max-width: 75%;
+        width: 75%;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .products-hero h1 {
+        font-size: clamp(0.8rem, 4.5vw, 1.1rem);
+        margin-bottom: 0.15rem;
+    }
+    
+    .products-hero .hero-subtitle {
+        font-size: clamp(0.55rem, 3.2vw, 0.7rem);
+    }
+}
+
+/* Landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .contacto-hero,
+    .empresa-hero,
+    .products-hero {
+        height: 85vh; /* Más alto en landscape */
+        min-height: 400px;
+    }
+    
+    .contacto-hero .hero-content,
+    .empresa-hero .hero-content,
+    .products-hero .hero-content {
+        bottom: 30px; /* Más bajo para mostrar más fondo */
+        max-width: 70%; /* Más estrecho */
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+/* ===== GARANTIZAR CONSISTENCIA ===== */
+
+/* Asegurar que todas las páginas tengan el mismo comportamiento */
+.contacto-hero .hero-icon,
+.empresa-hero .hero-icon,
+.products-hero .hero-icon {
+    display: none; /* Ocultar iconos si los hay para ser más compacto */
+}
+
+/* Estilos adicionales para mantener consistencia */
+.contacto-hero .hero-content,
+.empresa-hero .hero-content,
+.products-hero .hero-content {
+    /* Asegurar que el backdrop-filter funcione en todos los navegadores */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    
+    /* Fallback para navegadores que no soportan backdrop-filter */
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Mejorar contraste en móvil */
+@media (max-width: 480px) {
+    .contacto-hero .hero-content,
+    .empresa-hero .hero-content,
+    .products-hero .hero-content {
+        background: rgba(0, 0, 0, 0.75); /* Más opaco en móvil */
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+    }
+    
+    .contacto-hero h1,
+    .empresa-hero h1,
+    .products-hero h1 {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9); /* Sombra más fuerte */
+    }
+    
+    .contacto-hero .hero-subtitle,
+    .empresa-hero .hero-subtitle,
+    .products-hero .hero-subtitle {
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* ===== CSS CORREGIDO PARA CHECKBOXES ===== */
+
+/* Base del checkbox label */
+.checkbox-label {
+    display: flex !important;
+    align-items: flex-start !important;
+    cursor: pointer;
+    gap: 12px;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    position: relative;
+    min-height: 60px;
+}
+
+/* Input oculto */
+.checkbox-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Checkmark personalizado */
+.checkmark {
+    height: 24px;
+    width: 24px;
+    background-color: var(--white);
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Texto del checkbox - ESTRUCTURA CORREGIDA */
+.checkbox-text {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dark-gray);
+    font-weight: 500;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    display: block;
+    white-space: normal;
+}
+
+/* Estado checked */
+.checkbox-label input:checked ~ .checkmark {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+/* Checkmark tick */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-label input:checked ~ .checkmark:after {
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -60%) rotate(45deg);
+}
+
+/* Estilos específicos para cada tipo */
+.checkbox-privacy {
+    background: rgba(101, 183, 65, 0.08);
+    border: 2px solid rgba(101, 183, 65, 0.2);
+}
+
+.checkbox-newsletter {
+    background: rgba(247, 125, 28, 0.05);
+    border: 2px solid rgba(247, 125, 28, 0.15);
+}
+
+/* Enlaces dentro del texto */
+.checkbox-text a {
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline;
+}
+
+.checkbox-text a:hover {
+    text-decoration: underline;
+    color: #e56a0b;
+}
+
+/* Estados hover */
+.checkbox-privacy:hover {
+    background: rgba(101, 183, 65, 0.12);
+    border-color: rgba(101, 183, 65, 0.3);
+}
+
+.checkbox-newsletter:hover {
+    background: rgba(247, 125, 28, 0.08);
+    border-color: rgba(247, 125, 28, 0.25);
+}
+
+.checkbox-label:hover .checkmark {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 2px rgba(101, 183, 65, 0.1);
+}
+
+/* === RESPONSIVE === */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .checkbox-label {
+        gap: 10px;
+        padding: 0.9rem;
+        min-height: 55px;
+    }
+    
+    .checkmark {
+        height: 22px;
+        width: 22px;
+        margin-top: 1px;
+    }
+    
+    .checkbox-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .checkbox-label {
+        gap: 8px;
+        padding: 0.8rem;
+        min-height: 50px;
+        border-radius: 10px;
+    }
+    
+    .checkmark {
+        height: 20px;
+        width: 20px;
+        border-width: 2px;
+        margin-top: 1px;
+    }
+    
+    .checkbox-text {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .checkbox-label input:checked ~ .checkmark:after {
+        width: 5px;
+        height: 8px;
+        border-width: 0 1.5px 1.5px 0;
+    }
+}
+
+/* Mobile pequeño */
+@media (max-width: 375px) {
+    .checkbox-label {
+        gap: 6px;
+        padding: 0.7rem;
+        min-height: 45px;
+    }
+    
+    .checkmark {
+        height: 18px;
+        width: 18px;
+    }
+    
+    .checkbox-text {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+}
+
+/* Focus para accesibilidad */
+.checkbox-label:focus-within .checkmark {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+/* Asegurar área táctil adecuada */
+.checkbox-label {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* === CORRECCIÓN ESPECÍFICA DEL TEXTO === */
+
+/* Forzar que el texto se comporte naturalmente */
+.checkbox-text {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+    -moz-hyphens: none !important;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+}
+
+/* Specific text styling to prevent weird breaks */
+.checkbox-privacy .checkbox-text {
+    /* Forzar que "política de privacidad" no se rompa */
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+
+.checkbox-newsletter .checkbox-text {
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+
+/* === DEBUGGING - PARA VER LA ESTRUCTURA === */
+/*
+.checkbox-label {
+    outline: 1px dashed red;
+}
+.checkmark {
+    outline: 1px dashed blue;
+}
+.checkbox-text {
+    outline: 1px dashed green;
+}
+*/
+
+/* ===== CORRECCIÓN ESPACIO EN BLANCO ANTES DE UBICACIÓN ===== */
+/* Eliminar espacio excesivo entre formulario y office-info-section */
+
+/* === AJUSTAR PADDING Y MARGIN DE SECCIONES === */
+
+/* Contact Form Section - Reducir padding inferior */
+.contact-form-section {
+    padding: 80px 0 40px 0; /* Reducido padding inferior de 80px a 40px */
+}
+
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 60px 0 30px 0; /* Reducido en tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-section {
+        padding: 50px 0 20px 0; /* Muy reducido en móvil */
+    }
+}
+
+/* Office Info Section - Reducir padding superior */
+.office-info-section {
+    padding: 40px 0 80px 0; /* Reducido padding superior de 80px a 40px */
+    background: var(--light-gray);
+    margin-top: 0; /* Asegurar que no hay margin extra */
+}
+
+@media (max-width: 768px) {
+    .office-info-section {
+        padding: 30px 0 60px 0; /* Reducido en tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .office-info-section {
+        padding: 20px 0 50px 0; /* Muy reducido en móvil */
+    }
+}
+
+/* === ELIMINAR MARGINS EXTRA === */
+
+/* Form Content - Sin margin inferior */
+.form-content {
+    margin-bottom: 0;
+}
+
+.contact-form {
+    margin-bottom: 0;
+}
+
+.form-actions {
+    margin-bottom: 0; /* Sin margin en el final del form */
+    padding-bottom: 0;
+}
+
+/* Office Content - Sin margin superior */
+.office-content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* === ESPECÍFICO PARA EL TEXTO "Te contactaremos..." === */
+
+/* Si el texto "Te contactaremos dentro de las próximas 24 horas" está creando espacio */
+.form-note {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.submit-btn + .form-note {
+    margin-top: 0.8rem;
+    margin-bottom: 0;
+}
+
+/* === CONTENEDORES GENERALES === */
+
+/* Asegurar que las secciones estén pegadas */
+section + section {
+    margin-top: 0;
+}
+
+/* Container sin padding extra */
+.container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* === SI HAY UN DIV VACÍO O ELEMENTO EXTRA === */
+
+/* Remover cualquier elemento que pueda estar causando espacio */
+.contact-form-section + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.office-info-section::before {
+    content: none; /* Remover cualquier pseudo-elemento */
+}
+
+/* === AJUSTES ESPECÍFICOS MÓVIL === */
+
+@media (max-width: 480px) {
+    /* Hacer las secciones más compactas */
+    .contact-form-section,
+    .office-info-section {
+        margin: 0;
+    }
+    
+    /* Form más compacto */
+    .contact-form {
+        margin-bottom: 0;
+        padding-bottom: 1.5rem; /* Padding mínimo */
+    }
+    
+    .form-actions {
+        padding-top: 1rem; /* Reducido */
+        margin-bottom: 0;
+    }
+    
+    /* Office info más pegado */
+    .office-content {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    
+    .office-text {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    
+    /* Section label sin margin extra */
+    .section-label {
+        margin-bottom: 0.8rem; /* Reducido */
+        margin-top: 0;
+    }
+}
+
+/* === DEBUGGING - USAR TEMPORALMENTE PARA IDENTIFICAR EL PROBLEMA === */
+/*
+.contact-form-section {
+    background: rgba(255, 0, 0, 0.1) !important;
+    border: 2px solid red;
+}
+
+.office-info-section {
+    background: rgba(0, 255, 0, 0.1) !important;
+    border: 2px solid green;
+}
+
+.contact-form-section * {
+    border: 1px dashed blue;
+}
+*/
+
+/* === SOLUCIÓN AGRESIVA SI EL PROBLEMA PERSISTE === */
+
+/* Forzar que las secciones estén pegadas */
+.office-info-section {
+    margin-top: -20px !important; /* Overlap ligero */
+}
+
+@media (max-width: 768px) {
+    .office-info-section {
+        margin-top: -15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .office-info-section {
+        margin-top: -10px !important;
+    }
+}
+
+/* === ALTERNATIVA: USAR FLEXBOX PARA CONTROL TOTAL === */
+
+/* Si las secciones están en un contenedor padre */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Sin gap entre secciones */
+}
+
+.main-content section {
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+@media (max-width: 480px) {
+    .main-content section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+/* === RESETEAR CUALQUIER MARGEN DE ELEMENTOS HERMANOS === */
+
+/* Si hay elementos entre las secciones */
+br {
+    display: none; /* Ocultar saltos de línea */
+}
+
+.spacer,
+.gap,
+.divider {
+    display: none; /* Ocultar elementos espaciadores */
+}
+
+/* === AJUSTE FINO DEL FLUJO === */
+
+/* Asegurar transición suave entre secciones */
+.contact-form-section {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.office-info-section {
+    border-top: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* === PARA EL BOTÓN "ENVIAR CONSULTA" === */
+
+/* Si el botón está causando espacio extra */
+.submit-btn {
+    margin-bottom: 0 !important;
+}
+
+.form-actions {
+    border-bottom: none;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+    .form-actions {
+        padding-bottom: 0.5rem;
+    }
+}
+
+/* === CORRECCIÓN ESPECÍFICA PARA LA TRANSICIÓN === */
+
+/* Hacer que el cambio de blanco a gris sea inmediato */
+.contact-form-section {
+    background: var(--white);
+    position: relative;
+    z-index: 2;
+}
+
+.contact-form-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--light-gray);
+}
+
+/* === AJUSTE FINAL === */
+
+/* Si todo lo anterior no funciona, usar esta solución directa */
+@media (max-width: 480px) {
+    /* Espaciado muy específico para móvil */
+    .contact-form-section {
+        padding-bottom: 10px !important;
+    }
+    
+    .office-info-section {
+        padding-top: 10px !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Asegurar que no hay elementos intermedios */
+    .contact-form-section + * + .office-info-section {
+        margin-top: -20px !important;
+    }
+}
