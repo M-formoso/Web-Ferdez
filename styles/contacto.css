@@ -1,10 +1,12 @@
 /* FERDEZ - Contacto Styles */
 
-/* CONTACTO HERO SECTION - COMPACTO CON IMAGEN DIFUMINADA */
+/* === PARA styles/contacto.css - HERO RESPONSIVE === */
+
+/* Contacto Hero - Aplicar misma lógica que inicio */
 .contacto-hero {
     position: relative;
-    height: 50vh; /* Reducido de 60vh a 50vh */
-    min-height: 350px; /* Reducido de 400px */
+    height: 60vh; /* Más alto */
+    min-height: 400px;
     overflow: hidden;
     margin-top: 80px;
     display: flex;
@@ -13,10 +15,12 @@
 
 .hero-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -50px; /* Expandir imagen */
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
 }
 
 .hero-background img {
@@ -24,11 +28,11 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: blur(3px); /* Difuminado sutil */
-    transform: scale(1.05); /* Evita bordes al aplicar blur */
+    filter: blur(3px);
+    transform: scale(1.1);
 }
 
-/* Overlay con gradiente en tonalidad de la empresa */
+/* Overlay mejorado */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -37,60 +41,92 @@
     height: 100%;
     background: linear-gradient(
         135deg, 
-        rgba(65, 140, 166, 0.85), /* Azul de la imagen */
-        rgba(101, 183, 65, 0.75), /* Verde FERDEZ */
-        rgba(247, 125, 28, 0.65)  /* Naranja FERDEZ */
+        rgba(65, 140, 166, 0.85),
+        rgba(101, 183, 65, 0.75),
+        rgba(247, 125, 28, 0.65)
     );
 }
 
-/* Contenido del hero - más compacto */
+/* Contenido posicionado como en inicio */
 .contacto-hero .hero-content {
-    position: relative;
+    position: absolute;
+    bottom: 60px; /* Posición inferior */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
     color: var(--white);
     text-align: center;
-    max-width: 700px; /* Reducido de 800px */
-    margin: 0 auto;
-    padding: 1.5rem 2rem; /* Reducido */
-    background: rgba(0, 0, 0, 0.4); /* Fondo más sutil */
+    max-width: 700px;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Icono del hero */
-.hero-icon {
-    width: 60px; /* Más pequeño */
-    height: 60px;
-    margin: 0 auto 1rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem; /* Reducido */
-    color: var(--white);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
 .contacto-hero h1 {
     color: var(--white);
-    margin-bottom: 0.8rem; /* Reducido */
+    margin-bottom: 0.3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Más pequeño */
-    line-height: 1.2;
-    font-weight: 700;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    line-height: 1.1;
+    font-weight: 600;
 }
 
 .hero-subtitle {
-    font-size: clamp(0.9rem, 2vw, 1.1rem); /* Más pequeño */
+    font-size: 0.85rem;
     opacity: 0.95;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    line-height: 1.4;
+    line-height: 1.3;
     margin: 0;
     font-weight: 400;
 }
 
+/* Responsive para contacto hero */
+@media (max-width: 768px) {
+    .contacto-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 50px;
+        max-width: 90%;
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+        margin-bottom: 0.25rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacto-hero {
+        height: 45vh;
+        min-height: 300px;
+    }
+    
+    .contacto-hero .hero-content {
+        bottom: 40px;
+        max-width: 95%;
+        padding: 1rem 1.2rem;
+    }
+    
+    .contacto-hero h1 {
+        font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+        margin-bottom: 0.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.75rem;
+    }
+}
 /* Section Labels */
 .section-label {
     display: inline-block;
@@ -1109,6 +1145,209 @@
     border-radius: 50%;
     border-top-color: var(--white);
     animation: spin 1s ease-in-out infinite;
+}
+/* === CSS ESPECÍFICO PARA styles/contacto.css - CONTACTO CTA === */
+
+/* Contacto CTA Section - FONDO VERDE */
+.contacto-cta-section {
+    padding: 80px 0 !important;
+    background: linear-gradient(135deg, var(--primary-green), #4a9a2f) !important;
+    color: var(--white) !important;
+    text-align: center;
+}
+
+.contacto-cta-section .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contacto-cta-section h2 {
+    color: var(--white) !important;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.contacto-cta-section p {
+    font-size: 1.2rem;
+    color: var(--white) !important;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* BOTONES HORIZONTALES PARA CONTACTO CTA */
+.contacto-cta-section .cta-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: nowrap !important;
+    padding: 0 15px;
+}
+
+.contacto-cta-section .cta-button {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--primary-orange), #ff8c3a) !important;
+    color: var(--white) !important;
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-orange);
+    text-align: center;
+    flex: 1;
+    max-width: 170px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(247, 125, 28, 0.3);
+}
+
+.contacto-cta-section .cta-button:hover {
+    background: linear-gradient(135deg, #e56a0b, #ff7a2a) !important;
+    color: var(--white) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(239, 108, 0, 0.4);
+}
+
+.contacto-cta-section .cta-button-outline {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent !important;
+    color: var(--white) !important;
+    padding: 12px 24px;
+    border: 2px solid var(--white) !important;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1;
+    max-width: 170px;
+    white-space: nowrap;
+}
+
+.contacto-cta-section .cta-button-outline:hover {
+    background: var(--white) !important;
+    color: var(--primary-green) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+.contacto-cta-section .cta-button-outline i {
+    font-size: 1rem;
+    color: inherit;
+}
+
+/* === RESPONSIVE PARA CONTACTO CTA === */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .contacto-cta-section {
+        padding: 60px 0 !important;
+    }
+    
+    .contacto-cta-section .cta-buttons {
+        flex-direction: row !important;
+        gap: 0.8rem;
+        padding: 0 20px;
+    }
+    
+    .contacto-cta-section .cta-button,
+    .contacto-cta-section .cta-button-outline {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        max-width: 160px;
+    }
+    
+    .contacto-cta-section h2 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .contacto-cta-section p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+    .contacto-cta-section {
+        padding: 50px 0 !important;
+    }
+    
+    .contacto-cta-section .cta-buttons {
+        flex-direction: row !important;
+        gap: 0.6rem;
+        padding: 0 15px;
+        justify-content: space-between;
+    }
+    
+    .contacto-cta-section .cta-button,
+    .contacto-cta-section .cta-button-outline {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        max-width: 150px;
+        min-width: 130px;
+        flex: 1;
+    }
+    
+    .contacto-cta-section .cta-button-outline {
+        border-width: 2px !important;
+    }
+    
+    .contacto-cta-section h2 {
+        font-size: clamp(1.6rem, 6vw, 2rem);
+        margin-bottom: 1rem;
+        line-height: 1.1;
+    }
+    
+    .contacto-cta-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 375px) {
+    .contacto-cta-section .cta-buttons {
+        gap: 0.4rem;
+        padding: 0 10px;
+    }
+    
+    .contacto-cta-section .cta-button,
+    .contacto-cta-section .cta-button-outline {
+        padding: 8px 14px;
+        font-size: 0.75rem;
+        max-width: 140px;
+        min-width: 120px;
+    }
+}
+
+/* Landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .contacto-cta-section .cta-buttons {
+        flex-direction: row !important;
+        gap: 1rem;
+    }
+    
+    .contacto-cta-section .cta-button,
+    .contacto-cta-section .cta-button-outline {
+        max-width: 180px;
+        padding: 10px 20px;
+    }
 }
 
 @keyframes spin {

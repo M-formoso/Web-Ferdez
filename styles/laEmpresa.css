@@ -1,23 +1,26 @@
 /* FERDEZ - La Empresa Styles */
 
-/* Empresa Hero Section - Texto más pequeño y posición inferior */
+/* === PARA styles/laEmpresa.css - HERO RESPONSIVE CORREGIDO === */
+
+/* Empresa Hero - Aplicar misma lógica */
 .empresa-hero {
     position: relative;
-    height: 70vh;
+    height: 70vh; /* Mantener altura */
     min-height: 500px;
     overflow: hidden;
     margin-top: 80px;
     display: flex;
-    align-items: flex-end; /* Cambiado de center a flex-end */
-    justify-content: center;
+    align-items: center;
 }
 
 .hero-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -50px; /* Expandir imagen */
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    width: calc(100% + 100px);
+    height: calc(100% + 100px);
 }
 
 .hero-background img {
@@ -25,9 +28,10 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transform: scale(1.1);
 }
 
-/* Overlay más fuerte para mejor legibilidad del texto centrado */
+/* Overlay mejorado */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -37,15 +41,18 @@
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
 }
 
-/* Contenido en la parte inferior, tamaño consistente con otros heros */
+/* Contenido posicionado como en inicio */
 .empresa-hero .hero-content {
-    position: relative;
+    position: absolute;
+    bottom: 60px; /* Posición inferior */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
     color: var(--white);
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 80px auto; /* Margin bottom para separar del borde */
-    padding: 1.5rem 2rem; /* Padding reducido */
+    margin: 0;
+    padding: 1.5rem 2rem;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     backdrop-filter: blur(8px);
@@ -54,15 +61,15 @@
 
 .empresa-hero h1 {
     color: var(--white);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem); /* Mismo tamaño que productos */
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
     font-weight: 600;
     line-height: 1.1;
 }
 
 .hero-subtitle {
-    font-size: clamp(0.85rem, 1.5vw, 1rem); /* Mismo tamaño que productos */
+    font-size: 0.85rem;
     opacity: 0.95;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     line-height: 1.3;
@@ -70,7 +77,7 @@
     font-weight: 400;
 }
 
-/* Responsive para hero en posición inferior */
+/* Responsive para empresa hero */
 @media (max-width: 768px) {
     .empresa-hero {
         height: 60vh;
@@ -78,18 +85,18 @@
     }
     
     .empresa-hero .hero-content {
+        bottom: 50px;
         max-width: 90%;
-        margin: 0 20px 40px 20px; /* Margin bottom menor en mobile */
         padding: 1.2rem 1.5rem;
     }
     
     .empresa-hero h1 {
         font-size: clamp(1.2rem, 4vw, 1.6rem);
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.25rem;
     }
     
     .hero-subtitle {
-        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+        font-size: 0.8rem;
     }
 }
 
@@ -100,18 +107,18 @@
     }
     
     .empresa-hero .hero-content {
+        bottom: 40px;
         max-width: 95%;
-        margin: 0 15px 30px 15px; /* Margin bottom aún menor */
         padding: 1rem 1.2rem;
     }
     
     .empresa-hero h1 {
         font-size: clamp(1.1rem, 4.5vw, 1.4rem);
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.2rem;
     }
     
     .hero-subtitle {
-        font-size: clamp(0.75rem, 3vw, 0.9rem);
+        font-size: 0.75rem;
     }
 }
 /* Section Labels */
@@ -948,6 +955,209 @@
 .timeline-item.visible {
     opacity: 1;
     transform: translateX(0);
+}
+/* === CSS ESPECÍFICO PARA styles/laEmpresa.css - EMPRESA CTA === */
+
+/* Empresa CTA Section - FONDO VERDE */
+.empresa-cta-section {
+    padding: 80px 0 !important;
+    background: linear-gradient(135deg, var(--primary-green), #4a9a2f) !important;
+    color: var(--white) !important;
+    text-align: center;
+}
+
+.empresa-cta-section .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.empresa-cta-section h2 {
+    color: var(--white) !important;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.empresa-cta-section p {
+    font-size: 1.2rem;
+    color: var(--white) !important;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* BOTONES HORIZONTALES PARA EMPRESA CTA */
+.empresa-cta-section .cta-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: nowrap !important;
+    padding: 0 15px;
+}
+
+.empresa-cta-section .cta-button {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--primary-orange), #ff8c3a) !important;
+    color: var(--white) !important;
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-orange);
+    text-align: center;
+    flex: 1;
+    max-width: 170px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(247, 125, 28, 0.3);
+}
+
+.empresa-cta-section .cta-button:hover {
+    background: linear-gradient(135deg, #e56a0b, #ff7a2a) !important;
+    color: var(--white) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(239, 108, 0, 0.4);
+}
+
+.empresa-cta-section .cta-button-outline {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent !important;
+    color: var(--white) !important;
+    padding: 12px 24px;
+    border: 2px solid var(--white) !important;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1;
+    max-width: 170px;
+    white-space: nowrap;
+}
+
+.empresa-cta-section .cta-button-outline:hover {
+    background: var(--white) !important;
+    color: var(--primary-green) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+.empresa-cta-section .cta-button-outline i {
+    font-size: 1rem;
+    color: inherit;
+}
+
+/* === RESPONSIVE PARA EMPRESA CTA === */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .empresa-cta-section {
+        padding: 60px 0 !important;
+    }
+    
+    .empresa-cta-section .cta-buttons {
+        flex-direction: row !important;
+        gap: 0.8rem;
+        padding: 0 20px;
+    }
+    
+    .empresa-cta-section .cta-button,
+    .empresa-cta-section .cta-button-outline {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        max-width: 160px;
+    }
+    
+    .empresa-cta-section h2 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .empresa-cta-section p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+    .empresa-cta-section {
+        padding: 50px 0 !important;
+    }
+    
+    .empresa-cta-section .cta-buttons {
+        flex-direction: row !important;
+        gap: 0.6rem;
+        padding: 0 15px;
+        justify-content: space-between;
+    }
+    
+    .empresa-cta-section .cta-button,
+    .empresa-cta-section .cta-button-outline {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        max-width: 150px;
+        min-width: 130px;
+        flex: 1;
+    }
+    
+    .empresa-cta-section .cta-button-outline {
+        border-width: 2px !important;
+    }
+    
+    .empresa-cta-section h2 {
+        font-size: clamp(1.6rem, 6vw, 2rem);
+        margin-bottom: 1rem;
+        line-height: 1.1;
+    }
+    
+    .empresa-cta-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 375px) {
+    .empresa-cta-section .cta-buttons {
+        gap: 0.4rem;
+        padding: 0 10px;
+    }
+    
+    .empresa-cta-section .cta-button,
+    .empresa-cta-section .cta-button-outline {
+        padding: 8px 14px;
+        font-size: 0.75rem;
+        max-width: 140px;
+        min-width: 120px;
+    }
+}
+
+/* Landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .empresa-cta-section .cta-buttons {
+        flex-direction: row !important;
+        gap: 1rem;
+    }
+    
+    .empresa-cta-section .cta-button,
+    .empresa-cta-section .cta-button-outline {
+        max-width: 180px;
+        padding: 10px 20px;
+    }
 }
 
 /* Responsive Design */

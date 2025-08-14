@@ -728,7 +728,12 @@ function showLocationInfo(location) {
 }
 
 // === EFECTOS VISUALES AVANZADOS ===
+/* === REEMPLAZAR EN scripts/laEmpresa.js === */
+
+// Comentar o eliminar la función de efecto typing
 function initializeAdvancedEffects() {
+    // COMENTAR/ELIMINAR ESTA SECCIÓN DEL EFECTO TYPING:
+    /*
     // Efecto de typing en el hero
     const heroTitle = document.querySelector('.empresa-hero h1');
     if (heroTitle && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -745,7 +750,9 @@ function initializeAdvancedEffects() {
             }
         }, 50);
     }
+    */
     
+    // MANTENER SOLO LA PARTE DE ESTADÍSTICAS:
     // Efecto de conteo en estadísticas con IntersectionObserver
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -759,6 +766,52 @@ function initializeAdvancedEffects() {
     document.querySelectorAll('.stat-number').forEach(stat => {
         statsObserver.observe(stat);
     });
+}
+
+// O ALTERNATIVA: Reemplazar toda la función por esta versión sin typing:
+function initializeAdvancedEffects() {
+    // Efecto de conteo en estadísticas con IntersectionObserver
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                animateStatNumber(entry.target);
+                entry.target.dataset.animated = 'true';
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.stat-number').forEach(stat => {
+        statsObserver.observe(stat);
+    });
+}
+
+function animateStatNumber(element) {
+    const target = parseInt(element.textContent.replace(/\D/g, ''));
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    let step = 0;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        step++;
+        
+        if (step >= steps) {
+            current = target;
+            clearInterval(timer);
+        }
+        
+        // Formatear número con animación easing
+        const easeOutQuart = 1 - Math.pow(1 - step / steps, 4);
+        const displayValue = Math.floor(target * easeOutQuart);
+        
+        if (target >= 500) {
+            element.textContent = displayValue + '+';
+        } else {
+            element.textContent = displayValue;
+        }
+    }, duration / steps);
 }
 
 function animateStatNumber(element) {

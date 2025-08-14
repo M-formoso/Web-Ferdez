@@ -57,33 +57,57 @@
             </div>
         </section>
 
-        <!-- Product Categories Filter -->
-        <section class="product-filters">
-            <div class="container">
-                <div class="filter-controls">
-                    <button class="filter-btn active" data-filter="all">
-                        <i class="fas fa-th"></i>
-                        Todos los subproductos (16)
-                    </button>
-                    <button class="filter-btn" data-filter="humedos">
-                        <i class="fas fa-tint"></i>
-                        Subproductos Húmedos (1)
-                    </button>
-                    <button class="filter-btn" data-filter="secos">
-                        <i class="fas fa-leaf"></i>
-                        Subproductos Secos (15)
-                    </button>
-                    <button class="filter-btn" data-filter="tambo">
-                        <i class="fas fa-home"></i>
-                        Para Tambos
-                    </button>
-                    <button class="filter-btn" data-filter="feedlot">
-                        <i class="fas fa-warehouse"></i>
-                        Para Feedlots
-                    </button>
-                </div>
+        <!-- REEMPLAZAR EN sections/productos.html - SECCIÓN DE FILTROS -->
+
+<!-- Product Categories Filter - Como Slider -->
+<section class="product-filters">
+    <div class="container">
+        <div class="filter-controls">
+            <!-- Flecha anterior -->
+            <button class="filter-nav-arrow prev" onclick="scrollFilters(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <!-- Container del slider -->
+            <div class="filter-slider-container" id="filterSlider">
+                <button class="filter-btn active" data-filter="all" onclick="setActiveFilter(this)">
+                    <i class="fas fa-th"></i>
+                    Todos los subproductos (16)
+                </button>
+                <button class="filter-btn" data-filter="humedos" onclick="setActiveFilter(this)">
+                    <i class="fas fa-tint"></i>
+                    Subproductos Húmedos (1)
+                </button>
+                <button class="filter-btn" data-filter="secos" onclick="setActiveFilter(this)">
+                    <i class="fas fa-leaf"></i>
+                    Subproductos Secos (15)
+                </button>
+                <button class="filter-btn" data-filter="tambo" onclick="setActiveFilter(this)">
+                    <i class="fas fa-home"></i>
+                    Para Tambos
+                </button>
+                <button class="filter-btn" data-filter="feedlot" onclick="setActiveFilter(this)">
+                    <i class="fas fa-warehouse"></i>
+                    Para Feedlots
+                </button>
             </div>
-        </section>
+            
+            <!-- Flecha siguiente -->
+            <button class="filter-nav-arrow next" onclick="scrollFilters(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <!-- Indicadores (puntos) -->
+        <div class="filter-indicators">
+            <div class="filter-indicator active" onclick="scrollToFilter(0)"></div>
+            <div class="filter-indicator" onclick="scrollToFilter(1)"></div>
+            <div class="filter-indicator" onclick="scrollToFilter(2)"></div>
+            <div class="filter-indicator" onclick="scrollToFilter(3)"></div>
+            <div class="filter-indicator" onclick="scrollToFilter(4)"></div>
+        </div>
+    </div>
+</section>
 
         <!-- Products Grid -->
         <section class="products-section">
@@ -522,22 +546,21 @@
             </div>
         </section>
 
-        <!-- CTA Section - Modificado con título en 2 líneas -->
-<section class="products-cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2>¿Necesitás información sobre<br>nuestros subproductos?</h2>
-            <p>Contactanos para recibir fichas técnicas completas, precios actualizados y asesoramiento personalizado.</p>
-            <div class="cta-buttons">
-                <a href="contacto.html" class="cta-button">Contactar ahora</a>
-                <a href="tel:+5493468597013" class="cta-button-outline">
-                    <i class="fas fa-phone"></i>
-                    Llamar directo
-                </a>
+        <section class="products-cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>¿Necesitas subproductos<br>para tu operación?</h2>
+                    <p>Contactanos para recibir fichas técnicas completas, precios actualizados y asesoramiento personalizado.</p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="cta-button">Contáctanos</a>
+                        <a href="tel:+5493468597013" class="cta-button-outline">
+                            <i class="fas fa-phone"></i>
+                            Llamar directo
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
     </main>
 
     <!-- Product Modal -->

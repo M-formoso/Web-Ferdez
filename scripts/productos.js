@@ -806,3 +806,166 @@ window.addEventListener('offline', function() {
 });
 
 console.log('FERDEZ Productos - Todas las funcionalidades inicializadas con datos reales');
+
+/* === AGREGAR AL FINAL DE scripts/productos.js === */
+
+// Variables para el slider de filtros
+let currentFilterIndex = 0;
+const filterSlider = document.getElementById('filterSlider');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const filterIndicators = document.querySelectorAll('.filter-indicator');
+
+// Inicializar slider de filtros
+function initializeFilterSlider() {
+    // Solo en móvil/tablet
+    if (window.innerWidth <= 768) {
+        updateFilterSlider();
+        updateIndicators();
+    }
+}
+
+// Función para scroll de filtros
+function scrollFilters(direction) {
+    if (window.innerWidth > 768) return; // Solo en móvil
+    
+    const totalFilters = filterButtons.length;
+    currentFilterIndex += direction;
+    
+    // Controlar límites
+    if (currentFilterIndex < 0) {
+        currentFilterIndex = totalFilters - 1;
+    } else if (currentFilterIndex >= totalFilters) {
+        currentFilterIndex = 0;
+    }
+    
+    updateFilterSlider();
+    updateIndicators();
+}
+
+// Actualizar posición del slider
+function updateFilterSlider() {
+    if (window.innerWidth > 768) return;
+    
+    const filterWidth = 180; // Ancho de cada filtro en móvil
+    const gap = 16; // Gap entre filtros
+    const scrollPosition = currentFilterIndex * (filterWidth + gap);
+    
+    filterSlider.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+}
+
+// Actualizar indicadores
+function updateIndicators() {
+    if (window.innerWidth > 768) return;
+    
+    filterIndicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentFilterIndex);
+    });
+}
+
+// Scroll a filtro específico por indicador
+function scrollToFilter(index) {
+    if (window.innerWidth > 768) return;
+    
+    currentFilterIndex = index;
+    updateFilterSlider();
+    updateIndicators();
+    
+    // Activar el filtro
+    const targetFilter = filterButtons[index];
+    if (targetFilter) {
+        setActiveFilter(targetFilter);
+    }
+}
+
+// Función mejorada para activar filtro
+function setActiveFilter(clickedBtn) {
+    // Remover active de todos
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    
+    // Agregar active al clickeado
+    clickedBtn.classList.add('active');
+    
+    // Actualizar índice actual en móvil
+    if (window.innerWidth <= 768) {
+        currentFilterIndex = Array.from(filterButtons).indexOf(clickedBtn);
+        updateIndicators();
+    }
+    
+    // Aplicar filtro
+    const filter = clickedBtn.getAttribute('data-filter');
+    filterProducts(filter);
+}
+
+// Detectar swipe en móvil
+let startX = 0;
+let startY = 0;
+
+filterSlider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+});
+
+filterSlider.addEventListener('touchend', (e) => {
+    if (!startX || !startY) return;
+    
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    
+    const diffX = startX - endX;
+    const diffY = startY - endY;
+    
+    // Solo si el swipe es más horizontal que vertical
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (Math.abs(diffX) > 50) { // Mínimo 50px de swipe
+            if (diffX > 0) {
+                // Swipe left - siguiente
+                scrollFilters(1);
+            } else {
+                // Swipe right - anterior
+                scrollFilters(-1);
+            }
+        }
+    }
+    
+    startX = 0;
+    startY = 0;
+});
+
+// Inicializar al cargar
+document.addEventListener('DOMContentLoaded', function() {
+    initializeFilterSlider();
+});
+
+// Reinicializar al cambiar tamaño de ventana
+window.addEventListener('resize', function() {
+    // Reset al cambiar a desktop
+    if (window.innerWidth > 768) {
+        currentFilterIndex = 0;
+        filterSlider.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        initializeFilterSlider();
+    }
+});
+
+// Auto-scroll indicators basado en scroll manual
+filterSlider.addEventListener('scroll', function() {
+    if (window.innerWidth > 768) return;
+    
+    const scrollLeft = this.scrollLeft;
+    const filterWidth = 180;
+    const gap = 16;
+    const newIndex = Math.round(scrollLeft / (filterWidth + gap));
+    
+    if (newIndex !== currentFilterIndex && newIndex >= 0 && newIndex < filterButtons.length) {
+        currentFilterIndex = newIndex;
+        updateIndicators();
+    }
+});
+
+// Exportar funciones globales
+window.scrollFilters = scrollFilters;
+window.scrollToFilter = scrollToFilter;
+window.setActiveFilter = setActiveFilter;
