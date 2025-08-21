@@ -153,6 +153,59 @@
     -ms-overflow-style: none; /* IE/Edge */
 }
 
+/* Filtros en una sola línea horizontal centrados */
+@media (min-width: 769px) {
+    .filter-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+    
+    .filter-slider-container {
+        display: flex;
+        flex-direction: row; /* Forzar fila horizontal */
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        overflow: visible;
+        padding: 0;
+        max-width: none;
+    }
+    
+    .filter-btn {
+        min-width: auto;
+        width: auto;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+    
+    .filter-nav-arrow,
+    .filter-indicators {
+        display: none; /* Ocultar flechas e indicadores en desktop */
+    }
+}
+
+/* Para tablet y móvil mantener el comportamiento original */
+@media (max-width: 768px) {
+    .filter-controls {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    
+    .filter-slider-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 1rem;
+        padding: 0 60px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+}
+
 .filter-slider-container::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
 }
@@ -515,6 +568,16 @@
     padding: 80px 0;
     background: linear-gradient(135deg, var(--primary-green), #4a9a2f);
     color: var(--white);
+}
+/* Cambiar fondo de los iconos a blanco en la sección advisory */
+.advisory-section .feature-icon {
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco más opaco */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.advisory-section .feature-item i {
+    color: var(--primary-orange); /* Mantener el color naranja del icono */
 }
 
 .advisory-content {

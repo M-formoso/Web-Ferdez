@@ -741,6 +741,7 @@
     margin-bottom: 2rem;
 }
 
+/* Desktop - mantener diseño horizontal original */
 .detail-item {
     display: flex;
     align-items: flex-start;
@@ -775,6 +776,110 @@
     color: var(--dark-gray);
     margin: 0;
     line-height: 1.5;
+}
+/* Título de la sección - responsive mejorado */
+.office-info-section h2 {
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Ajuste automático según pantalla */
+    line-height: 1.2;
+}
+
+/* Para tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    .office-info-section h2 {
+        font-size: clamp(1.3rem, 3.5vw, 2rem);
+        margin-bottom: 1rem;
+    }
+}
+
+/* Para tablets pequeños */
+@media (max-width: 768px) {
+    .office-info-section h2 {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        margin-bottom: 1rem;
+        text-align: center; /* Centrar en móvil */
+    }
+    
+    .office-text {
+        text-align: center;
+    }
+}
+
+/* Para móviles */
+@media (max-width: 480px) {
+    .office-info-section h2 {
+        font-size: clamp(1.1rem, 6vw, 1.5rem);
+        margin-bottom: 0.8rem;
+        line-height: 1.1;
+    }
+}
+/* Contenedor de la sección */
+@media (max-width: 1024px) {
+    .office-content {
+        gap: 2rem;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .office-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 10px;
+    }
+}
+
+/* SOLO EN MÓVIL - centrar verticalmente */
+@media (max-width: 768px) {
+    .detail-item {
+        flex-direction: column; /* Cambiar a columna solo en móvil */
+        align-items: center; /* Centrar horizontalmente */
+        text-align: center; /* Centrar texto */
+        padding: 1.5rem 1rem;
+    }
+    
+    .detail-icon {
+        margin-right: 0; /* Quitar margen derecho */
+        margin-bottom: 1rem; /* Agregar margen inferior */
+    }
+    
+    .detail-content {
+        width: 100%;
+    }
+    
+    .detail-content h4 {
+        text-align: center; /* Centrar título */
+        font-size: 1rem;
+    }
+    
+    .detail-content p {
+        text-align: center; /* Centrar texto */
+        font-size: 0.9rem;
+    }
+}
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .detail-item {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .detail-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .detail-content h4 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .detail-content p {
+        font-size: 0.9rem;
+    }
 }
 
 /* RESPONSIVE PARA OFFICE INFO */

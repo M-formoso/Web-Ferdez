@@ -82,6 +82,7 @@
                     <i class="fas fa-leaf"></i>
                     Subproductos Secos (15)
                 </button>
+                <!-- ELIMINAR ESTOS DOS BOTONES:
                 <button class="filter-btn" data-filter="tambo" onclick="setActiveFilter(this)">
                     <i class="fas fa-home"></i>
                     Para Tambos
@@ -90,6 +91,7 @@
                     <i class="fas fa-warehouse"></i>
                     Para Feedlots
                 </button>
+                -->
             </div>
             
             <!-- Flecha siguiente -->
@@ -98,13 +100,15 @@
             </button>
         </div>
         
-        <!-- Indicadores (puntos) -->
+        <!-- Indicadores (puntos) - REDUCIR A 3 -->
         <div class="filter-indicators">
             <div class="filter-indicator active" onclick="scrollToFilter(0)"></div>
             <div class="filter-indicator" onclick="scrollToFilter(1)"></div>
             <div class="filter-indicator" onclick="scrollToFilter(2)"></div>
+            <!-- ELIMINAR ESTOS DOS:
             <div class="filter-indicator" onclick="scrollToFilter(3)"></div>
             <div class="filter-indicator" onclick="scrollToFilter(4)"></div>
+            -->
         </div>
     </div>
 </section>
@@ -523,28 +527,51 @@
         </section>
 
         <!-- Advisory Section -->
-        <section class="advisory-section">
-            <div class="container">
-                <div class="advisory-content">
-                    <div class="advisory-text">
-                        <h2>Asesoramiento técnico personalizado</h2>
-                        <p>Nuestro equipo técnico te ayuda a seleccionar los Subproductos más adecuados según tu tipo de producción, época del año y objetivos productivos.</p>
-                        <div class="advisory-features">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-handshake"></i>
-                                </div>
-                                <span>Atención directa y personalizada</span>
-                            </div>
+<section class="advisory-section">
+    <div class="container">
+        <div class="advisory-content">
+            <div class="advisory-text">
+                <h2>Asesoramiento técnico personalizado</h2>
+                <p>Nuestro equipo técnico te ayuda a seleccionar los Subproductos más adecuados según tu tipo de producción, época del año y objetivos productivos.</p>
+                
+                <div class="advisory-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
                         </div>
-                        <a href="contacto.html" class="cta-button">Solicitar asesoramiento</a>
+                        <span>Atención directa y personalizada</span>
                     </div>
-                    <div class="advisory-image">
-                        <img src="../assets/imagenes/IMG_3457.jpg" alt="Asesoramiento técnico FERDEZ">
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span>Asesoramiento por tipo de rodeo y necesidad</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <span>Disponibilidad durante todo el año</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span>Seguimiento técnico continuo</span>
                     </div>
                 </div>
+                
+                <a href="contacto.html" class="cta-button">Solicitar asesoramiento</a>
             </div>
-        </section>
+            <div class="advisory-image">
+                <img src="../assets/imagenes/IMG_3457.jpg" alt="Asesoramiento técnico FERDEZ">
+            </div>
+        </div>
+    </div>
+</section>
 
         <section class="products-cta-section">
             <div class="container">
@@ -610,9 +637,9 @@
                 <div class="footer-section">
                     <h4>Contacto</h4>
                     <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Córdoba, Argentina</p>
-                        <p><i class="fas fa-phone"></i> +54 9 351 812-3456</p>
-                        <p><i class="fas fa-envelope"></i> info@ferdez.com.ar</p>
+                        <p><i class="fas fa-map-marker-alt"></i> San Juan 535, X5900 Villa María, Córdoba</p>
+                        <p><a href="https://wa.me/5493468597013" target="_blank"><i class="fas fa-phone"></i> +5493468597013</a></p>
+                        <p><i class="fas fa-envelope"></i> ferdezmarketing@gmail.com</p>
                     </div>
                 </div>
             </div>
