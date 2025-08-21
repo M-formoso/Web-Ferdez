@@ -534,5 +534,80 @@
 
     <script src="../scripts/main.js"></script>
     <script src="../scripts/contacto.js"></script>
+    <!-- =============================== -->
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+<!-- =============================== -->
+
+<!-- OPCIÓN 1: BOTÓN CIRCULAR SIMPLE -->
+<a href="https://wa.me/5493468597013?text=Hola%2C%20me%20interesa%20obtener%20información%20sobre%20los%20subproductos%20de%20FERDEZ" 
+class="whatsapp-float" 
+target="_blank" 
+rel="noopener noreferrer"
+aria-label="Contactar por WhatsApp">
+ <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- OPCIÓN 2: BOTÓN CON TEXTO (ALTERNATIVA) -->
+<!-- 
+<a href="https://wa.me/5493468597013?text=Hola%2C%20me%20interesa%20obtener%20información%20sobre%20los%20subproductos%20de%20FERDEZ" 
+class="whatsapp-float-extended" 
+target="_blank" 
+rel="noopener noreferrer">
+ <i class="fab fa-whatsapp"></i>
+ <span>Contactanos</span>
+</a>
+-->
+
+<!-- SCRIPT OPCIONAL PARA FUNCIONALIDAD AVANZADA -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+ const whatsappButton = document.querySelector('.whatsapp-float');
+ 
+ if (whatsappButton) {
+     // Tracking de clics (opcional)
+     whatsappButton.addEventListener('click', function() {
+         // Google Analytics 4
+         if (typeof gtag !== 'undefined') {
+             gtag('event', 'click', {
+                 event_category: 'WhatsApp',
+                 event_label: 'Floating Button'
+             });
+         }
+         
+         // Facebook Pixel
+         if (typeof fbq !== 'undefined') {
+             fbq('track', 'Contact', {
+                 content_name: 'WhatsApp Float Button'
+             });
+         }
+         
+         console.log('WhatsApp button clicked');
+     });
+     
+     // Mostrar/ocultar según scroll (opcional)
+     let lastScrollTop = 0;
+     window.addEventListener('scroll', function() {
+         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+         
+         // Ocultar al hacer scroll hacia abajo muy rápido
+         if (scrollTop > lastScrollTop + 100) {
+             whatsappButton.style.transform = 'translateX(100px)';
+             whatsappButton.style.opacity = '0.7';
+         } else {
+             whatsappButton.style.transform = 'translateX(0)';
+             whatsappButton.style.opacity = '1';
+         }
+         
+         lastScrollTop = scrollTop;
+     });
+     
+     // Efecto de entrada retardado
+     setTimeout(() => {
+         whatsappButton.style.opacity = '1';
+         whatsappButton.style.visibility = 'visible';
+     }, 1000);
+ }
+});
+</script>
 </body>
 </html>

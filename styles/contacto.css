@@ -2651,3 +2651,336 @@ br {
         margin-top: -20px !important;
     }
 }
+/* =========================== */
+/* FIX PARA BOTÓN CORTADO EN SECCIÓN CONTACTO */
+/* =========================== */
+
+/* 1. ARREGLAR ESPACIADO ENTRE SECCIONES */
+
+/* Contact Form Section - Ajustar padding */
+.contact-form-section {
+    padding: 60px 0 30px 0 !important; /* Reducir padding inferior */
+    margin-bottom: 0;
+}
+
+/* Office Info Section - Ajustar padding y margins */
+.office-info-section {
+    padding: 30px 0 60px 0 !important; /* Reducir padding superior */
+    margin-top: 0 !important;
+    background: var(--light-gray);
+    position: relative;
+    z-index: 1;
+}
+
+/* 2. AJUSTAR GRID DE OFFICE CONTENT */
+.office-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem; /* Reducir gap */
+    align-items: start; /* Cambio importante: align-items: start */
+    min-height: auto; /* Quitar altura mínima */
+    padding: 0; /* Quitar padding extra */
+}
+
+/* 3. MEJORAR EL CONTENEDOR DEL TEXTO */
+.office-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Cambio: de center a flex-start */
+    padding: 1rem 0; /* Reducir padding */
+    height: auto; /* Altura automática */
+}
+
+/* 4. AJUSTAR OFFICE DETAILS */
+.office-details {
+    margin-bottom: 1.5rem; /* Reducir margen */
+    flex-grow: 0; /* No permitir que crezca */
+}
+
+/* 5. ARREGLAR EL BOTÓN CTA */
+.office-text .cta-button {
+    margin-top: 1rem; /* Margen fijo */
+    align-self: flex-start; /* Alinear al inicio */
+    width: auto; /* Ancho automático */
+    display: inline-block; /* Display inline-block */
+}
+
+/* 13. FIX ESPECÍFICO PARA CENTRADO DE ICONOS EN DETAIL ITEMS */
+.detail-item {
+    display: flex;
+    align-items: center !important; /* Forzar centrado vertical */
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.detail-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-right: 1rem;
+    flex-shrink: 0;
+    /* Asegurar centrado perfecto */
+    text-align: center;
+    line-height: 1;
+}
+
+.detail-content {
+    flex: 1;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar contenido verticalmente */
+}
+
+/* 14. RESPONSIVE FIXES PARA ICONOS */
+@media (max-width: 768px) {
+    .detail-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 1rem;
+        align-items: center !important; /* Centrar todo */
+    }
+    
+    .detail-icon {
+        margin-right: 0 !important;
+        margin-bottom: 0.8rem;
+        /* Asegurar que el icono se mantiene centrado */
+        align-self: center;
+    }
+    
+    .detail-content {
+        text-align: center;
+        width: 100%;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .office-text .cta-button {
+        margin-top: 1.5rem;
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        max-width: 180px; /* Más pequeño en móvil */
+    }
+    
+    .detail-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+/* 7. RESPONSIVE FIXES ESPECÍFICOS */
+
+/* Desktop grande */
+@media (min-width: 1200px) {
+    .office-content {
+        gap: 4rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+}
+
+/* Desktop estándar */
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .office-content {
+        gap: 3rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+    .office-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .office-map-container {
+        order: -1; /* Mapa primero en tablet */
+        height: 350px;
+    }
+    
+    .office-text {
+        text-align: center; /* Centrar texto en tablet */
+        padding: 1.5rem 0;
+    }
+    
+    .office-text .cta-button {
+        align-self: center; /* Centrar botón en tablet */
+        margin-top: 2rem;
+    }
+}
+
+/* Móvil grande */
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 40px 0 20px 0 !important;
+    }
+    
+    .office-info-section {
+        padding: 20px 0 40px 0 !important;
+    }
+    
+    .office-content {
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .office-text {
+        padding: 1rem 0;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .detail-icon {
+        margin-right: 0;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+    .contact-form-section {
+        padding: 30px 0 15px 0 !important;
+    }
+    
+    .office-info-section {
+        padding: 15px 0 30px 0 !important;
+    }
+    
+    .office-content {
+        gap: 1rem;
+        padding: 0 0.25rem;
+    }
+    
+    .office-text {
+        padding: 0.5rem 0;
+    }
+    
+    .office-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .office-text .lead {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .office-text .cta-button {
+        margin-top: 1.5rem;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .detail-item {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+        align-items: center !important; /* Mantener centrado */
+    }
+    
+    .detail-content h4 {
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .detail-content p {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+}
+
+/* 8. FIX ESPECÍFICO PARA EVITAR SUPERPOSICIÓN */
+
+/* Asegurar que no hay elementos flotantes que interfieran */
+.office-info-section::before,
+.office-info-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Asegurar z-index correcto */
+.contact-form-section {
+    position: relative;
+    z-index: 2;
+}
+
+.office-info-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* 9. MEJORAR TRANSICIÓN VISUAL ENTRE SECCIONES */
+.contact-form-section {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.office-info-section {
+    border-top: none;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.05); /* Línea sutil de separación */
+}
+
+/* 10. FIX PARA CONTENEDOR GENERAL */
+.office-info-section .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* 11. BOTÓN CTA CON TAMAÑO CONTROLADO */
+.office-text .cta-button {
+    position: relative;
+    z-index: 10;
+    white-space: nowrap;
+    overflow: visible;
+    min-height: 44px; /* Altura mínima para touch */
+    line-height: 1.2;
+    margin-bottom: 1rem; /* Margen inferior para separación */
+    
+    /* TAMAÑO CONTROLADO DEL BOTÓN */
+    width: auto !important;
+    max-width: 200px; /* Limitar ancho máximo */
+    padding: 12px 24px !important; /* Padding específico */
+    font-size: 1rem !important;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* 12. DEBUG TEMPORAL - QUITAR DESPUÉS DE VERIFICAR */
+/*
+.contact-form-section {
+    border: 2px solid red !important;
+}
+
+.office-info-section {
+    border: 2px solid blue !important;
+}
+
+.office-text .cta-button {
+    border: 2px solid green !important;
+}
+*/

@@ -2116,3 +2116,246 @@ html {
         page-break-after: always;
     }
 }
+/* ================================ */
+/* BOTÓN FLOTANTE DE WHATSAPP */
+/* ================================ */
+
+/* 1. ESTRUCTURA BASE DEL BOTÓN */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999; /* Por encima de todo */
+    
+    /* Tamaño del botón */
+    width: 60px;
+    height: 60px;
+    
+    /* Forma circular */
+    border-radius: 50%;
+    
+    /* Colores de WhatsApp */
+    background: linear-gradient(135deg, #25D366, #1ebe57);
+    
+    /* Sombra para efecto flotante */
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    
+    /* Centro del contenido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Transiciones suaves */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Cursor pointer */
+    cursor: pointer;
+    
+    /* Link sin decoración */
+    text-decoration: none;
+    color: white;
+    
+    /* Animación de entrada */
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* 2. ICONO DE WHATSAPP */
+.whatsapp-float i {
+    font-size: 28px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+/* 3. EFECTOS HOVER */
+.whatsapp-float:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    background: linear-gradient(135deg, #1ebe57, #25D366);
+}
+
+.whatsapp-float:hover i {
+    transform: scale(1.1);
+}
+
+/* 4. EFECTO ACTIVO (CLICK) */
+.whatsapp-float:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* 5. ANIMACIÓN DE PULSO CONTINUO */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.3);
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* 6. ANIMACIÓN DE ENTRADA */
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.5);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-10px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 7. TOOLTIP OPCIONAL */
+.whatsapp-float::after {
+    content: 'Contactanos por WhatsApp';
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    font-family: var(--font-secondary, 'DM Sans', sans-serif);
+    font-weight: 500;
+}
+
+.whatsapp-float:hover::after {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+/* 8. RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float i {
+        font-size: 26px;
+    }
+    
+    /* Ocultar tooltip en móvil */
+    .whatsapp-float::after {
+        display: none;
+    }
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .whatsapp-float i {
+        font-size: 24px;
+    }
+}
+
+/* 9. VERSIÓN ALTERNATIVA - BOTÓN CON TEXTO */
+.whatsapp-float-extended {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    
+    /* Tamaño extendido */
+    padding: 15px 20px;
+    border-radius: 30px;
+    
+    /* Colores */
+    background: linear-gradient(135deg, #25D366, #1ebe57);
+    color: white;
+    
+    /* Sombra */
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    
+    /* Centro del contenido */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* Transiciones */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Tipografía */
+    font-family: var(--font-secondary, 'DM Sans', sans-serif);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.whatsapp-float-extended:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    color: white;
+    text-decoration: none;
+}
+
+.whatsapp-float-extended i {
+    font-size: 20px;
+}
+
+/* 10. OCULTAR EN CIERTAS SECCIONES (OPCIONAL) */
+/* 
+.header-visible .whatsapp-float {
+    bottom: 90px;
+}
+*/
+
+/* 11. ESTADO FOCUS PARA ACCESIBILIDAD */
+.whatsapp-float:focus {
+    outline: 3px solid rgba(37, 211, 102, 0.5);
+    outline-offset: 2px;
+}
+
+/* 12. VERSIÓN SIN ANIMACIONES (RESPETO POR PREFERS-REDUCED-MOTION) */
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-float {
+        animation: none;
+    }
+    
+    .whatsapp-float::before {
+        animation: none;
+    }
+    
+    .whatsapp-float:hover {
+        transform: none;
+    }
+}
