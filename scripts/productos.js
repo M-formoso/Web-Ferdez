@@ -152,7 +152,7 @@ const productData = {
             'Digestibilidad (%)': '67 - 70'
         },
         benefits: [
-            'Balance proteína-fibra ideal',
+            'Balance proteína y fibra ideal',
             'Mejora palatabilidad de raciones',
             'Color característico atractivo',
             'Buena digestibilidad',
